@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a602e52bf8276445bd433acd7ea2383, type: 3}
+  m_Name: StandartBooster
+  m_EditorClassIdentifier: 
+  _characters:
+  - {fileID: 2391456954596308722, guid: 3398f74f1f533a04ea96e3d2242db27c, type: 3}
+  - {fileID: 2391456954596308722, guid: 264fee41db786a34791bd52090245558, type: 3}
+  _cost: 2000
