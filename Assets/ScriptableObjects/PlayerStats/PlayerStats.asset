@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   _money:
-    value: 700500
+    value: 699250
   _heroes:
   - {fileID: 7694260499757277902, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
-  _businesses: []
+  _businesses:
+  - {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}

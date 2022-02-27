@@ -23,7 +23,7 @@ namespace HeroLogic
 
         [SerializeField, HideInInspector] private Business _business;
 
-        [SerializeField, HideInInspector] private int _upgradeProgress;
+        [SerializeField] private int _upgradeProgress;
 
         public float Velosity { get; set; }
 
@@ -51,7 +51,7 @@ namespace HeroLogic
 
             if(_upgradeProgress == 100)
             {
-                var properties = _levelsProperties[Level];
+                var properties = _levelsProperties[Level - 1];
 
                 _heroAttack.SetHealth(properties.Health);
                 _heroAttack.SetDamage(properties.Damage);

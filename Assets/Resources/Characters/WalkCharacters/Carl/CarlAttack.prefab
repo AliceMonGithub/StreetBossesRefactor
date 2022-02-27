@@ -113,6 +113,7 @@ MonoBehaviour:
   _patrolHero: {fileID: 3575673142749185073, guid: d860b81af754eaf4a942c848b2fbff63, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _business: {fileID: 0}
+  _upgradeProgress: 0
 --- !u!114 &7776824700740608124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +149,8 @@ MonoBehaviour:
   _speed: 3
   _moveSmooth: 0.2
   _health:
-    value: 12
-  _damage: 3
+    value: 10
+  _damage: 2
   _transform: {fileID: 5899679314360575849}
   _target: {fileID: 0}
   _hero: {fileID: 7694260499757277902}

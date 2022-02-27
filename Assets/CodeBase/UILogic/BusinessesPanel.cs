@@ -1,27 +1,33 @@
 using CodeBase;
+using Factories;
+using System.Collections.Generic;
 using UltEvents;
 using UnityEngine;
 
 public class BusinessesPanel : MonoBehaviour
 {
-    //[SerializeField] private PlayerStats _playerStats;
+    [SerializeField] private PlayerStats _playerStats;
 
-    //[SerializeField] private BusinessIcon _cell;
+    [SerializeField] private BusinessIcon _cell;
 
-    //[SerializeField] private Transform _grid;
+    [SerializeField] private Transform _grid;
 
-    //[SerializeField] private UltEvent _onShow;
-    //[SerializeField] private UltEvent _onHide;
-    
-    //public void Show()
-    //{
-    //    foreach (Transform icon in _grid)
-    //    {
-    //        Destroy(icon.gameObject);
-    //    }
-    //    _playerStats.Businesses.ForEach(business => Instantiate(_cell, _grid).Render(business));
-    //    _onShow.Invoke();
-    //}
+    private List<BusinessIcon> _icons = new List<BusinessIcon>();
 
-    //public void Hide() => _onHide.Invoke();
+    private BusinessIconFactory _factory = new BusinessIconFactory();
+
+    public void Show()
+    {
+        _icons.ForEach(icon => Destroy(icon.gameObject));
+        _icons.Clear();
+
+        foreach (var business in _playerStats.Businesses)
+        {
+            var icon = _factory.Create(_cell, _grid);
+
+            icon.Render(business);
+
+            _icons.Add(icon);
+        }
+    }
 }

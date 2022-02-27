@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2345064035035890974}
   - component: {fileID: 3575673142749185073}
   - component: {fileID: -1516692061368139410}
+  - component: {fileID: 2569254608127863073}
   m_Layer: 0
   m_Name: Carl
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260b5d0586889324f9f711b177a7c1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hero: {fileID: 0}
+  _hero: {fileID: 2569254608127863073}
   _animator: {fileID: -1516692061368139410}
 --- !u!114 &3575673142749185073
 MonoBehaviour:
@@ -171,3 +172,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2569254608127863073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46935474694add143b8047cd3ba17c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _name: 
+  _level: 0
+  _levelsProperties: []
+  _patrolHero: {fileID: 3575673142749185073}
+  _heroAttack: {fileID: 0}
+  _business: {fileID: 0}
+  _upgradeProgress: 0

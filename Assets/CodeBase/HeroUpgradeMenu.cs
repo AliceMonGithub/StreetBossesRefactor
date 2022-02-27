@@ -55,12 +55,16 @@ namespace CodeBase
             _damageText.text = _hero.HeroAttack.Damage.ToString();
             _currentLevelText.text = _hero.Level.ToString();
             _maxLevelText.text = (_hero.LevelsProperties.Length + 1).ToString();
-            _costText.text = (_hero.UpgradeCost * 0.25f).ToString();
+
+            if(_hero.Level != _hero.LevelsProperties.Length + 1)
+            {
+                _costText.text = (_hero.UpgradeCost * 0.25f).ToString();
+            }
         }
 
         public void TryBuyUpgrade()
         {
-            if(_hero.UpgradeCost * 0.25f <= _playerStats.Money.Value)
+            if(_hero.Level != _hero.LevelsProperties.Length + 1 && _hero.UpgradeCost * 0.25f <= _playerStats.Money.Value)
             {
                 _playerStats.Money.Value -= (int)Mathf.Round(_hero.UpgradeCost * 0.25f);
 
