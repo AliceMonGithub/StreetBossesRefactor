@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5899679314360575849}
   - component: {fileID: 2709374952247095671}
-  - component: {fileID: 2187287948857498970}
-  - component: {fileID: 7578495329831493629}
-  - component: {fileID: -6685892971373622184}
+  - component: {fileID: 2345064035035890974}
+  - component: {fileID: 3575673142749185073}
+  - component: {fileID: -1516692061368139410}
   m_Layer: 0
   m_Name: Carl
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2235176776610821258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5166, y: 0.5166, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1834606599
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 379053526412568260, guid: df90e3f490961ff4590a5e4b66df18e5, type: 3}
+  m_Sprite: {fileID: 7695236879257741286, guid: df90e3f490961ff4590a5e4b66df18e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &2187287948857498970
+--- !u!114 &2345064035035890974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,15 +94,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 2235176776610821258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecab241a2c5406692932d247b810a48, type: 3}
+  m_Script: {fileID: 11500000, guid: 260b5d0586889324f9f711b177a7c1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 2.5
-  _stayTime: 1
-  _walkPoints: []
+  _hero: {fileID: 0}
+  _animator: {fileID: -1516692061368139410}
+--- !u!114 &3575673142749185073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161d940b05988354ca50832c290e5fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onPointReached:
+    _PersistentCalls:
+    - _Target: {fileID: 3575673142749185073}
+      _MethodName: NullTarget
+      _PersistentArguments: []
+    - _Target: {fileID: 3575673142749185073}
+      _MethodName: FindNewPoint
+      _PersistentArguments: []
+    - _Target: {fileID: 3575673142749185073}
+      _MethodName: SetStaying
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _onNewPointFound:
+    _PersistentCalls:
+    - _Target: {fileID: 3575673142749185073}
+      _MethodName: SetStaying
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 0
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+    - _Target: {fileID: 3575673142749185073}
+      _MethodName: Flip
+      _PersistentArguments: []
+  _speed: 4
+  _smooth: 0.2
+  _stayTime: 2
+  _movePoints: []
   _transform: {fileID: 5899679314360575849}
-  _animator: {fileID: 7578495329831493629}
---- !u!95 &7578495329831493629
+  _hero: {fileID: 0}
+--- !u!95 &-1516692061368139410
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -112,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 2235176776610821258}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61cedb8fb29e80741912ffa122ee6ccf, type: 2}
+  m_Controller: {fileID: 9100000, guid: c744b20ba0991bf4c887e05544197ab8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,14 +171,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!210 &-6685892971373622184
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235176776610821258}
-  m_Enabled: 1
-  m_SortingLayerID: -1834606599
-  m_SortingLayer: 0
-  m_SortingOrder: 5

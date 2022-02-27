@@ -494,11 +494,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39
+  m_fontSize: 39.1
   m_fontSizeBase: 39
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -622,8 +622,7 @@ GameObject:
   - component: {fileID: 1517443562049532662}
   - component: {fileID: 5447807964009515954}
   - component: {fileID: 6750074929881951969}
-  - component: {fileID: 7922259650450264339}
-  - component: {fileID: 4429860607406862046}
+  - component: {fileID: 4547209524850426265}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -691,7 +690,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7922259650450264339
+--- !u!114 &4547209524850426265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,25 +699,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6162578368638791279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bda765b853cfd584798e2446a5499bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnterTransition: {fileID: 9042551616929714186}
-  OnEnter:
-    _PersistentCalls: []
-  OnExitTransition: {fileID: 8631481459049950431}
-  OnExit:
-    _PersistentCalls: []
---- !u!114 &4429860607406862046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6162578368638791279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fef0563e898f74f87bcb68d10688aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -728,7 +709,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -750,67 +731,21 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6750074929881951969}
-  interactableTransitions:
-    speed: -1
-    roots: []
-    aliases: []
-    targets: []
-    entries:
-    - root: {fileID: 0}
-      speed: -1
-      aliases: []
-  nonInteractableTransitions:
-    speed: -1
-    roots: []
-    aliases: []
-    targets: []
-    entries:
-    - root: {fileID: 0}
-      speed: -1
-      aliases: []
-  onInteractable:
+  m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-  onNonInteractable:
-    m_PersistentCalls:
-      m_Calls: []
-  expectedInteractable: 1
-  requiredButtons: -1
-  multiDown: 0
-  dragThreshold: 10
-  normalTransitions:
-    speed: -1
-    roots: []
-    aliases: []
-    targets: []
-    entries:
-    - root: {fileID: 0}
-      speed: -1
-      aliases: []
-  downTransitions:
-    speed: -1
-    roots: []
-    aliases: []
-    targets: []
-    entries:
-    - root: {fileID: 0}
-      speed: -1
-      aliases: []
-  clickTransitions:
-    speed: -1
-    roots: []
-    aliases: []
-    targets: []
-    entries:
-    - root: {fileID: 8718214980390714649}
-      speed: -1
-      aliases: []
-  onDown:
-    m_PersistentCalls:
-      m_Calls: []
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7864925169001221823}
+        m_TargetAssemblyTypeName: Assets.CodeBase.SelectHeroIcon, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6444664835360880475
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,8 +890,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4088682060804155405}
   - component: {fileID: 5347374698646991668}
-  - component: {fileID: 4126231590741762558}
   - component: {fileID: 472806925400229501}
+  - component: {fileID: 7864925169001221823}
   m_Layer: 5
   m_Name: Select Character
   m_TagString: Untagged
@@ -992,21 +927,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6638735592952581569}
   m_CullTransparentMesh: 1
---- !u!114 &4126231590741762558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6638735592952581569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1efae342ce1704e92ce3fa1d052584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characterNameText: {fileID: 5529797887407814707}
-  _characterImage: {fileID: 1925717730554138032}
-  _characterFeatureImage: {fileID: 1869476631737480924}
 --- !u!114 &472806925400229501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +947,30 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7864925169001221823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638735592952581569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656f4ca68bb373f4d969b0cc4d16f581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onInitialize:
+    _PersistentCalls:
+    - _Target: {fileID: 7864925169001221823}
+      _MethodName: Render
+      _PersistentArguments: []
+  _onSelected:
+    _PersistentCalls:
+    - _Target: {fileID: 7864925169001221823}
+      _MethodName: Hide
+      _PersistentArguments: []
+  _nameText: {fileID: 5529797887407814707}
+  _heroImage: {fileID: 1925717730554138032}
 --- !u!1 &6715472608305671317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1173,7 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4126231590741762558}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CharacterSelectIcon, Assembly-CSharp
           m_MethodName: Select
           m_Mode: 1

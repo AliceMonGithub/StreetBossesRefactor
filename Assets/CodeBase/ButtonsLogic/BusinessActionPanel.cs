@@ -1,69 +1,87 @@
 ﻿using CodeBase;
+using SceneLogic;
 using TMPro;
 using UltEvents;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
 internal class BusinessActionPanel : MonoBehaviour
 {
-    [SerializeField] private Image _businessImage;
-    [SerializeField] private TMP_Text _costText;
-    [SerializeField] private Business _currentBusiness;
+    [SerializeField] private UltEvent _onBuy;
+    [SerializeField] private UltEvent _onAttack;
+    [SerializeField] private UltEvent _onInitialized;
+    [SerializeField] private UltEvent _onHide;
+
     [SerializeField] private PlayerStats _playerStats;
 
-    private BusinessActions _businessActions;
+    [SerializeField] private TMP_Text _costText;
 
-    private SceneLoader _sceneLoader;
+    private LoadCurtain _loadCurtain;
 
-    public UltEvent OnShow;
-    public UltEvent OnHide;
+    private BusinessActionsIcon _icon;
+    private Business _business;
 
     [Inject]
-    private void Construct(SceneLoader sceneLoader)
+    private void Construct(LoadCurtain loadCurtain)
     {
-        _sceneLoader = sceneLoader;
+        _loadCurtain = loadCurtain;
     }
 
-    public void Show(Business business, BusinessActions businessActions)
+    public void Hide()
     {
-        _businessImage.sprite = business.Sprite;
-        _costText.text = business.Cost.ToString();
-
-        _businessActions = businessActions;
-
-        _currentBusiness.CurrentBusiness = business;
-
-        _currentBusiness.EnemyCharacters = business.EnemyCharacters;
-    
-        OnShow.Invoke();
+        _onHide.Invoke();
     }
 
-    public void AttackBusiness()
+    public void TryBuy()
     {
-        _playerStats.CurrentSceneName = _sceneLoader.GetActiveScene().name;
-
-        _sceneLoader.LoadScene("Battle");
-    }
-
-    public void TryBuyBusiness()
-    {
-        if (_playerStats.Money >= _currentBusiness.CurrentBusiness.Cost)
+        if(_playerStats.Money.Value >= _business.Cost)
         {
-            BuyBusiness();
-
-            _businessActions.CheckBusiness();
+            _onBuy.Invoke();
         }
     }
 
-    private void BuyBusiness()
+    public void InitializeUpgradeIcon()
     {
-        _playerStats.Money -= _currentBusiness.CurrentBusiness.Cost;
-
-        _playerStats.Businesses.Add(_currentBusiness.CurrentBusiness);
-
-        gameObject.SetActive(false);
+        _icon.InitializeUpgradeIcon();
     }
 
-    public void Hide() => OnHide.Invoke();
+    public void SpendMoney()
+    {
+        _playerStats.Money.Value -= _business.Cost;
+    }
+
+    public void AddBusinessToPlayerStats()
+    {
+        _playerStats.Businesses.Add(_business);
+    }
+
+    public void Attack()
+    {
+        _onAttack.Invoke();
+    }
+
+    public void SetAttackBusiness()
+    {
+        _playerStats.AttackingBusiness = _business;
+    }
+
+    public void LoadBattleScene()
+    {
+        SceneManager.LoadScene("Battle");
+    }
+
+    public void Render()
+    {
+        _costText.text = _business.Cost.ToString();
+    }
+
+    public void Initialize(Business business, BusinessActionsIcon icon)
+    {
+        _business = business;
+        _icon = icon;
+
+        _onInitialized.Invoke();
+    }
 }

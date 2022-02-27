@@ -5,69 +5,69 @@ using UnityEngine.UI;
 
 public class CharacterSelectIcon : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _characterNameText;
-    [SerializeField] private Image _characterImage;
-    [SerializeField] private Image _characterFeatureImage;
+    //[SerializeField] private TMP_Text _characterNameText;
+    //[SerializeField] private Image _characterImage;
+    //[SerializeField] private Image _characterFeatureImage;
 
-    private PlayerStats _playerStats;
-    private UpgradeMenu _upgradeMenu;
-    private Character _character;
+    //private PlayerStats _playerStats;
+    //private UpgradeMenu _upgradeMenu;
+    //private Character _character;
 
-    public void Initialize(Character character, UpgradeMenu upgradeMenu)
-    {
-        _upgradeMenu = upgradeMenu;
-        _character = character;
+    //public void Initialize(Character character, UpgradeMenu upgradeMenu)
+    //{
+    //    _upgradeMenu = upgradeMenu;
+    //    _character = character;
 
-        _playerStats = _upgradeMenu.PlayerStats;
+    //    _playerStats = _upgradeMenu.PlayerStats;
 
-        if (_characterNameText != null)
-        {
-            _characterNameText.text = character.Name;
+    //    if (_characterNameText != null)
+    //    {
+    //        _characterNameText.text = character.Name;
 
-            _characterImage.sprite = character.Image;
+    //        _characterImage.sprite = character.Image;
 
-            var sprite = character.GetCharacterFeatureSprite();
+    //        var sprite = character.GetCharacterFeatureSprite();
 
-            if (sprite != null)
-            {
-                _characterFeatureImage.sprite = sprite;
+    //        if (sprite != null)
+    //        {
+    //            _characterFeatureImage.sprite = sprite;
 
-                _characterFeatureImage.enabled = true;
+    //            _characterFeatureImage.enabled = true;
 
-                return;
-            }
+    //            return;
+    //        }
 
-            _characterFeatureImage.enabled = false;
-        }
-    }
+    //        _characterFeatureImage.enabled = false;
+    //    }
+    //}
 
-    public void Select()
-    {
-        if(_upgradeMenu.CurrentBusiness.WorkingCharacter != null)
-        {
-            _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = false;
-        }
+    //public void Select()
+    //{
+    //    if(_upgradeMenu.CurrentBusiness.WorkingCharacter != null)
+    //    {
+    //        _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = false;
+    //    }
 
-        _upgradeMenu.CurrentBusiness.WorkingCharacter = _character;
+    //    _upgradeMenu.CurrentBusiness.WorkingCharacter = _character;
 
-        _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = true;
+    //    _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = true;
 
-        _upgradeMenu.Show(_upgradeMenu.CurrentBusiness, _playerStats, false);
+    //    _upgradeMenu.Show(_upgradeMenu.CurrentBusiness, _playerStats, false);
 
-        _upgradeMenu.CharacterSelectMenu.Hide();
-    }
+    //    _upgradeMenu.CharacterSelectMenu.Hide();
+    //}
 
-    public void UnSelect()
-    {
-        if (_upgradeMenu.CurrentBusiness.WorkingCharacter != null)
-        {
-            _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = false;
-        }
+    //public void UnSelect()
+    //{
+    //    if (_upgradeMenu.CurrentBusiness.WorkingCharacter != null)
+    //    {
+    //        _upgradeMenu.CurrentBusiness.WorkingCharacter.Working = false;
+    //    }
 
-        _upgradeMenu.CurrentBusiness.WorkingCharacter = null;
+    //    _upgradeMenu.CurrentBusiness.WorkingCharacter = null;
 
-        _upgradeMenu.Show(_upgradeMenu.CurrentBusiness, _playerStats, false);
+    //    _upgradeMenu.Show(_upgradeMenu.CurrentBusiness, _playerStats, false);
 
-        _upgradeMenu.CharacterSelectMenu.Hide();
-    }
+    //    _upgradeMenu.CharacterSelectMenu.Hide();
+    //}
 }

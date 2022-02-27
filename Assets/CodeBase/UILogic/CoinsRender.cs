@@ -1,29 +1,29 @@
 using CodeBase;
 using TMPro;
 using UnityEngine;
+using UniRx;
 
 public class CoinsRender : MonoBehaviour
 {
     [SerializeField] private TMP_Text[] _coinsTexts;
     [SerializeField] private PlayerStats _playerStats;
 
-    private void Awake()
-    {
-        RenderCoins(_playerStats.Money);
-    }
+    private CompositeDisposable _disposable = new CompositeDisposable();
+
+    private int Money => _playerStats.Money.Value;
 
     private void OnEnable()
     {
-        _playerStats.CoinsValueChanged += RenderCoins;
+        _playerStats.Money.Subscribe(action => RenderCoins()).AddTo(_disposable);
     }
 
     private void OnDisable()
     {
-        _playerStats.CoinsValueChanged -= RenderCoins;
+        _disposable.Clear();
     }
 
-    private void RenderCoins(int value)
+    private void RenderCoins()
     {
-        foreach (var text in _coinsTexts) text.text = value.ToString();
+        foreach (var text in _coinsTexts) text.text = Money.ToString();
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using HeroLogic;
+using System.Collections.Generic;
+using System.Linq;
+using UniRx;
 using UnityEngine;
 
 namespace CodeBase
@@ -6,25 +9,24 @@ namespace CodeBase
     [CreateAssetMenu]
     public class PlayerStats : ScriptableObject
     {
-        public delegate void CoinsValueHandler(int value);
-        public event CoinsValueHandler CoinsValueChanged;
+        [SerializeField] private ReactiveProperty<int> _money;
 
-        [SerializeField] private int _money;
+        [SerializeField] List<Hero> _heroes;
+        [SerializeField] List<Business> _businesses;
 
-        public List<Character> Characters;
-        public List<Business> Businesses;
+        public ReactiveProperty<int> Money => _money;
 
-        [HideInInspector] public string CurrentSceneName;
+        public Business AttackingBusiness { get; set; }
 
-        public int Money
+        public List<Hero> Heroes => _heroes;
+        public List<Business> Businesses => _businesses;
+
+        public void AddMoney(int amount)
         {
-            get => _money;
-            set
-            {
-                _money = value;
-
-                CoinsValueChanged.Invoke(value);
-            }
+            _money.Value += amount;
         }
+
+        public bool TryFindBusiness(Business business) =>
+            _businesses.Any(playerBusiness => playerBusiness == business);
     }
 }

@@ -1,19 +1,17 @@
-using Assets.CodeBase.UILogic;
+using Assets.CodeBase;
 using CodeBase;
+using SceneLogic;
 using UnityEngine;
 using Zenject;
 
 public class SceneLoaderInstaller : MonoInstaller
 {
-    [SerializeField] private LoadCurtain _loadCurtain;
-
-    private SceneLoader _sceneLoader;
-
+    private LoadCurtain _loadCurtain;
 
     public override void InstallBindings()
     {
-        _sceneLoader = new SceneLoader(_loadCurtain);
+        _loadCurtain = FindObjectOfType<LoadCurtain>();
 
-        Container.Bind<SceneLoader>().FromInstance(_sceneLoader).AsSingle();
+        Container.Bind<LoadCurtain>().FromInstance(_loadCurtain).AsSingle();
     }
 }

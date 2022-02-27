@@ -5,47 +5,47 @@ using UnityEngine;
 
 public class CharacterSelectMenu : MonoBehaviour
 {
-    [SerializeField] private PlayerStats _playerStats;
-    [SerializeField] private UpgradeMenu _updateMenu;
+    //[SerializeField] private PlayerStats _playerStats;
+    //[SerializeField] private UpgradeMenu _updateMenu;
 
-    [Space]
+    //[Space]
 
-    [SerializeField] private CharacterSelectIcon _unselectCharacterIcon;
-    [SerializeField] private CharacterSelectIcon _characterSelectIcon;
-    [SerializeField] private Transform _grid;
+    //[SerializeField] private CharacterSelectIcon _unselectCharacterIcon;
+    //[SerializeField] private CharacterSelectIcon _characterSelectIcon;
+    //[SerializeField] private Transform _grid;
 
-    public UltEvent OnShow;
-    public UltEvent OnHide;
+    //public UltEvent OnShow;
+    //public UltEvent OnHide;
 
-    public void RenderCharacters()
-    {
-        gameObject.SetActive(true);
+    //public void RenderCharacters()
+    //{
+    //    gameObject.SetActive(true);
 
-        ClearIcons();
+    //    ClearIcons();
 
-        var unselectIcon = Instantiate(_unselectCharacterIcon, _grid);
+    //    var unselectIcon = Instantiate(_unselectCharacterIcon, _grid);
 
-        unselectIcon.Initialize(_updateMenu.CurrentBusiness.WorkingCharacter, _updateMenu);
+    //    unselectIcon.Initialize(_updateMenu.CurrentBusiness.WorkingCharacter, _updateMenu);
 
-        foreach (Character character in _playerStats.Characters)
-        {
-            if (character.Working) continue;
+    //    foreach (Character character in _playerStats.Characters)
+    //    {
+    //        if (character.Working) continue;
 
-            var icon = Instantiate(_characterSelectIcon, _grid);
+    //        var icon = Instantiate(_characterSelectIcon, _grid);
 
-            icon.Initialize(character, _updateMenu);
-        }
+    //        icon.Initialize(character, _updateMenu);
+    //    }
         
-        OnShow.Invoke();
-    }
+    //    OnShow.Invoke();
+    //}
 
-    public void Hide() => OnHide.Invoke();
+    //public void Hide() => OnHide.Invoke();
 
-    private void ClearIcons()
-    {
-        foreach(Transform child in _grid)
-        {
-            Destroy(child.gameObject);
-        }
-    }
+    //private void ClearIcons()
+    //{
+    //    foreach(Transform child in _grid)
+    //    {
+    //        Destroy(child.gameObject);
+    //    }
+    //}
 }

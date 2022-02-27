@@ -1,33 +1,31 @@
-﻿using Assets.CodeBase.UILogic;
+﻿//using Assets.CodeBase.UILogic;
 using System;
+using UniRx;
 using UnityEngine.SceneManagement;
 
-namespace CodeBase
+namespace SceneLogic
 {
     public class SceneLoader
     {
-        private readonly LoadCurtain _loadCurtain;
+        private CompositeDisposable _loadingDisposable = new CompositeDisposable();
 
-        public SceneLoader(LoadCurtain loadCurtain)
+        public float Progress { get; private set; }
+
+        public string CurrentSceneName => SceneManager.GetActiveScene().name;
+
+        public void LoadScene(string sceneName, Action onComplete = null)
         {
-            _loadCurtain = loadCurtain;
+            SceneManager.LoadSceneAsync(sceneName)
+                .AsAsyncOperationObservable()
+                .Do(loading =>
+                {
+                    Progress = loading.progress;
+
+                }).Subscribe(onFinish =>
+                {
+                    onComplete?.Invoke();
+
+                }).AddTo(_loadingDisposable);
         }
-
-        public void LoadScene(string sceneName)
-        {
-            if (GetActiveScene().name == sceneName) return;
-
-            _loadCurtain.SceneName = sceneName;
-
-            _loadCurtain.Show();
-
-            _loadCurtain.OnShow += Load;
-        }
-
-        public Scene GetActiveScene() =>
-            SceneManager.GetActiveScene();
-
-        private void Load(string sceneName) => 
-            SceneManager.LoadScene(sceneName);
     }
 }

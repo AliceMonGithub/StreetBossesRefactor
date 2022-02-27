@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1471, y: 0.0023193}
+  m_AnchoredPosition: {x: 0, y: 0.0023193}
   m_SizeDelta: {x: 668.42, y: 924.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2703762712432528079
@@ -871,7 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4275988423893220836}
   - component: {fileID: 4275988423893220839}
-  - component: {fileID: 4275988423893220837}
+  - component: {fileID: 5209159462139883904}
   - component: {fileID: 4275988423893220761}
   m_Layer: 5
   m_Name: CharactersPanel
@@ -910,7 +910,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275988423893220763}
   m_CullTransparentMesh: 1
---- !u!114 &4275988423893220837
+--- !u!114 &5209159462139883904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -919,40 +919,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4275988423893220763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da9e5db36431491d9109318d0fc5c008, type: 3}
+  m_Script: {fileID: 11500000, guid: 5780448aed6c7b944aef5ff111e61d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onShow:
+    _PersistentCalls: []
+  _icon: {fileID: 0}
+  _grid: {fileID: 0}
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
-  _iconPrefab: {fileID: 4645643651743431899, guid: 5cc18318cfc7dd94e8a6d6bc32e0f09b, type: 3}
-  heroesPanel: {fileID: 0}
-  _grid: {fileID: 4275988423789937121}
-  OnShow:
-    _PersistentCalls:
-    - _Target: {fileID: 2049507002170961533}
-      _MethodName: BeginTransitions
-      _PersistentArguments: []
-    - _Target: {fileID: 4275988423893220763}
-      _MethodName: SetActive
-      _PersistentArguments:
-      - _Type: 1
-        _Int: 1
-        _String: 
-        _X: 0
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
-    - _Target: {fileID: 7796740070361208846}
-      _MethodName: StopTransitions
-      _PersistentArguments: []
-  OffShow:
-    _PersistentCalls:
-    - _Target: {fileID: 7796740070361208846}
-      _MethodName: BeginTransitions
-      _PersistentArguments: []
-    - _Target: {fileID: 2049507002170961533}
-      _MethodName: StopTransitions
-      _PersistentArguments: []
 --- !u!225 &4275988423893220761
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1112,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 1337674296649401123, guid: 71781973af2c7cb46871f7aa2f5fcd9a, type: 3}
       propertyPath: Data.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4275988423893220837}
+      objectReference: {fileID: 0}
     - target: {fileID: 1337674296649401123, guid: 71781973af2c7cb46871f7aa2f5fcd9a, type: 3}
       propertyPath: Data.Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Hide

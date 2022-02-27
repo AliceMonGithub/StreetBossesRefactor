@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ec9f4bf72347f18596f37b037474fa, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  _money: 66000
-  Characters:
-  - {fileID: 2391456954596308722, guid: 8900451ff6e30e645b5d88fe6c00583b, type: 3}
-  - {fileID: 2581741757154974993, guid: 14db43d2e0cd805438ca07afaf2a62ea, type: 3}
-  - {fileID: 2581741757154974993, guid: 34920bccaa44766448111bcce7ccfe79, type: 3}
-  Businesses: []
-  CurrentSceneName: FirstStreet
+  _money:
+    value: 700500
+  _heroes:
+  - {fileID: 7694260499757277902, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
+  _businesses: []

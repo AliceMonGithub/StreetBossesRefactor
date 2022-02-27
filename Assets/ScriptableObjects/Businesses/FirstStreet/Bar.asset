@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf7c1d0c56dfd34b95c399a9a073a07, type: 3}
   m_Name: Bar
   m_EditorClassIdentifier: 
-  Name: Bar "Lasr straw"
-  Cost: 40000
-  WorkingCharacter: {fileID: 0}
-  EnemyCharacters:
-  - {fileID: 2581741757154974993, guid: cf889167cbf90c94ca563f9e1d85fc9c, type: 3}
-  - {fileID: 2581741757154974993, guid: e276be937274aee49a594c891e7a8c67, type: 3}
-  - {fileID: 2391456954596308722, guid: e6db2d54f10c0e64a99aa0002b133c82, type: 3}
-  CurrentBusiness: {fileID: 0}
-  Sprite: {fileID: 21300000, guid: c6fb8a71753fa3a4cbcae57c439fdb27, type: 3}
-  CollectTime: 4
-  UpgradeCost: 250
-  CollectAmount: 40
-  CollectAmountIncrease: 30
-  UpgradeProgress: 0
-  UpgradeLevel: 0
-  MaxUpgradeLevel: 10
-  Increase: 25
+  _name: Bar "Last straw"
+  _cost: 30000
+  _enemyHeroes:
+  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
+  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
+  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
+  _earningDurication: 3
+  _earning: 500
+  _level: 1
+  _maxLevel: 5
+  _upgradeCost: 400
+  _earningUpgrade: 500
+  _upgradeProgress: 0
+  _workingHero: {fileID: 0}
