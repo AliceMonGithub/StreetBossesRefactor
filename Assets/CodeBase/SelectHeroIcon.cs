@@ -16,7 +16,7 @@ namespace Assets.CodeBase
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private Image _heroImage;
 
-        private SelectingMenu _menu;
+        private SelectHeroInBusiness _menu;
         private Hero _hero;
 
         public void Render()
@@ -35,10 +35,10 @@ namespace Assets.CodeBase
 
         public void Hide()
         {
-            _menu.gameObject.SetActive(false);
+            _menu.Hide();
         }
 
-        public void Initialize(Hero hero, SelectingMenu menu)
+        public void Initialize(Hero hero, SelectHeroInBusiness menu)
         {
             _hero = hero;
             _menu = menu;

@@ -14,9 +14,9 @@ namespace CodeBase
         [SerializeField] List<Hero> _heroes;
         [SerializeField] List<Business> _businesses;
 
-        public ReactiveProperty<int> Money => _money;
+        [HideInInspector] public Business AttackingBusiness;
 
-        public Business AttackingBusiness { get; set; }
+        public ReactiveProperty<int> Money => _money;
 
         public List<Hero> Heroes => _heroes;
         public List<Business> Businesses => _businesses;

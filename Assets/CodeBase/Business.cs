@@ -1,11 +1,16 @@
 using CodeBase;
 using HeroLogic;
+using UniRx;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class Business : ScriptableObject
 {
     [SerializeField] private Sprite _image;
+
+    [Space]
+
+    [SerializeField] private Sprite _background;
 
     [Space]
 
@@ -34,13 +39,21 @@ public class Business : ScriptableObject
     [Min(0), SerializeField] private int _upgradeCost;
     [Min(0), SerializeField] private int _earningUpgrade;
 
+    [Space]
+
+    [SerializeField] private int _index;
+
     [SerializeField, HideInInspector] private int _upgradeProgress;
 
     [Space]
 
-    [SerializeField] private Hero _workingHero;
+    [SerializeField] private ReactiveProperty<Hero> _workingHero;
+
+    public ReactiveCommand OnUpgrade = new ReactiveCommand();
 
     public Sprite Image => _image;
+
+    public Sprite Background => _background;
 
     public string Name => _name;
 
@@ -59,8 +72,10 @@ public class Business : ScriptableObject
 
     public int UpgradeProgress => _upgradeProgress;
 
-    public Hero WorkingHero => _workingHero;
+    public Hero WorkingHero => _workingHero.Value;
+    public ReactiveProperty<Hero> WorkingHeroEvent => _workingHero;
 
+    public int Index => _index;
 
     public void Upgrade()
     {
@@ -72,41 +87,17 @@ public class Business : ScriptableObject
             _earning += _earningUpgrade;
 
             _upgradeProgress = 0;
+
+            OnUpgrade.Execute();
         }
     }
 
     public void SetWorkingHero(Hero hero)
     {
-        _workingHero?.SetWorking(null);
+        _workingHero.Value?.SetWorking(null);
 
-        _workingHero = hero;
+        _workingHero.Value = hero;
 
-        _workingHero?.SetWorking(this);
+        _workingHero.Value?.SetWorking(this);
     }
-
-    //public string Name;
-
-    //[Space] public int Cost;
-
-    //public Character WorkingCharacter;
-
-    //public Character[] EnemyCharacters;
-
-    //[HideInInspector] public Business CurrentBusiness;
-
-    //[Space] [Header("Upgrade")]
-    //public Sprite Sprite;
-
-    //public float CollectTime;
-
-    //public int UpgradeCost;
-    //public int CollectAmount;
-    //public int CollectAmountIncrease;
-
-    //[Space]
-
-    //public int UpgradeProgress;
-    //public int UpgradeLevel;
-    //public int MaxUpgradeLevel;
-    //public int Increase;
 }

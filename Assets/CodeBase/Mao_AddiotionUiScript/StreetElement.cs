@@ -1,25 +1,28 @@
-﻿using System;
+﻿using SceneLogic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace CodeBase.Mao_AddiotionUiScript
 {
     public class StreetElement : MonoBehaviour
     {
-        //[SerializeField] private SelectingStreetMenu _selectingStreetMenu;
-        //public string NameToView;
-        //public Sprite Photo;
-        //[SerializeField] private string _sceneName;
-        //[SerializeField] private TextMeshProUGUI _labelNameStreet;
-        //[SerializeField] private Image _photoStreet;
 
-        //private void Awake()
-        //{
-        //    _photoStreet.sprite = Photo;
-        //    _labelNameStreet.text = NameToView;
-        //}
+        private LoadCurtain _loadCurtain;
 
-        //public void Load() => _selectingStreetMenu.SelectStreet(_sceneName);
+        [Inject]
+        private void Construct(LoadCurtain loadCurtain)
+        {
+            _loadCurtain = loadCurtain;
+        }
+
+        public void TryLoad(string sceneName)
+        {
+            if (sceneName == _loadCurtain.CurrentSceneName) return;
+
+            _loadCurtain.LoadScene(sceneName);
+        }
     }
 }

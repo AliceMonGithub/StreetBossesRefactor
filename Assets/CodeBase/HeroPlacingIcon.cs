@@ -4,6 +4,7 @@ using TMPro;
 using UltEvents;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.CodeBase
 {
@@ -12,6 +13,10 @@ namespace Assets.CodeBase
         [SerializeField] private UltEvent _onInitialize;
         [SerializeField] private UltEvent _onSelect;
         [SerializeField] private UltEvent _onDeselect;
+
+        [SerializeField] private Image _heroIcon;
+
+        [Space]
 
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private TMP_Text _levelText;
@@ -58,6 +63,8 @@ namespace Assets.CodeBase
 
         public void Render()
         {
+            _heroIcon.sprite = _hero.Image;
+
             _nameText.text = _hero.Name;
 
             _levelText.text = _hero.Level.ToString();

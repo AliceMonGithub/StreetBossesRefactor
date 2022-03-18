@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a602e52bf8276445bd433acd7ea2383, type: 3}
   m_Name: StandartBooster
   m_EditorClassIdentifier: 
-  _characters:
-  - {fileID: 2391456954596308722, guid: 3398f74f1f533a04ea96e3d2242db27c, type: 3}
-  - {fileID: 2391456954596308722, guid: 264fee41db786a34791bd52090245558, type: 3}
+  _heroes:
+  - {fileID: 7694260499757277902, guid: 13584b14313fb144595c00cb9fd2ec47, type: 3}
+  - {fileID: 7694260499757277902, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
   _cost: 2000

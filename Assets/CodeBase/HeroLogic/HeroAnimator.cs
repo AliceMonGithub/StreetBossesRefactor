@@ -14,17 +14,19 @@ namespace HeroLogic
 
         private void Update()
         {
-            _animator.SetFloat(SpeedHash, _hero.Velosity);
+            _animator.SetFloat("Speed", _hero.Velosity);
         }
 
         public void TriggerAttack()
         {
-            _animator.SetTrigger(AttackHash);
+            _animator.SetTrigger("Attack");
         }
 
         public void TriggerDie()
         {
-            _animator.SetTrigger(DieHash);
+            if (_hero.Dead) return;
+
+            _animator.SetTrigger("Die");
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Assets.CodeBase.Zenject
 
         [SerializeField] private PlayerStats _playerStats;
 
+        [Space]
+
+        [SerializeField] private AttackHeroes _attackHeroes;
+
         private EnemyHeroFactory _factory = new EnemyHeroFactory();
 
         public override void InstallBindings()
@@ -20,7 +24,13 @@ namespace Assets.CodeBase.Zenject
 
             for (int i = 0; i < heroes.Length; i++)
             {
-                _factory.Create(heroes[i], _spawnPoints[i].position);
+                var spawnedHero = _factory.Create(heroes[i], _spawnPoints[i].position);
+
+                spawnedHero.Hero.IsPlayerHero = false;
+
+                spawnedHero.Transform.localScale = new Vector3(1, 1, 1);
+
+                _attackHeroes.EnemyHeroes.Add(spawnedHero.Hero);
             }
         }
     }

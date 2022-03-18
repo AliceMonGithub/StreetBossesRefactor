@@ -11,61 +11,61 @@ namespace CodeBase.Mao_AddiotionUiScript
 {
     public class ChestBust : MonoBehaviour
     {
-        //[SerializeField] private TMP_Text _costText;
+        public event Action<ChestBust> Opening;
+        public UltEvent OnOpen;
 
-        //public PlayerStats PlayerStats;
+        [SerializeField] private TMP_Text _costText;
 
-        //private Booster _booster;
+        public PlayerStats PlayerStats;
 
-        //private List<Hero> _characters;
+        private Booster _booster;
 
-        //public event Action<ChestBust> Opening;
-        //public UltEvent OnOpen;
+        private List<Hero> _heroes;
 
-        //public Color[] BackgroundColors;
+        public Color[] BackgroundColors;
 
-        //public LootOfChest TemplateLoot;
-        //public List<LootOfChest> LootMenues;
+        public LootOfChest TemplateLoot;
+        public List<LootOfChest> LootMenues;
 
-        //public void Open()
-        //{
-        //    if (PlayerStats.Money < _booster.Cost) return;
+        public void Open()
+        {
+            if (PlayerStats.Money.Value < _booster.Cost) return;
 
-        //    PlayerStats.Money -= _booster.Cost;
+            PlayerStats.Money.Value -= _booster.Cost;
 
-        //    foreach(var character in _characters)
-        //    {
-        //        PlayerStats.Characters.Add(character);
+            foreach (var hero in _heroes)
+            {
+                PlayerStats.Heroes.Add(hero);
 
-        //        TemplateLoot.BackgroundColor = BackgroundColors[UnityEngine.Random.Range(0, BackgroundColors.Length)];
-        //        TemplateLoot.CharacterImage.sprite = character.Image;
-        //        TemplateLoot.CharacterName.text = character.Name;
+                TemplateLoot.BackgroundColor = BackgroundColors[UnityEngine.Random.Range(0, BackgroundColors.Length)];
+                TemplateLoot.CharacterImage.sprite = hero.Image;
+                TemplateLoot.CharacterName.text = hero.Name;
 
-        //        LootMenues.Add(TemplateLoot);
-        //    }
+                LootMenues.Add(TemplateLoot);
+            }
 
-        //    foreach(var menu in LootMenues)
-        //    {
-        //        print(menu.CharacterName.text);
-        //    }
+            foreach (var menu in LootMenues)
+            {
+                print(menu.CharacterName.text);
+            }
 
-        //    Opening?.Invoke(this);
-        //    OnOpen.Invoke();
-        //}
+            Opening?.Invoke(this);
+            OnOpen.Invoke();
+        }
 
-        //public List<Character> GetLoot()
-        //{
-        //    return _characters;
-        //}
+        public List<Hero> GetLoot()
+        {
+            return _heroes;
+        }
 
-        //public void Initialize(Booster booster, PlayerStats playerStats)
-        //{
-        //    _booster = booster;
+        public void Initialize(Booster booster, PlayerStats playerStats)
+        {
+            _booster = booster;
 
-        //    _costText.text = _booster.Cost.ToString();
-        //    _characters = booster.Characters;
+            _costText.text = _booster.Cost.ToString();
+            _heroes = booster.Heroes;
 
-        //    PlayerStats = playerStats;
-        //}
+            PlayerStats = playerStats;
+        }
     }
 }

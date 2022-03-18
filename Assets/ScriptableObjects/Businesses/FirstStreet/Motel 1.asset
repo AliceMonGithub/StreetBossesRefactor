@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf7c1d0c56dfd34b95c399a9a073a07, type: 3}
   m_Name: Motel 1
   m_EditorClassIdentifier: 
-  Name: Motel
-  Cost: 35500
-  WorkingCharacter: {fileID: 0}
-  EnemyCharacters:
-  - {fileID: 2581741757154974993, guid: cf889167cbf90c94ca563f9e1d85fc9c, type: 3}
-  - {fileID: 2581741757154974993, guid: e276be937274aee49a594c891e7a8c67, type: 3}
-  - {fileID: 2391456954596308722, guid: e6db2d54f10c0e64a99aa0002b133c82, type: 3}
-  CurrentBusiness: {fileID: 0}
-  Sprite: {fileID: 21300000, guid: 4568847ef5304c046bd4352036dbe9a5, type: 3}
-  CollectTime: 4
-  UpgradeCost: 50
-  CollectAmount: 50
-  CollectAmountIncrease: 50
-  UpgradeProgress: 0
-  UpgradeLevel: 0
-  MaxUpgradeLevel: 50
-  Increase: 50
+  _image: {fileID: 21300000, guid: c6fb8a71753fa3a4cbcae57c439fdb27, type: 3}
+  _background: {fileID: 21300000, guid: ccc701cd5a10d8d4580f983fdbc213f9, type: 3}
+  _name: Motel
+  _cost: 23000
+  _enemyHeroes:
+  - {fileID: 7776824700740608124, guid: 674fed5f9141e3549ac26e757499d2d1, type: 3}
+  - {fileID: 7776824700740608124, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
+  - {fileID: 7776824700740608124, guid: 96bc0f63175174f40950646e5f8fd2c7, type: 3}
+  _earningDurication: 2
+  _earning: 300
+  _level: 1
+  _maxLevel: 5
+  _upgradeCost: 400
+  _earningUpgrade: 500
+  _index: 0
+  _upgradeProgress: 0
+  _workingHero: {fileID: 0}

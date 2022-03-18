@@ -1,5 +1,4 @@
 ﻿using HeroLogic;
-using Lean.Transition;
 using TMPro;
 using UltEvents;
 using UnityEngine;
@@ -10,6 +9,10 @@ namespace CodeBase
     public class HeroUpgradeMenu : MonoBehaviour
     {
         [SerializeField] private UltEvent _onBuy;
+        [SerializeField] private UltEvent _onUpgrade;
+
+        [Space]
+
         [SerializeField] private UltEvent _onInitialize;
 
         [SerializeField] private PlayerStats _playerStats;
@@ -27,7 +30,16 @@ namespace CodeBase
         [SerializeField] private TMP_Text _maxLevelText;
         [SerializeField] private TMP_Text _costText;
 
+        [SerializeField] private TMP_Text _energyText;
+
+        [SerializeField] private TMP_Text _timeText;
+
         private Hero _hero;
+
+        private void Update()
+        {
+            UpdateDynamic();
+        }
 
         public void Render()
         {
@@ -55,11 +67,17 @@ namespace CodeBase
             _damageText.text = _hero.HeroAttack.Damage.ToString();
             _currentLevelText.text = _hero.Level.ToString();
             _maxLevelText.text = (_hero.LevelsProperties.Length + 1).ToString();
+            _energyText.text = _hero.Energy.ToString();
 
             if(_hero.Level != _hero.LevelsProperties.Length + 1)
             {
                 _costText.text = (_hero.UpgradeCost * 0.25f).ToString();
             }
+        }
+
+        private void UpdateDynamic()
+        {
+            _timeText.text = ((int)_hero.CurrentEnergyTime).ToString();
         }
 
         public void TryBuyUpgrade()

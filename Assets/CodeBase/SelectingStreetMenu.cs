@@ -7,12 +7,15 @@ using Zenject;
 
 public class SelectingStreetMenu : MonoBehaviour
 {
+    [SerializeField] private UltEvent _show;
+    [SerializeField] private UltEvent _hide;
+
     private LoadCurtain _loadCurtain;
 
     [Inject]
-    private void Construct(LoadCurtain loadCurtain)
+    private void Construct(LoadCurtain curtain)
     {
-        _loadCurtain = loadCurtain;
+        _loadCurtain = curtain;
     }
 
     public void LoadStreet(string sceneName)
@@ -21,22 +24,15 @@ public class SelectingStreetMenu : MonoBehaviour
         {
             _loadCurtain.LoadScene(sceneName);
         }
-    }    //private SceneLoader _sceneLoader;
-    //[SerializeField] private UltEvent _onShow;
-    //[SerializeField] private UltEvent _onHide;
+    }
 
-    //[Inject]
-    //private void Construct(SceneLoader sceneLoader)
-    //{
-    //    _sceneLoader = sceneLoader;
-    //}
+    public void Show()
+    {
+        _show.Invoke();
+    }
 
-    //public void SelectStreet(string sceneName)
-    //{
-    //    _sceneLoader.LoadScene(sceneName);
-    //}
-
-    //public void Show() => _onShow.Invoke();
-    
-    //public void Hide() => _onHide.Invoke();
+    public void Hide()
+    {
+        _hide.Invoke();
+    }
 }

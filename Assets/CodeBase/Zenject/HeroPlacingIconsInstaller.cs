@@ -22,6 +22,8 @@ namespace Assets.CodeBase.Zenject
         {
             foreach(var hero in _playerStats.Heroes)
             {
+                if (hero.Energy == 0) continue;
+
                 var icon = _factory.Create(_icon, _grid);
 
                 icon.Initialize(hero, _selectMenu);

@@ -1,41 +1,32 @@
-﻿using CodeBase;
-using TMPro;
+﻿using SceneLogic;
 using UltEvents;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 internal class FinishMenu : MonoBehaviour
 {
-    //[SerializeField] private Image _rewardImage;
+    [SerializeField] private UltEvent _onShow;
 
-    //[SerializeField] private GameObject _finishMenuGameObject;
+    private LoadCurtain _curtain;
 
-    //[SerializeField] private PlayerStats _playerStats;
+    [Inject]
+    private void Construct(LoadCurtain curtain)
+    {
+        _curtain = curtain;
+    }
 
-    //private SceneLoader _sceneLoader;
-    
-    //public UltEvent OnShow;
+    public void Show()
+    {
+        _onShow.Invoke();
+    }
 
-    //[Inject]
-    //private void Construct(SceneLoader sceneLoader)
-    //{
-    //    _sceneLoader = sceneLoader;
-    //}
+    public void Exit()
+    {
+        _curtain.LoadScene("FirstStreet");
+    }
 
-    //public void Exit()
-    //{
-    //    _sceneLoader.LoadScene(_playerStats.CurrentSceneName);
-    //}
-
-    //public void Restart()
-    //{
-    //    _sceneLoader.LoadScene(_sceneLoader.GetActiveScene().name);
-    //}
-
-    //public void Show(Sprite rewardImage)
-    //{
-    //    _rewardImage.sprite = rewardImage;
-    //    OnShow.Invoke();
-    //}
+    public void RestartBattle()
+    {
+        _curtain.LoadScene(_curtain.CurrentSceneName);
+    }
 }

@@ -24,11 +24,9 @@ namespace SceneLogic
 
         public void LoadScene(string sceneName)
         {
-            SceneManager.LoadScene(sceneName);
+            _sceneName = sceneName;
 
-            //_sceneName = sceneName;
-
-            //_onLoadingStart.Invoke();
+            _onLoadingStart.Invoke();
         }
 
         public void Load()

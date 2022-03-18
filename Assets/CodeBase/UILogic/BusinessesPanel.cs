@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BusinessesPanel : MonoBehaviour
 {
+    [SerializeField] private UltEvent _onShow;
+
     [SerializeField] private PlayerStats _playerStats;
 
     [SerializeField] private BusinessIcon _cell;
@@ -18,16 +20,26 @@ public class BusinessesPanel : MonoBehaviour
 
     public void Show()
     {
-        _icons.ForEach(icon => Destroy(icon.gameObject));
+        _icons.ForEach(icon =>
+        {
+            icon.Stop();
+
+            Destroy(icon.gameObject);
+
+        });
+
         _icons.Clear();
 
         foreach (var business in _playerStats.Businesses)
         {
             var icon = _factory.Create(_cell, _grid);
 
+            icon.Play();
             icon.Render(business);
 
             _icons.Add(icon);
         }
+
+        _onShow.Invoke();
     }
 }

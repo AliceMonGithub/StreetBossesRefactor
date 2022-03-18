@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: Bar
   m_EditorClassIdentifier: 
   _image: {fileID: 21300000, guid: c6fb8a71753fa3a4cbcae57c439fdb27, type: 3}
+  _background: {fileID: 21300000, guid: ccc701cd5a10d8d4580f983fdbc213f9, type: 3}
   _name: Bar "Last straw"
   _cost: 30000
   _enemyHeroes:
-  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
-  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
-  - {fileID: 7776824700740608124, guid: 3843b0218736db540a81a8552c1ce8ab, type: 3}
+  - {fileID: 7776824700740608124, guid: 674fed5f9141e3549ac26e757499d2d1, type: 3}
+  - {fileID: 7776824700740608124, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
+  - {fileID: 7776824700740608124, guid: 96bc0f63175174f40950646e5f8fd2c7, type: 3}
   _earningDurication: 3
   _earning: 500
   _level: 1
   _maxLevel: 5
   _upgradeCost: 400
   _earningUpgrade: 500
+  _index: 0
   _upgradeProgress: 0
   _workingHero: {fileID: 0}

@@ -3,23 +3,29 @@ using System.Collections;
 using UltEvents;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace HeroLogic
 {
     public class HeroAttack : MonoBehaviour
     {
-        private const float AttackDistance = 0.65f;
-
         [SerializeField] private UltEvent _onAttack;
         [SerializeField] private UltEvent _onHealthChanged;
         [SerializeField] private UltEvent _onDamage;
         [SerializeField] private UltEvent _onDie;
 
+        [SerializeField] private UltEvent _onTargetNull;
+
         [Min(0), SerializeField] private float _speed;
         [Min(0), SerializeField] private float _moveSmooth;
 
         [SerializeField] private ReactiveProperty<int> _health;
+
+        [Space]
+
         [Min(0), SerializeField] private int _damage;
+
+        [SerializeField] private float _attackDistance = 0.65f;
 
         [Space]
 
@@ -32,15 +38,26 @@ namespace HeroLogic
 
         private Vector3 _velosity;
 
+        private int _startHealth;
+
         private bool _recharge;
 
         public SpawnPoint SpawnPoint { get; set; }
+        public AttackHeroes Heroes { get; set; }
 
-        private bool CanAttack => Vector3.Distance(_transform.position, _target.Transform.position) <= AttackDistance;
+        public bool IsEnemy { get; set; }
+
+        private bool CanAttack => Vector3.Distance(_transform.position, _target.Transform.position) <= _attackDistance;
 
         public Transform Transform => _transform;
 
+        public Hero Hero => _hero;
+
         public int Health => _health.Value;
+        public ReactiveProperty<int> HealthEvent => _health;
+
+        public int StartHealth => _startHealth;
+
         public int Damage => _damage;
 
         private Vector3 _lastPosition;
@@ -49,7 +66,16 @@ namespace HeroLogic
 
         private void Awake()
         {
+            _startHealth = _health.Value;
+
             _health.Subscribe(action => _onHealthChanged.Invoke());
+        }
+
+        private void Start()
+        {
+            if (Hero.Skill == null) return;
+
+            Hero.Skill.Hero = this;
         }
 
         public void Update()
@@ -58,7 +84,11 @@ namespace HeroLogic
 
             _lastPosition = _transform.position;
 
-            if (_target == null) return;
+            if (_target == null)
+            {
+                _onTargetNull.Invoke();
+                return;
+            }
 
             if (CanAttack && _recharge == false)
             {
@@ -67,12 +97,14 @@ namespace HeroLogic
                 return;
             }
 
-            if(CanAttack)
+            if (CanAttack)
             {
                 return;
             }
 
             _transform.position = Vector3.SmoothDamp(_transform.position, _target.Transform.position, ref _velosity, _moveSmooth, _speed);
+
+            Flip();
         }
 
         public void CheckHealth()
@@ -95,17 +127,17 @@ namespace HeroLogic
 
         public void Hit()
         {
-            var EnemyDie = _target.DecreaseHealth();
+            var EnemyDie = _target?.DecreaseHealth(_damage);
         
-            if(EnemyDie)
+            if(EnemyDie == true)
             {
                 _target = null;
             }
         }
 
-        public bool DecreaseHealth()
+        public bool DecreaseHealth(int damage)
         {
-            _health.Value -= _damage;
+            _health.Value -= damage;
 
             _onDamage.Invoke();
 
@@ -115,6 +147,27 @@ namespace HeroLogic
             }
 
             return false;
+        }
+
+        public void RemoveFromList()
+        {
+            Heroes.RemoveHero(_hero);
+        }
+        
+        public void FindNewTarget()
+        {
+            if (_hero.Dead) return;
+            
+            var nearHero = Heroes.FindNearHero(_hero);
+
+            if (nearHero == null) return;
+
+            _target = nearHero.HeroAttack;
+        }
+
+        public void SetTarget(HeroAttack hero)
+        {
+            _target = hero;
         }
 
         public void SetHealth(int value)
@@ -130,6 +183,22 @@ namespace HeroLogic
         public void SetSpeed(float value)
         {
             _speed = value;
+        }
+
+        private void Flip()
+        {
+            var scale = _transform.localScale;
+
+            if(_target._transform.position.x > _transform.position.x)
+            {
+                scale.x = -Mathf.Abs(scale.x);
+            }
+            else
+            {
+                scale.x = Mathf.Abs(scale.x);
+            }
+
+            _transform.localScale = scale;
         }
     }
 }

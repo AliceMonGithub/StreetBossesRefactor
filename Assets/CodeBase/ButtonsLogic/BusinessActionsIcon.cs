@@ -1,3 +1,4 @@
+using Assets.CodeBase;
 using CodeBase;
 using UltEvents;
 using UnityEngine;
@@ -12,6 +13,15 @@ public class BusinessActionsIcon : MonoBehaviour
     [SerializeField] private PlayerStats _playerStats;
 
     [Space]
+
+    [SerializeField] private BigBusiness _bigBusiness;
+
+    [Space]
+
+    [SerializeField] private BusinessUpgradeIcon[] _icons;
+
+    [Space]
+
 
     [SerializeField] private BusinessActionPanel _businessPanel;
     [SerializeField] private BusinessUpgradeMenu _upgradeMenu;
@@ -45,7 +55,7 @@ public class BusinessActionsIcon : MonoBehaviour
     {
         var upgradeMenu = Instantiate(_upgradeIcon, _transform.position, Quaternion.identity, transform.root);
 
-        upgradeMenu.Initialize(_business, _upgradeMenu);
+        upgradeMenu.Initialize(_business, _upgradeMenu, _bigBusiness, _icons);
     }
 
     public void SetAttackBusiness()
@@ -65,33 +75,4 @@ public class BusinessActionsIcon : MonoBehaviour
             _onBusinessFound.Invoke();
         }
     }
-
-    //[SerializeField] private Transform _transform;
-    //[SerializeField] private BusinessActionPanel _actionPanel;
-    //[SerializeField] private PlayerStats _playerStats;
-    //[SerializeField] private UpgradeButton _upgradeButton;
-    //[SerializeField] private UpgradeMenu _upgradeMenu;
-
-    //public Business Business;
-
-    //private void Awake()
-    //{
-    //    CheckBusiness();
-    //}
-
-    //public void Show()
-    //{
-    //    _actionPanel.Show(Business, this);
-    //}
-
-    //public void CheckBusiness()
-    //{
-    //    if (_playerStats.Businesses.Find(business => business == Business) == null) return;
-
-    //    var upgradeButton = Instantiate(_upgradeButton, _transform.position, Quaternion.identity, _transform.root);
-
-    //    upgradeButton.Initialize(Business, _upgradeMenu, _playerStats);
-
-    //    Destroy(gameObject);
-    //}
 }

@@ -11,6 +11,7 @@ namespace Assets.CodeBase
     public class SelectHeroInBusiness : SelectingMenu
     {
         [SerializeField] private UltEvent _onInitialized;
+        [SerializeField] private UltEvent _onHide;
 
         [SerializeField] private PlayerStats _playerStats;
         [SerializeField] private SelectHeroIcon _icon;
@@ -22,6 +23,11 @@ namespace Assets.CodeBase
         private List<GameObject> _icons = new List<GameObject>();
 
         private Business _business;
+
+        public void Hide()
+        {
+            _onHide.Invoke();
+        }
 
         public void Render()
         {

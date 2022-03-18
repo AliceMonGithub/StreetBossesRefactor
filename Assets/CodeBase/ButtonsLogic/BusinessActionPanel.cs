@@ -69,7 +69,7 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void LoadBattleScene()
     {
-        SceneManager.LoadScene("Battle");
+        _loadCurtain.LoadScene("Battle");
     }
 
     public void Render()

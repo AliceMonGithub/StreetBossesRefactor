@@ -9,19 +9,17 @@ namespace CodeBase.CameraLogic
         [Header("Settings")] 
 
         [Min(0), SerializeField] private float _sensitivity;
+        [Min(0), SerializeField] private float _moveSmooth;
         [SerializeField] private float _xLimit;
 
         [Header("Components")]
         
         [SerializeField] private Transform _cameraTransform;
 
-        private MovementInput _input;
+        private MovementInput _input = new StandaloneMovementInput();
 
-        [Inject]
-        private void Construct(MovementInput input)
-        {
-            _input = input;
-        }
+        private Vector2 _axis;
+        private Vector2 _velosity;
 
         private void Update()
         {
@@ -30,7 +28,9 @@ namespace CodeBase.CameraLogic
 
         private void Move()
         {
-            _cameraTransform.Translate(Vector3.right * _input.Axis.x * (_sensitivity * Time.deltaTime));
+            _axis = Vector2.SmoothDamp(_axis, _input.Axis, ref _velosity, _moveSmooth);
+
+            _cameraTransform.Translate(Vector3.right * _axis.x * (_sensitivity * Time.deltaTime));
 
             LimitMove();
         }
