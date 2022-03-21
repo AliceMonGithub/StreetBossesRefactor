@@ -38,6 +38,8 @@ public class BusinessUpgradeIcon : MonoBehaviour
     [SerializeField] private BusinessUpgradeMenu _upgradeMenu;
     [SerializeField] private Business _business;
 
+    [SerializeField] private BusinessImage _businessImage;
+
     private CompositeDisposable _disposable = new CompositeDisposable();
 
     private float _deltaTime;
@@ -113,7 +115,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     public void ShowUpgradeMenu()
     {
-        _upgradeMenu.Initialize(_business);
+        _upgradeMenu.Initialize(_business, _businessImage);
     }
 
     public void RefreshBigBusiness()
@@ -141,12 +143,15 @@ public class BusinessUpgradeIcon : MonoBehaviour
         }
     }
 
-    public void Initialize(Business business, BusinessUpgradeMenu upgradeMenu, BigBusiness bigBusiness, BusinessUpgradeIcon[] icons)
+    public void Initialize(Business business, BusinessUpgradeMenu upgradeMenu, BigBusiness bigBusiness, BusinessImage businessImage, BusinessUpgradeIcon[] icons)
     {
         _upgradeMenu = upgradeMenu;
         _business = business;
+        _businessImage = businessImage;
 
         _bigBusiness = bigBusiness;
+
+        _business.BusinessImage = _businessImage;
 
         Business.WorkingHeroEvent.Subscribe(action => Render()).AddTo(_disposable);
 

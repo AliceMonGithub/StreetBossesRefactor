@@ -1,3 +1,4 @@
+using Assets.CodeBase;
 using CodeBase;
 using HeroLogic;
 using UniRx;
@@ -42,6 +43,10 @@ public class Business : ScriptableObject
     [Space]
 
     [SerializeField] private int _index;
+
+    [SerializeField, HideInInspector] public BusinessImage BusinessImage;
+
+    [SerializeField, HideInInspector] public string StreetName;
 
     [SerializeField, HideInInspector] private int _upgradeProgress;
 

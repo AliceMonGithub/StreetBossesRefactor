@@ -192,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7695236879257741286, guid: 960ea43231663634198cced2b79bde5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -219,10 +219,9 @@ MonoBehaviour:
   _image: {fileID: 7695236879257741286, guid: 960ea43231663634198cced2b79bde5c, type: 3}
   _name: Vlad
   _skill: {fileID: 4844811670417473629}
-  _skillReloadingTime: 0
-  _autoCollectTime: 120
+  _autoCollectTime: 2
   _maxEnergy: 5
-  _chargeTime: 60
+  _chargeTime: 1
   _level: 1
   _levelsProperties:
   - _cost: 100
@@ -238,7 +237,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2709374952247095671}
   _healthBarText: {fileID: 7531176094707741360}
   _business: {fileID: 0}
-  _currentChargeTime: 0
+  _currentChargeTime: 1
   _upgradeProgress: 0
 --- !u!114 &7776824700740608124
 MonoBehaviour:
@@ -283,12 +282,14 @@ MonoBehaviour:
     - _Target: {fileID: 7776824700740608124}
       _MethodName: FindNewTarget
       _PersistentArguments: []
-  _speed: 3
+  _speed: 1.5
   _moveSmooth: 0.2
   _health:
     value: 78
   _damage: 4
   _attackDistance: 4.5
+  _meelCombat: 0
+  _effect: {fileID: 0}
   _transform: {fileID: 5899679314360575849}
   _target: {fileID: 0}
   _hero: {fileID: 7694260499757277902}

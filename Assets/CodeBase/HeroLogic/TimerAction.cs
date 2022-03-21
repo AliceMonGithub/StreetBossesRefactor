@@ -7,12 +7,18 @@ namespace HeroLogic
     public class TimerAction : MonoBehaviour
     {
         [SerializeField] private UltEvent _action;
+        [SerializeField] private UltEvent _onStart;
         [SerializeField] private UltEvent _onEnd;
 
         [SerializeField] private float _time;
         [SerializeField] private float _frequency;
 
         private CompositeDisposable _disposable = new CompositeDisposable();
+
+        private void Awake()
+        {
+            _onStart.Invoke();
+        }
 
         public void Start()
         {

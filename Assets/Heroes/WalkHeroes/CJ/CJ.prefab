@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1834606599
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7695236879257741286, guid: 7eba3c25139000c4b8132e44df02855a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,10 +187,9 @@ MonoBehaviour:
   _image: {fileID: 0}
   _name: CJ
   _skill: {fileID: 0}
-  _skillReloadingTime: 0
-  _autoCollectTime: 120
+  _autoCollectTime: 2
   _maxEnergy: 5
-  _chargeTime: 0
+  _chargeTime: 1
   _level: 0
   _levelsProperties: []
   _patrolHero: {fileID: 3575673142749185073}

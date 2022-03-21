@@ -29,6 +29,11 @@ namespace HeroLogic
 
         [Space]
 
+        [SerializeField] private bool _meelCombat = true;
+        [SerializeField] private GameObject _effect;
+
+        [Space]
+
         [SerializeField] private Transform _transform;
 
         [Space]
@@ -50,6 +55,8 @@ namespace HeroLogic
         private bool CanAttack => Vector3.Distance(_transform.position, _target.Transform.position) <= _attackDistance;
 
         public Transform Transform => _transform;
+
+        public HeroAttack Target => _target;
 
         public Hero Hero => _hero;
 
@@ -87,6 +94,7 @@ namespace HeroLogic
             if (_target == null)
             {
                 _onTargetNull.Invoke();
+
                 return;
             }
 
@@ -157,12 +165,19 @@ namespace HeroLogic
         public void FindNewTarget()
         {
             if (_hero.Dead) return;
-            
-            var nearHero = Heroes.FindNearHero(_hero);
+         
+            if(_meelCombat == false)
+            {
+                
+            }
+            else
+            {
+                var nearHero = Heroes.FindNearHero(_hero);
 
-            if (nearHero == null) return;
+                if (nearHero == null) return;
 
-            _target = nearHero.HeroAttack;
+                _target = nearHero.HeroAttack;
+            }
         }
 
         public void SetTarget(HeroAttack hero)

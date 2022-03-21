@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000000029802322, y: -0.2699}
+  m_AnchoredPosition: {x: -0.000000029802322, y: -0.128}
   m_SizeDelta: {x: 2.1822, y: 0.6069}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3737863142777888536
@@ -391,7 +391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.393}
+  m_AnchoredPosition: {x: 0, y: 0.612}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2791452111510114373
@@ -506,8 +506,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -524,10 +524,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.25
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.27
+  m_fontSizeBase: 0.27
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0.23
   m_fontSizeMax: 85.3
   m_fontStyle: 1
@@ -824,16 +824,26 @@ MonoBehaviour:
     - _Target: {fileID: 2987895209601564799}
       _MethodName: InstantiateUpgradeIcon
       _PersistentArguments: []
+    - _Target: {fileID: 2987895209601564799}
+      _MethodName: Destroy
+      _PersistentArguments: []
   _onInitializeUpgradeIcon:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 2987895209601564799}
+      _MethodName: InstantiateUpgradeIcon
+      _PersistentArguments: []
+    - _Target: {fileID: 2987895209601564799}
+      _MethodName: Destroy
+      _PersistentArguments: []
   _business: {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
-  _playerStats: {fileID: 0}
+  _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   _bigBusiness: {fileID: 0}
   _icons: []
   _businessPanel: {fileID: 0}
   _upgradeMenu: {fileID: 0}
   _upgradeIcon: {fileID: 0}
-  _transform: {fileID: 0}
+  _businessImage: {fileID: 0}
+  _transform: {fileID: 8640542147894131581}
 --- !u!1 &8871857413046930002
 GameObject:
   m_ObjectHideFlags: 0

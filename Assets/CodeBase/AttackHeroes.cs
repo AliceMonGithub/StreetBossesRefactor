@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using CodeBase;
+using UnityEngine.SceneManagement;
 
 namespace Assets.CodeBase
 {
@@ -100,7 +101,7 @@ namespace Assets.CodeBase
         {
             foreach (var menu in _activatingMenues)
             {
-                menu.SetActive(true);
+                menu?.SetActive(true);
             }
         }
 
@@ -108,7 +109,7 @@ namespace Assets.CodeBase
         {
             foreach(var menu in _deactiveMenues)
             {
-                menu.SetActive(false);
+                menu?.SetActive(false);
             }
         }
 
@@ -141,7 +142,9 @@ namespace Assets.CodeBase
         {
             _winMenu.Show();
 
-            _playerStats.Businesses.Add(_playerStats.AttackingBusiness);
+            _playerStats.Add(_playerStats.AttackingBusiness);
+
+            _playerStats.AttackingBusiness.StreetName = SceneManager.GetActiveScene().name;
         }
 
         private void Lose()

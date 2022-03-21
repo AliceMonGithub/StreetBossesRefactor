@@ -34,6 +34,7 @@ public class BusinessUpgradeMenu : MonoBehaviour
     [SerializeField] private Image _heroImage;
     [SerializeField] private Sprite _heroNullSprite;
 
+    private BusinessImage _businessImage;
     private Business _business;
 
     public void Render()
@@ -44,7 +45,7 @@ public class BusinessUpgradeMenu : MonoBehaviour
         _costText.text = _business.Cost.ToString();
         _upgradeEarningText.text = (_business.Earning + _business.EarningUpgrade).ToString();
 
-        _levelSlider.maxValue = 100;
+        _levelSlider.maxValue = 75;
         _levelSlider.value = _business.UpgradeProgress;
 
         _heroImage.sprite = _business.WorkingHero == null ? _heroNullSprite : _business.WorkingHero.Image;
@@ -70,14 +71,20 @@ public class BusinessUpgradeMenu : MonoBehaviour
         _business.Upgrade();
     }
 
+    public void UpgradeEffectImage()
+    {
+        _businessImage.OnUpgrade.Invoke();
+    }
+
     public void SpendMoney()
     {
         _playerStats.Money.Value -= (int)Mathf.Round(_business.UpgradeCost * 0.25f);
     }
 
-    public void Initialize(Business business)
+    public void Initialize(Business business, BusinessImage businessImage)
     {
         _business = business;
+        _businessImage = businessImage;
 
         _onInitialize.Invoke();
     }

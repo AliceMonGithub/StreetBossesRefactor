@@ -1,4 +1,5 @@
-﻿using SceneLogic;
+﻿using CodeBase;
+using SceneLogic;
 using UltEvents;
 using UnityEngine;
 using Zenject;
@@ -6,6 +7,8 @@ using Zenject;
 internal class FinishMenu : MonoBehaviour
 {
     [SerializeField] private UltEvent _onShow;
+
+    [SerializeField] private PlayerStats _playerStats;
 
     private LoadCurtain _curtain;
 
@@ -22,7 +25,7 @@ internal class FinishMenu : MonoBehaviour
 
     public void Exit()
     {
-        _curtain.LoadScene("FirstStreet");
+        _curtain.LoadScene(_playerStats.LastSceneName);
     }
 
     public void RestartBattle()

@@ -1,12 +1,15 @@
 using CodeBase;
+using CodeBase.CameraLogic;
 using Factories;
 using System.Collections.Generic;
 using UltEvents;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BusinessesPanel : MonoBehaviour
 {
     [SerializeField] private UltEvent _onShow;
+    [SerializeField] private UltEvent _onHide;
 
     [SerializeField] private PlayerStats _playerStats;
 
@@ -14,7 +17,9 @@ public class BusinessesPanel : MonoBehaviour
 
     [SerializeField] private Transform _grid;
 
-    private List<BusinessIcon> _icons = new List<BusinessIcon>();
+    [SerializeField] private CameraMovement _cameraMovement;
+
+    private readonly List<BusinessIcon> _icons = new List<BusinessIcon>();
 
     private BusinessIconFactory _factory = new BusinessIconFactory();
 
@@ -30,16 +35,24 @@ public class BusinessesPanel : MonoBehaviour
 
         _icons.Clear();
 
-        foreach (var business in _playerStats.Businesses)
+        foreach (var business in _playerStats.PlayerBusinesses)
         {
-            var icon = _factory.Create(_cell, _grid);
+            if(business.StreetName == SceneManager.GetActiveScene().name)
+            {
+                var icon = _factory.Create(_cell, _grid);
 
-            icon.Play();
-            icon.Render(business);
+                icon.Play();
+                icon.Render(business, this, _cameraMovement);
 
-            _icons.Add(icon);
+                _icons.Add(icon);
+            }
         }
 
         _onShow.Invoke();
+    }
+
+    public void Hide()
+    {
+        _onHide.Invoke();
     }
 }

@@ -54,7 +54,9 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void AddBusinessToPlayerStats()
     {
-        _playerStats.Businesses.Add(_business);
+        _business.StreetName = _loadCurtain.CurrentSceneName;
+
+        _playerStats.Add(_business);
     }
 
     public void Attack()
@@ -64,6 +66,7 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void SetAttackBusiness()
     {
+        _playerStats.LastSceneName = _loadCurtain.CurrentSceneName;
         _playerStats.AttackingBusiness = _business;
     }
 

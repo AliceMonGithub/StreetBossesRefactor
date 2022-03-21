@@ -16,7 +16,6 @@ namespace HeroLogic
         [Space]
 
         [SerializeField] private SkillEffect _skill;
-        [SerializeField] private float _skillReloadingTime;
 
         private float _currentTime;
 
@@ -64,8 +63,6 @@ namespace HeroLogic
         public bool IsPlayerHero { get; set; }
         public bool Dead { get; set; }
 
-        public bool SkillReloading { get; set; }
-
         public int UpgradeCost => _levelsProperties[Level - 1].Cost;
 
         public Sprite Image => _image;
@@ -73,8 +70,6 @@ namespace HeroLogic
         public string Name => _name;
 
         public SkillEffect Skill => _skill;
-
-        public float SkillReloadingTime => _skillReloadingTime;
 
         public float CurrentTime => _currentTime;
 
@@ -158,26 +153,6 @@ namespace HeroLogic
             Dead = true;
 
             _heroAttack.enabled = false;
-        }
-
-        public void ReloadSkill()
-        {
-            SkillReloading = true;
-
-            _currentTime = 0;
-
-            Observable.EveryUpdate().Subscribe(action =>
-            {
-                _currentTime += Time.deltaTime;
-
-                if (_currentTime >= _skillReloadingTime)
-                {
-                    SkillReloading = false;
-
-                    _disposable.Dispose();
-                }
-
-            }).AddTo(_disposable);
         }
     }
 

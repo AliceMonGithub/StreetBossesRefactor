@@ -8,6 +8,7 @@ namespace HeroLogic
         [SerializeField] private Sprite _skillImage;
 
         public HeroAttack Hero { get; set; }
+        public HeroAttack Target { get; set; }
 
         public Sprite SkillImage => _skillImage;
 

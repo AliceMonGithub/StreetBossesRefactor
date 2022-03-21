@@ -9,41 +9,25 @@ namespace Assets.CodeBase.SkillMenu
     {
         [SerializeField] private Image _image;
 
-        [Space]
-
-        [SerializeField] private Image _heroImage;
-
+        private SkillBehavior _skillBehavior;
         private SkillEffect _skill;
-        private HeroAttack _hero;
-
-        public void Update()
-        {
-            if(_hero.Hero.SkillReloading)
-            {
-                _image.fillAmount = Mathf.Clamp(_hero.Hero.CurrentTime / (_hero.Hero.SkillReloadingTime / 100f) / 100f, 0f, 1f) + 0.05f;
-            }
-        }
 
         public void Active()
         {
-            if (_hero.Hero.SkillReloading) return;
+            _skillBehavior.FindEnemy(_skill);
 
-            _skill.Active();
-
-            _hero.Hero.ReloadSkill();
+            Destroy(gameObject);
         }
 
         public void Render()
         {
-            _heroImage.sprite = _skill.SkillImage;
-
-            _heroImage.enabled = true;
+            _image.sprite = _skill.SkillImage;
         }
 
-        public void Initialize(SkillEffect skill, HeroAttack hero)
+        public void Initialize(SkillEffect skill, SkillBehavior skillBehavior)
         {
+            _skillBehavior = skillBehavior;
             _skill = skill;
-            _hero = hero;
 
             Render();
         }

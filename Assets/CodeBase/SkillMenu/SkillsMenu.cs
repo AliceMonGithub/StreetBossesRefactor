@@ -41,7 +41,7 @@ namespace Assets.CodeBase.SkillMenu
         {
             var icon = Instantiate(_prefab, _grid);
 
-            icon.Initialize(skill, hero.HeroAttack);
+          //  icon.Initialize(skill, hero.HeroAttack);
         }
     }
 }

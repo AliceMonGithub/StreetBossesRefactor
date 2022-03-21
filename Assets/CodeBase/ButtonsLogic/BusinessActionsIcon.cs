@@ -29,6 +29,10 @@ public class BusinessActionsIcon : MonoBehaviour
 
     [Space]
 
+    [SerializeField] private BusinessImage _businessImage;
+
+    [Space]
+
     [SerializeField] private Transform _transform;
 
     private void Awake()
@@ -55,7 +59,7 @@ public class BusinessActionsIcon : MonoBehaviour
     {
         var upgradeMenu = Instantiate(_upgradeIcon, _transform.position, Quaternion.identity, transform.root);
 
-        upgradeMenu.Initialize(_business, _upgradeMenu, _bigBusiness, _icons);
+        upgradeMenu.Initialize(_business, _upgradeMenu, _bigBusiness, _businessImage, _icons);
     }
 
     public void SetAttackBusiness()

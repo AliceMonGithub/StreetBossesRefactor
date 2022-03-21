@@ -1,4 +1,5 @@
 ﻿using HeroLogic;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -8,57 +9,23 @@ namespace Assets.CodeBase.HeroLogic
     {
         [SerializeField] private Bullet _bullet;
 
-        private SelectEnemyMenu _selectEnemyMenu;
-        private HeroAttack _hero;
-
-        private void Awake()
-        {
-            _selectEnemyMenu = FindObjectOfType<SelectEnemyMenuInstaller>().Menu;
-        }
-
         public override void Active()
         {
-            _selectEnemyMenu.Show();
+            Target.Hero.SpriteRenderer.color = new Color(0, 0, 0, 1);
 
-            Time.timeScale = 0;
+            StartCoroutine(CreateBullets());
         }
 
-        public void Update()
+        public IEnumerator CreateBullets()
         {
-            if (Input.GetButtonDown("Fire1") && _hero != null)
+            for (int i = 0; i < 3; i++)
             {
                 var bullet = Instantiate(_bullet, transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, 0, -90));
 
-                bullet.Target = _hero;
+                bullet.Target = Target;
 
-                _selectEnemyMenu.Hide();
-
-                Time.timeScale = 1f;
+                yield return new WaitForSeconds(0.5f);
             }
-
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            HeroAttack hero;
-
-            if (Physics.Raycast(ray, out var hit))
-            {
-                hero = hit.collider.GetComponent<HeroAttack>();
-
-                if (hero.Hero.IsPlayerHero) return;
-
-                _hero = hero;
-
-                _hero.Hero.SpriteRenderer.color = new Color(20, 0, 0, 1f);
-
-                return;
-            }
-
-            if (_hero != null)
-            {
-                _hero.Hero.SpriteRenderer.color = Color.white;
-            }
-
-            _hero = null;
         }
     }
 }

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7695236879257741286, guid: 3947d6b0526edea4eb9e90064a50c8a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,10 +103,9 @@ MonoBehaviour:
   _image: {fileID: 7695236879257741286, guid: 3947d6b0526edea4eb9e90064a50c8a8, type: 3}
   _name: Tom
   _skill: {fileID: 0}
-  _skillReloadingTime: 0
-  _autoCollectTime: 120
+  _autoCollectTime: 2
   _maxEnergy: 5
-  _chargeTime: 60
+  _chargeTime: 1
   _level: 1
   _levelsProperties:
   - _cost: 100
@@ -167,12 +166,14 @@ MonoBehaviour:
     - _Target: {fileID: 7776824700740608124}
       _MethodName: FindNewTarget
       _PersistentArguments: []
-  _speed: 3
+  _speed: 1.5
   _moveSmooth: 0.2
   _health:
     value: 76
   _damage: 2
   _attackDistance: 0.65
+  _meelCombat: 1
+  _effect: {fileID: 0}
   _transform: {fileID: 5899679314360575849}
   _target: {fileID: 0}
   _hero: {fileID: 7694260499757277902}
