@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6804115913441951801}
   - component: {fileID: 3603476928121288602}
   - component: {fileID: 2791450230602333783}
+  - component: {fileID: 6201582621635014383}
   m_Layer: 0
   m_Name: Tringle
   m_TagString: Untagged
@@ -120,6 +121,18 @@ MonoBehaviour:
         _Object: {fileID: 8172768701709042196}
   _time: 10
   _frequency: 0
+--- !u!114 &6201582621635014383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172768701709042196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bf3a57b74a2f140b7464c5496542ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8531556386312476924
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +146,7 @@ GameObject:
   - component: {fileID: 4683107099739310748}
   - component: {fileID: 1268336605545512227}
   - component: {fileID: 7821605918487551147}
+  - component: {fileID: 7049815095801735936}
   - component: {fileID: 2153284227599956291}
   m_Layer: 0
   m_Name: '[Loop]'
@@ -224,6 +238,18 @@ MonoBehaviour:
     Target: {fileID: 6804115913441951801}
     Value: {x: 0, y: -0.3, z: 0}
     Ease: 100
+--- !u!114 &7049815095801735936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531556386312476924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e827904b3dee129429b801767788c28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2153284227599956291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    Duration: 0.8
+    Duration: 0
     Event:
       m_PersistentCalls:
         m_Calls:

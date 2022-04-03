@@ -1,10 +1,10 @@
+using Assets.CodeBase;
 using CodeBase;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UltEvents;
-using Assets.CodeBase;
 using UniRx;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class BusinessUpgradeIcon : MonoBehaviour
 {
@@ -33,6 +33,8 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     [Space]
 
+    [SerializeField] private AudioSource _collectMusic;
+
     [SerializeField] private BigBusiness _bigBusiness;
 
     [SerializeField] private BusinessUpgradeMenu _upgradeMenu;
@@ -44,7 +46,9 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     private float _deltaTime;
 
-    private bool _canCollect;
+    private int _coinsAmount;
+
+    private bool CanCollect => _coinsAmount != 0;
 
     public UltEvent OnCollect => _onCollect;
 
@@ -57,7 +61,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
             Destroy(destroyingObject);
         }
 
-        if(_nonInitialize)
+        if (_nonInitialize)
         {
             Business.WorkingHeroEvent.Subscribe(action => Render()).AddTo(_disposable);
             Business.OnUpgrade.Subscribe(action => RefreshBigBusiness()).AddTo(_disposable);
@@ -71,17 +75,32 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     public void Update()
     {
-        if(_deltaTime >= _business.EarningDurication)
+        //if(_deltaTime >= _business.EarningDurication)
+        //{
+        //    _coinsAmountText.text = Business.Earning.ToString();
+
+        //    if(_business.WorkingHero != null)
+        //    {
+        //        Invoke(nameof(TryCollect), _business.WorkingHero.AutoCollectTime);
+        //    }
+
+        //    return;
+        //}
+
+        if (_deltaTime >= _business.EarningDurication)
         {
-            _canCollect = true;
-
-            _coinsAmountText.text = Business.Earning.ToString();
-
-            if(_business.WorkingHero != null)
+            if (_business.WorkingHero == null)
             {
-                Invoke(nameof(TryCollect), _business.WorkingHero.AutoCollectTime);
+                _coinsAmount = _business.Earning;
             }
-            return;
+            else
+            {
+                _coinsAmount += _business.Earning;
+
+                ResetEarning();
+            }
+
+            _coinsAmountText.text = _coinsAmount.ToString();
         }
 
         _deltaTime += Time.deltaTime;
@@ -91,26 +110,36 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     public void TryCollect()
     {
-        if(_canCollect)
+        if (CanCollect)
         {
             _onCollect.Invoke();
 
             _coinsAmountText.text = string.Empty;
 
+            _coinsAmount = 0;
+
             CancelInvoke(nameof(TryCollect));
         }
+    }
+
+    public void PlayCollectMusic()
+    {
+        _collectMusic.Play();
+    }
+
+    public void AddToCoinsAmount()
+    {
+        _coinsAmount += _coinsAmount;
     }
 
     public void ResetEarning()
     {
         _deltaTime = 0;
-
-        _canCollect = false;
     }
 
     public void AddMoney()
     {
-        _playerStats.AddMoney(_business.Earning);
+        _playerStats.Money.Value += _coinsAmount;
     }
 
     public void ShowUpgradeMenu()
@@ -120,7 +149,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     public void RefreshBigBusiness()
     {
-        if(_bigBusiness != null && Business.MaxLevel == Business.Level)
+        if (_bigBusiness != null && Business.MaxLevel == Business.Level)
         {
             _bigBusiness.ShowNext(Business.Index + 1);
         }
@@ -135,7 +164,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
     {
         _heroIcon.enabled = false;
 
-        if(_business.WorkingHero != null)
+        if (_business.WorkingHero != null)
         {
             _heroIcon.sprite = _business.WorkingHero.Image;
 
@@ -167,6 +196,6 @@ public class BusinessUpgradeIcon : MonoBehaviour
         RefreshBigBusiness();
 
         Business.OnUpgrade.Subscribe(action => RefreshBigBusiness()).AddTo(_disposable);
-        
+
     }
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179962d10ed11aa448d7b5a2c266838c, type: 3}
+  m_Name: TutorialInfo
+  m_EditorClassIdentifier: 
+  StartupHelp: 1
+  BusinessHelp: 0
+  BusinessTakenHelp: 0
+  EarnMoneyHelp: 0
+  SetManagerHelp: 0
+  GoNextStreetHelp: 0
+  SecondStreetAttackHelp: 0
+  UpgradeHeroesFirstHelp: 0
+  TakeSecondStreetHelp: 0
+  SecondCenterAttackHelp: 0
+  UpgradeHeroesSecondHelp: 0
+  TakeThirdStreetHelp: 0

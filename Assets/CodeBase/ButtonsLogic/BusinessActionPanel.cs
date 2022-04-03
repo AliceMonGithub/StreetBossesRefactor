@@ -72,6 +72,8 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void LoadBattleScene()
     {
+        if (_playerStats.Heroes.Value.Count == 0) return;
+
         _loadCurtain.LoadScene("Battle");
     }
 

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   _money:
-    value: 595509
+    value: 300
   _heroes:
-  - {fileID: 7694260499757277902, guid: b4c7c6990ad745e459b6e123d69926f5, type: 3}
-  - {fileID: 7694260499757277902, guid: 1c29457267f90e044ae7d7b133714636, type: 3}
-  - {fileID: 7694260499757277902, guid: 93e74f22377e6c44fbf87205e23a92d7, type: 3}
+    value: []
   _businesses:
-  - {fileID: 11400000, guid: 95f0d0584765fce4f93e2e63f7f3a05c, type: 2}
-  - {fileID: 11400000, guid: feb4a0647a43889498f1619bc8956b0a, type: 2}
-  AttackingBusiness: {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
+    value: []
+  _quests: []
+  LastSceneName: SecondStreet
+  AttackingBusiness: {fileID: 11400000, guid: 8d6341a3d5e4931409aa520062ba01e9, type: 2}

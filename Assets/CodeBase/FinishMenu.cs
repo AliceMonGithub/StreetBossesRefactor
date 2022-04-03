@@ -1,4 +1,5 @@
-﻿using CodeBase;
+﻿using Assets.CodeBase.SkillMenu;
+using CodeBase;
 using SceneLogic;
 using UltEvents;
 using UnityEngine;
@@ -10,12 +11,19 @@ internal class FinishMenu : MonoBehaviour
 
     [SerializeField] private PlayerStats _playerStats;
 
+    [SerializeField] private SkillBehavior _skillBehavior;
+
     private LoadCurtain _curtain;
 
     [Inject]
     private void Construct(LoadCurtain curtain)
     {
         _curtain = curtain;
+    }
+
+    private void OnEnable()
+    {
+        _skillBehavior.Enabled = false;
     }
 
     public void Show()

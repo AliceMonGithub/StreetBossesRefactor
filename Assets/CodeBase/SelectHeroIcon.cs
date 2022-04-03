@@ -5,6 +5,7 @@ using UltEvents;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Assets.CodeBase
 {
@@ -16,6 +17,11 @@ namespace Assets.CodeBase
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private Image _heroImage;
 
+        [Space]
+
+        [SerializeField] private Image _featureImage;
+        [SerializeField] private Sprite[] _features;
+
         private SelectHeroInBusiness _menu;
         private Hero _hero;
 
@@ -24,6 +30,8 @@ namespace Assets.CodeBase
             _nameText.text = _hero.Name;
 
             _heroImage.sprite = _hero.Image;
+
+            _featureImage.sprite = _features[Random.Range(0, _features.Length)];
         }
 
         public void Select()

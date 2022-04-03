@@ -1,10 +1,11 @@
 using CodeBase;
 using CodeBase.CameraLogic;
 using Factories;
+using SceneLogic;
 using System.Collections.Generic;
 using UltEvents;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Zenject;
 
 public class BusinessesPanel : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class BusinessesPanel : MonoBehaviour
 
     private BusinessIconFactory _factory = new BusinessIconFactory();
 
+    private LoadCurtain _loadCurtain;
+
+    [Inject]
+    private void Construct(LoadCurtain loadCurtain)
+    {
+        _loadCurtain = loadCurtain;
+    }
+
     public void Show()
     {
         _icons.ForEach(icon =>
@@ -35,17 +44,14 @@ public class BusinessesPanel : MonoBehaviour
 
         _icons.Clear();
 
-        foreach (var business in _playerStats.PlayerBusinesses)
+        foreach (var business in _playerStats.Businesses.Value)
         {
-            if(business.StreetName == SceneManager.GetActiveScene().name)
-            {
-                var icon = _factory.Create(_cell, _grid);
+            var icon = _factory.Create(_cell, _grid);
 
-                icon.Play();
-                icon.Render(business, this, _cameraMovement);
+            icon.Play();
+            icon.Render(business, this, _cameraMovement, _loadCurtain);
 
-                _icons.Add(icon);
-            }
+            _icons.Add(icon);
         }
 
         _onShow.Invoke();

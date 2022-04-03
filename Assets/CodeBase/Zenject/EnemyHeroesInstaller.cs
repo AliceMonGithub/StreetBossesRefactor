@@ -30,6 +30,9 @@ namespace Assets.CodeBase.Zenject
 
                 spawnedHero.Transform.localScale = new Vector3(1, 1, 1);
 
+                spawnedHero.Damage = (int)(spawnedHero.Damage * _playerStats.AttackingBusiness.DamageMultiple);
+                spawnedHero.Health = (int)(spawnedHero.Health * _playerStats.AttackingBusiness.HealthMultiple);
+
                 _attackHeroes.EnemyHeroes.Add(spawnedHero.Hero);
             }
         }

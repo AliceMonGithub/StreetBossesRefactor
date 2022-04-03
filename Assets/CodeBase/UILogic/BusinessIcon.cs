@@ -1,8 +1,11 @@
-﻿using CodeBase.CameraLogic;
+﻿using Assets.CodeBase;
+using CodeBase.CameraLogic;
+using SceneLogic;
 using TMPro;
 using UltEvents;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BusinessIcon : MonoBehaviour
@@ -20,12 +23,28 @@ public class BusinessIcon : MonoBehaviour
     private CameraMovement _camera;
     private Business _business;
 
+    private LoadCurtain _loadCurtain;
+
     public void MoveToBusiness()
     {
-        _business.BusinessImage.OnLight.Invoke();
-        _camera.MoveToTarget(_business.BusinessImage.transform);
+        if (_business.StreetName == _loadCurtain.CurrentSceneName)
+        {
+            var tringles = FindObjectsOfType<Tringle>();
 
-        _hide.Invoke();
+            foreach (var tringle in tringles)
+            {
+                Destroy(tringle.gameObject);
+            }
+
+            _business.BusinessImage.OnLight.Invoke();
+            _camera.MoveToTarget(_business.BusinessImage.transform);
+
+            _hide.Invoke();
+        }
+        else
+        {
+            _loadCurtain.LoadScene(_business.StreetName);
+        }
     }
 
     public void Hide()
@@ -48,11 +67,13 @@ public class BusinessIcon : MonoBehaviour
         _onStop.Invoke();
     }
 
-    public void Render(Business business, BusinessesPanel businessesPanel, CameraMovement camera)
+    public void Render(Business business, BusinessesPanel businessesPanel, CameraMovement camera, LoadCurtain loadCurtain)
     {
         _business = business;
         _businessesPanel = businessesPanel;
         _camera = camera;
+
+        _loadCurtain = loadCurtain;
 
         _businessImage.sprite = business.Image;
         _earnText.text = business.Earning.ToString();

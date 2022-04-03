@@ -41,7 +41,7 @@ namespace HeroLogic
                 {
                     _onEnd.Invoke();
 
-                    _disposable.Dispose();
+                    _disposable.Clear();
                 }
 
             }).AddTo(_disposable);

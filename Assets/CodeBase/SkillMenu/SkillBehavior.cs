@@ -15,7 +15,15 @@ namespace Assets.CodeBase.SkillMenu
 
         private HeroAttack _hero;
 
+        private HeroAttack _playerHero;
+
+        private HeroAttack _oldPlayerHero;
+        private HeroAttack _oldEnemyHero;
+
+        private bool _menuEnabled;
         private bool _enabled = true;
+
+        public bool Enabled { get => _enabled; set => _enabled = value; }
 
         private void Update()
         {
@@ -29,7 +37,14 @@ namespace Assets.CodeBase.SkillMenu
             {
                 hero = hit.collider.GetComponent<HeroAttack>();
 
-                if (hero.Hero.Skill == null) return;
+                if (hero.Hero.Skill == null && hero.Target || _heroes.GameStarter == false || _menuEnabled) return;
+
+                if(_oldPlayerHero != null && _oldPlayerHero != hero)
+                {
+                    _oldPlayerHero.Hero.SpriteRenderer.color = Color.white;
+                }
+
+                _oldPlayerHero = hero;
 
                 if (Input.GetButtonDown("Fire1") && _hero != null)
                 {
@@ -40,12 +55,18 @@ namespace Assets.CodeBase.SkillMenu
                         FindEnemy();
 
                         Time.timeScale = 0f;
+
+                        _menuEnabled = true;
                     }
                     else
                     {
                         _selectMenu.Initialize(hero.Hero, this);
 
+                        _playerHero = _hero;
+
                         Time.timeScale = 0f;
+
+                        _menuEnabled = true;
                     }
                 }
 
@@ -100,6 +121,13 @@ namespace Assets.CodeBase.SkillMenu
                     {
                         hero = hit.collider.GetComponent<HeroAttack>();
 
+                        if (_oldEnemyHero != null && _oldEnemyHero != hero)
+                        {
+                            _oldEnemyHero.Hero.SpriteRenderer.color = Color.white;
+                        }
+
+                        _oldEnemyHero = hero;
+
                         if (Input.GetButtonDown("Fire1") && enemyHero != null)
                         {
                             if(skill != null)
@@ -108,11 +136,17 @@ namespace Assets.CodeBase.SkillMenu
 
                                 skill.Active();
 
+                                _playerHero.Hero.Skill = null;
+
+                                _menuEnabled = false;
+
                                 _selectMenu.Hide();
                             }
                             else
                             {
                                 _hero.SetTarget(enemyHero);
+
+                                _menuEnabled = false;
 
                                 _selectEnemyMenu.SetActive(false);
                             }

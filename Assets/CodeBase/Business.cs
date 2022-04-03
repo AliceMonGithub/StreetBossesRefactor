@@ -1,8 +1,10 @@
 using Assets.CodeBase;
 using CodeBase;
 using HeroLogic;
+using UltEvents;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 [CreateAssetMenu]
 public class Business : ScriptableObject
@@ -25,6 +27,9 @@ public class Business : ScriptableObject
 
     [SerializeField] private HeroAttack[] _enemyHeroes;
 
+    [SerializeField] private float _damageMultiple;
+    [SerializeField] private float _healthMultiple;
+
     [Space]
 
     [Min(0), SerializeField] private float _earningDurication;
@@ -46,13 +51,15 @@ public class Business : ScriptableObject
 
     [SerializeField, HideInInspector] public BusinessImage BusinessImage;
 
-    [SerializeField, HideInInspector] public string StreetName;
+    [SerializeField] public string StreetName;
 
-    [SerializeField, HideInInspector] private int _upgradeProgress;
+    [SerializeField] private int _upgradeProgress;
 
     [Space]
 
     [SerializeField] private ReactiveProperty<Hero> _workingHero;
+
+    [SerializeField] private UltEvent _onManagerSet;
 
     public ReactiveCommand OnUpgrade = new ReactiveCommand();
 
@@ -65,6 +72,9 @@ public class Business : ScriptableObject
     public int Cost => _cost;
 
     public HeroAttack[] EnemyHeroes => _enemyHeroes;
+
+    public float DamageMultiple => _damageMultiple;
+    public float HealthMultiple => _healthMultiple;
 
     public float EarningDurication => _earningDurication;
     public int Earning => _earning;
@@ -104,5 +114,10 @@ public class Business : ScriptableObject
         _workingHero.Value = hero;
 
         _workingHero.Value?.SetWorking(this);
+
+        if(_workingHero != null)
+        {
+            _onManagerSet.Invoke();
+        }
     }
 }

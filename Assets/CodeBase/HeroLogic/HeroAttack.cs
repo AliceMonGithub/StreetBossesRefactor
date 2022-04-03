@@ -60,12 +60,12 @@ namespace HeroLogic
 
         public Hero Hero => _hero;
 
-        public int Health => _health.Value;
+        public int Health { get => _health.Value; set => _health.Value = value; }
         public ReactiveProperty<int> HealthEvent => _health;
 
         public int StartHealth => _startHealth;
 
-        public int Damage => _damage;
+        public int Damage { get => _damage; set => _damage = value; }
 
         private Vector3 _lastPosition;
 

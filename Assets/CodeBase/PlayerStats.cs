@@ -1,4 +1,5 @@
-﻿using HeroLogic;
+﻿using CodeBase.QuestLogic;
+using HeroLogic;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
@@ -11,31 +12,38 @@ namespace CodeBase
     {
         [SerializeField] private ReactiveProperty<int> _money;
 
-        [SerializeField] List<Hero> _heroes;
-        [SerializeField] List<Business> _businesses;
+        [SerializeField] private ReactiveProperty<List<Hero>> _heroes;
+        [SerializeField] private ReactiveProperty<List<Business>> _businesses;
 
-        [SerializeField, HideInInspector] public Business AttackingBusiness;
-        [SerializeField, HideInInspector] public string LastSceneName;
+        [Space]
+
+        [SerializeField] private List<Quest> _quests;
+
+        public string LastSceneName;
+
+        public Business AttackingBusiness;
 
         public ReactiveProperty<int> Money => _money;
 
-        public List<Hero> Heroes => _heroes;
-        public List<Business> PlayerBusinesses => _businesses;
+        public ReactiveProperty<List<Hero>> Heroes => _heroes;
+        public ReactiveProperty<List<Business>> Businesses => _businesses;
 
-        public void AddMoney(int amount)
+        public List<Quest> Quests => _quests;
+
+        public void AddQuest(Quest quest)
         {
-            _money.Value += amount;
+            _quests.Add(quest);
         }
 
         public void Add(Business Addbusiness)
         {
-            if (PlayerBusinesses.Any(business => business == Addbusiness) == false)
+            if (Businesses.Value.Any(business => business == Addbusiness) == false)
             {
-                PlayerBusinesses.Add(Addbusiness);
+                Businesses.Value.Add(Addbusiness);
             }
         }
 
         public bool TryFindBusiness(Business business) =>
-            _businesses.Any(playerBusiness => playerBusiness == business);
+            _businesses.Value.Any(playerBusiness => playerBusiness == business);
     }
 }

@@ -26,14 +26,7 @@ namespace CodeBase
             
             for (int i = 0; i < _heroesCount; i++)
             {
-               // var spawnHero = _randomCharacters[i].CharacterWalk;
                 var randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
-
-               // var hero = Object.Instantiate(spawnHero, randomSpawnPoint.Transform.position, Quaternion.identity);
-                
-             //   hero.Initialize(randomSpawnPoint.Points);
-                
-              //  heroes.Add(hero);
             }
 
             return heroes;

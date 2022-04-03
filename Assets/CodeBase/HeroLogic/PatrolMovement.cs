@@ -30,6 +30,8 @@ namespace HeroLogic
 
         private bool _staying;
 
+        public Hero Hero => _hero;
+
         private float Distance => Vector3.Distance(_transform.position, _target.position);
         private float Speed => Vector3.Distance(_lastPosition, _transform.position);
 

@@ -33,6 +33,10 @@ namespace HeroLogic
 
         [Space]
 
+        [SerializeField] private int _cost;
+
+        [Space]
+
         [Min(1), SerializeField] private int _level;
 
         [SerializeField] private HeroLevel[] _levelsProperties;
@@ -49,7 +53,7 @@ namespace HeroLogic
 
         [SerializeField] private Transform _healthBarText;
 
-        [SerializeField, HideInInspector] private Business _business;
+        [SerializeField] private Business _business;
 
         [SerializeField] private float _currentChargeTime;
 
@@ -69,7 +73,7 @@ namespace HeroLogic
 
         public string Name => _name;
 
-        public SkillEffect Skill => _skill;
+        public SkillEffect Skill { get => _skill; set => _skill = value; }
 
         public float CurrentTime => _currentTime;
 
@@ -79,6 +83,8 @@ namespace HeroLogic
 
         public int Energy => PlayerPrefs.GetInt($"Energy{Name}", _maxEnergy);
         public int MaxEnergy => _maxEnergy;
+
+        public int Cost => _cost;
 
         public int Level => _level;
 

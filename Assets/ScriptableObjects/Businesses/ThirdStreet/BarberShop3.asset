@@ -15,18 +15,24 @@ MonoBehaviour:
   _image: {fileID: 21300000, guid: c6fb8a71753fa3a4cbcae57c439fdb27, type: 3}
   _background: {fileID: 21300000, guid: d0c3d4d4cda4d8547911ad1ea1e5d427, type: 3}
   _name: Barbershop
-  _cost: 60000
+  _cost: 10000
   _enemyHeroes:
   - {fileID: 7776824700740608124, guid: 674fed5f9141e3549ac26e757499d2d1, type: 3}
   - {fileID: 7776824700740608124, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
   - {fileID: 7776824700740608124, guid: 96bc0f63175174f40950646e5f8fd2c7, type: 3}
+  _damageMultiple: 2
+  _healthMultiple: 2
   _earningDurication: 4
   _earning: 2000
   _level: 1
   _maxLevel: 5
-  _upgradeCost: 1600
-  _earningUpgrade: 3500
+  _upgradeCost: 1000
+  _earningUpgrade: 300
   _index: 2
+  BusinessImage: {fileID: 0}
+  StreetName: 
   _upgradeProgress: 0
   _workingHero:
     value: {fileID: 0}
+  _onManagerSet:
+    _PersistentCalls: []

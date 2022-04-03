@@ -20,9 +20,11 @@ namespace Assets.CodeBase.Zenject
 
         public override void InstallBindings()
         {
-            foreach(var hero in _playerStats.Heroes)
+            foreach(var hero in _playerStats.Heroes.Value)
             {
                 //if (hero.Energy == 0) continue;
+
+                if (hero.Business != null) continue;
 
                 var icon = _factory.Create(_icon, _grid);
 

@@ -25,6 +25,8 @@ namespace Assets.CodeBase
 
         private bool _playing;
 
+        public bool GameStarter { get; private set; }
+
         private void Update()
         {
             if (_playing == false) return;
@@ -95,6 +97,8 @@ namespace Assets.CodeBase
             ActiveMenues();
 
             _playing = true;
+
+            GameStarter = true;
         }
 
         public void ActiveMenues()
@@ -144,7 +148,7 @@ namespace Assets.CodeBase
 
             _playerStats.Add(_playerStats.AttackingBusiness);
 
-            _playerStats.AttackingBusiness.StreetName = SceneManager.GetActiveScene().name;
+            _playerStats.AttackingBusiness.StreetName = _playerStats.LastSceneName;
         }
 
         private void Lose()

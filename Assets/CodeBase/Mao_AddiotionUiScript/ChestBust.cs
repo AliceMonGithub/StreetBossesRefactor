@@ -35,7 +35,7 @@ namespace CodeBase.Mao_AddiotionUiScript
 
             foreach (var hero in _heroes)
             {
-                PlayerStats.Heroes.Add(hero);
+                PlayerStats.Heroes.Value.Add(hero);
 
                 TemplateLoot.BackgroundColor = BackgroundColors[UnityEngine.Random.Range(0, BackgroundColors.Length)];
                 TemplateLoot.CharacterImage.sprite = hero.Image;

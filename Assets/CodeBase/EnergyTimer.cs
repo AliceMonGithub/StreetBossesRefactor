@@ -15,7 +15,7 @@ namespace Assets.CodeBase
 
         private void Update()
         {
-            foreach(var hero in _playerStats.Heroes)
+            foreach(var hero in _playerStats.Heroes.Value)
             {
                 if(hero.Energy != hero.MaxEnergy)
                 {

@@ -33,7 +33,7 @@ namespace Assets.CodeBase
             _icons.ForEach(icon => Destroy(icon.gameObject));
             _icons.Clear();
 
-            foreach(var hero in _playerStats.Heroes)
+            foreach(var hero in _playerStats.Heroes.Value)
             {
                 var icon = _factory.Create(_icon, _grid);
 
