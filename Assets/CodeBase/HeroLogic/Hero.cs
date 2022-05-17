@@ -1,5 +1,6 @@
 ﻿using CodeBase;
 using System;
+using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -62,9 +63,12 @@ namespace HeroLogic
         private CompositeDisposable _disposable = new CompositeDisposable();
         private CompositeDisposable _collectDisposable = new CompositeDisposable();
 
+        public List<GameObject> OnClickDestroy { get; private set; } = new List<GameObject>();
+
         public float Velosity { get; set; }
 
         public bool IsPlayerHero { get; set; }
+
         public bool Dead { get; set; }
 
         public int UpgradeCost => _levelsProperties[Level - 1].Cost;

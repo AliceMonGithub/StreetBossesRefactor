@@ -25,8 +25,21 @@ namespace Assets.CodeBase
         private SelectHeroInBusiness _menu;
         private Hero _hero;
 
+        private bool _isPlayerHero;
+
         public void Render()
         {
+            if(_isPlayerHero)
+            {
+                _nameText.text = "Unselect";
+
+                _heroImage.sprite = _hero.Image;
+
+                _featureImage.sprite = _features[Random.Range(0, _features.Length)];
+
+                return;
+            }
+
             _nameText.text = _hero.Name;
 
             _heroImage.sprite = _hero.Image;
@@ -36,6 +49,15 @@ namespace Assets.CodeBase
 
         public void Select()
         {
+            if(_isPlayerHero)
+            {
+                _menu.Select(null);
+
+                _onSelected.Invoke();
+
+                return;
+            }
+
             _menu.Select(_hero);
 
             _onSelected.Invoke();
@@ -46,10 +68,12 @@ namespace Assets.CodeBase
             _menu.Hide();
         }
 
-        public void Initialize(Hero hero, SelectHeroInBusiness menu)
+        public void Initialize(Hero hero, SelectHeroInBusiness menu, bool isBusinessHero = false)
         {
             _hero = hero;
             _menu = menu;
+
+            _isPlayerHero = isBusinessHero;
 
             _onInitialize.Invoke();
         }

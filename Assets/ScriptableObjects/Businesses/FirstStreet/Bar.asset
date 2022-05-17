@@ -17,9 +17,9 @@ MonoBehaviour:
   _name: Bar "Last straw"
   _cost: 5000
   _enemyHeroes:
-  - {fileID: 7776824700740608124, guid: 674fed5f9141e3549ac26e757499d2d1, type: 3}
-  - {fileID: 7776824700740608124, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
-  - {fileID: 7776824700740608124, guid: 96bc0f63175174f40950646e5f8fd2c7, type: 3}
+  - {fileID: 7776824700740608124, guid: 93e74f22377e6c44fbf87205e23a92d7, type: 3}
+  - {fileID: 7776824700740608124, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
+  - {fileID: 7776824700740608124, guid: 69e945913486af24b8d10a36ab616669, type: 3}
   _damageMultiple: 1
   _healthMultiple: 1
   _earningDurication: 3
@@ -30,7 +30,7 @@ MonoBehaviour:
   _earningUpgrade: 15
   _index: 0
   BusinessImage: {fileID: 0}
-  StreetName: Battle
+  StreetName: FirstStreet
   _upgradeProgress: 75
   _workingHero:
     value: {fileID: 0}

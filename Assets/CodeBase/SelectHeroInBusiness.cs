@@ -44,15 +44,28 @@ namespace Assets.CodeBase
 
             _icons.Clear();
 
-            var nullIcon = Instantiate(_nullIcon, _grid);
+            //var nullIcon = Instantiate(_nullIcon, _grid);
 
-            nullIcon.Initialize(null, this);
+           // nullIcon.Initialize(null, this);
 
-            _icons.Add(nullIcon.gameObject);
+           // _icons.Add(nullIcon.gameObject);
 
             foreach(var hero in _playerStats.Heroes.Value)
             {
-                if (hero.Business) continue;
+                //if ( hero.Business != _business) continue;
+
+                if (hero.Business != null && hero.Business != _business) continue;
+
+                if (hero.Business == _business)
+                {
+                    var Heroicon = Instantiate(_icon, _grid);
+
+                    Heroicon.Initialize(hero, this, true);
+
+                    _icons.Add(Heroicon.gameObject);
+
+                    continue;
+                }
 
                 var icon = Instantiate(_icon, _grid);
 

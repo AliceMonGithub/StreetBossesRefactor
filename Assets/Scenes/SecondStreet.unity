@@ -7861,6 +7861,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onHideEvent:
     _PersistentCalls:
+    - _Target: {fileID: 2062964611}
+      _MethodName: TryShow
+      _PersistentArguments: []
     - _Target: {fileID: 3123283810714383339}
       _MethodName: BeginTransitions
       _PersistentArguments: []
@@ -12330,8 +12333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecb5377fe1bdd944a09f7d6b10dc8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinsTexts:
-  - {fileID: 785584246}
+  _coinsText: {fileID: 785584246}
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
 --- !u!4 &1271699731
 Transform:
@@ -20579,6 +20581,229 @@ MonoBehaviour:
   - {fileID: 2040151103}
   - {fileID: 1878369210}
   Transform: {fileID: 2040151103}
+--- !u!1 &2062964609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062964610}
+  - component: {fileID: 2062964611}
+  - component: {fileID: 2062964612}
+  - component: {fileID: 2062964613}
+  - component: {fileID: 2062964614}
+  m_Layer: 0
+  m_Name: Tutorials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2062964610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062964609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1293.5509, y: 465.12125, z: -99.16566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2062964611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062964609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5ed5ac38068cd4f80fbfa2c320dbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onCloseDialog:
+    _PersistentCalls: []
+  _onShow:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
+      _MethodName: AddQuest
+      _PersistentArguments:
+      - _Type: 13
+        _Int: 0
+        _String: CodeBase.QuestLogic.Quest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 11400000, guid: 3da11c6904b175742b36c1c1b420b007, type: 2}
+    - _Target: {fileID: 3123283810714383341}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _startupText: 'Hey!
+
+    I will help you on this street.
+
+    First, try to capture
+    some businesses on this street.'
+  _tutorialInfo: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
+  _dialog: {fileID: 3123283810714383340}
+--- !u!114 &2062964612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062964609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec3f4cc8e10b314cb0b5b3038c8f51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onCloseDialog:
+    _PersistentCalls:
+    - _Target: {fileID: 3123283810714383342}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _onShow:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
+      _MethodName: AddQuest
+      _PersistentArguments:
+      - _Type: 13
+        _Int: 0
+        _String: CodeBase.QuestLogic.Quest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 11400000, guid: dde9eaf6a6d856f4db23f064531cddd8, type: 2}
+    - _Target: {fileID: 3123283810714383341}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _startupText: 'I see you lost...
+
+    To win, you need to upgrade all your heroes
+    to the second level. Do it in the Capo tab'
+  _tutorialInfo: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
+  _dialog: {fileID: 3123283810714383340}
+--- !u!114 &2062964613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062964609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6d0eef912881145947a377b3cea949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onShow:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
+      _MethodName: AddQuest
+      _PersistentArguments:
+      - _Type: 13
+        _Int: 0
+        _String: CodeBase.QuestLogic.Quest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 11400000, guid: 6a705eef331a3a64680f59c83605737c, type: 2}
+    - _Target: {fileID: 3123283810714383341}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _startupText: 'Fine!
+
+    Now you have become stronger and you can take over the
+    businesses on this street.'
+  _tutorialInfo: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
+  _dialog: {fileID: 3123283810714383340}
+--- !u!114 &2062964614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062964609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438ac85b1f1d20c458e35304b0cb550e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onShow:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
+      _MethodName: AddQuest
+      _PersistentArguments:
+      - _Type: 13
+        _Int: 0
+        _String: CodeBase.QuestLogic.Quest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 11400000, guid: 32d49b52c752b914d8c0d2c6a17854aa, type: 2}
+    - _Target: {fileID: 3123283810714383341}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _startupText: 'Good job!
+
+    Now you can freely explore other streets and earn
+    money'
+  _tutorialInfo: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
+  _dialog: {fileID: 3123283810714383340}
 --- !u!1 &2072118142
 GameObject:
   m_ObjectHideFlags: 0
@@ -21584,10 +21809,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3123283809565696161, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3123283809697548875, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
       propertyPath: _cameraMovement
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 3123283809774707118, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3123283810117143922, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21695,3 +21928,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf9e69020890af4aada5ea4a80cf7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3123283810714383340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6188468480177622170, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+  m_PrefabInstance: {fileID: 3123283810714383338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3349f04e72f95f44fb9cb4919465d4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3123283810714383341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6677991085804427268, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+  m_PrefabInstance: {fileID: 3123283810714383338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3123283810714383342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3927520522999398517, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+  m_PrefabInstance: {fileID: 3123283810714383338}
+  m_PrefabAsset: {fileID: 0}

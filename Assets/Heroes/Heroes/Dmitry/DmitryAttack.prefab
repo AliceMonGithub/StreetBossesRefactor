@@ -236,7 +236,7 @@ MonoBehaviour:
   _maxEnergy: 5
   _chargeTime: 1
   _cost: 100
-  _level: 3
+  _level: 1
   _levelsProperties:
   - _cost: 100
     _health: 15

@@ -65,6 +65,8 @@ namespace HeroLogic
 
         public int StartHealth => _startHealth;
 
+        public bool MeelCombat => _meelCombat;
+
         public int Damage { get => _damage; set => _damage = value; }
 
         private Vector3 _lastPosition;
@@ -165,19 +167,12 @@ namespace HeroLogic
         public void FindNewTarget()
         {
             if (_hero.Dead) return;
-         
-            if(_meelCombat == false)
-            {
-                
-            }
-            else
-            {
-                var nearHero = Heroes.FindNearHero(_hero);
 
-                if (nearHero == null) return;
+            var nearHero = Heroes.FindNearHero(_hero);
 
-                _target = nearHero.HeroAttack;
-            }
+            if (nearHero == null) return;
+
+            _target = nearHero.HeroAttack;
         }
 
         public void SetTarget(HeroAttack hero)

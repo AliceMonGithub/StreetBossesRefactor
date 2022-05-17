@@ -28,7 +28,7 @@ namespace Assets.CodeBase.QuestLogic
 
         public void Lose()
         {
-            if(_streetName == PlayerStats.AttackingBusiness.StreetName)
+            if(_streetName == PlayerStats.LastSceneName)
             {
                 AttackLose = true;
             }

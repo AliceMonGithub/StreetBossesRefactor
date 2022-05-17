@@ -3,6 +3,7 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Plugins/TexturePacker/Example/SpriteSheet/sprites.tpsheet
+- Assets/Sprites/Characters/BlackMan/Hero.tpsheet
 - Assets/Sprites/Characters/Character 01/Character1.tpsheet
 - Assets/Sprites/Characters/Character 02/Character2.tps.tpsheet
 - Assets/Sprites/Characters/Character 03/Character3.tpsheet
@@ -14,9 +15,15 @@ tpsheetFileNames:
 - Assets/Sprites/Characters/Character 11/Character11.tps.tpsheet
 - Assets/Sprites/Characters/Character 13/Character13.tpsheet
 - Assets/Sprites/Characters/Character 15/Hero14.tpsheet
+- Assets/Sprites/Characters/New/Hero.tpsheet
+- Assets/Sprites/Characters/Sidor/Hero.tpsheet
+- Assets/Sprites/Characters/Terminator/Hero.tpsheet
+- Assets/Sprites/Characters/West/TP/Hero.tpsheet
+- Assets/Sprites/Characters/Губастый/TP/Hero.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Plugins/TexturePacker/Example/SpriteSheet/sprites.png
+- Assets/Sprites/Characters/BlackMan/Hero.png
 - Assets/Sprites/Characters/Character 01/Character1.png
 - Assets/Sprites/Characters/Character 02/Character2.tps.png
 - Assets/Sprites/Characters/Character 03/Character3.png
@@ -28,9 +35,20 @@ textureFileNames:
 - Assets/Sprites/Characters/Character 11/Character11.tps.png
 - Assets/Sprites/Characters/Character 13/Character13.png
 - Assets/Sprites/Characters/Character 15/Hero14.png
+- Assets/Sprites/Characters/New/Hero.png
+- Assets/Sprites/Characters/Sidor/Hero.png
+- Assets/Sprites/Characters/Terminator/Hero.png
+- Assets/Sprites/Characters/West/TP/Hero.png
+- Assets/Sprites/Characters/Губастый/TP/Hero.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
 - Assets/Plugins/TexturePacker/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

@@ -9,14 +9,21 @@ public class SceneLoaderInstaller : MonoInstaller
 {
     [SerializeField] private UltEvent _onHideEvent;
 
-    private LoadCurtain _loadCurtain;
+    [SerializeField] private LoadCurtain _loadCurtain;
 
     public override void InstallBindings()
     {
-        _loadCurtain = FindObjectOfType<LoadCurtain>();
+        if(_loadCurtain == null)
+        {
+            var loadCurtain = FindObjectOfType<LoadCurtain>();
 
-        _loadCurtain.OnHideEvent += _onHideEvent.Invoke;
+            loadCurtain.OnHideEvent += _onHideEvent.Invoke;
 
-        Container.Bind<LoadCurtain>().FromInstance(_loadCurtain).AsSingle();
+            Container.Bind<LoadCurtain>().FromInstance(loadCurtain).AsSingle();
+        }
+        else
+        {
+            Container.Bind<LoadCurtain>().FromInstance(_loadCurtain).AsSingle();
+        }
     }
 }

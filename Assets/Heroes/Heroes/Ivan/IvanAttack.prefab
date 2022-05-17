@@ -111,14 +111,14 @@ MonoBehaviour:
   _cost: 100
   _level: 1
   _levelsProperties:
-  - _cost: 100
-    _health: 120
-    _damage: 18
-    _speed: 3.2
-  - _cost: 100
-    _health: 150
-    _damage: 20
-    _speed: 3.5
+  - _cost: 500
+    _health: 85
+    _damage: 7
+    _speed: 2.4
+  - _cost: 1000
+    _health: 95
+    _damage: 9
+    _speed: 2.65
   _patrolHero: {fileID: 3575673142749185073, guid: 881945703bcdadb4b88b639124bebf51, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _spriteRenderer: {fileID: 2709374952247095671}
@@ -184,11 +184,11 @@ MonoBehaviour:
     - _Target: {fileID: 7776824700740608124}
       _MethodName: FindNewTarget
       _PersistentArguments: []
-  _speed: 1.5
+  _speed: 2.2
   _moveSmooth: 0.2
   _health:
-    value: 108
-  _damage: 1
+    value: 60
+  _damage: 5
   _attackDistance: 0.65
   _meelCombat: 1
   _effect: {fileID: 0}

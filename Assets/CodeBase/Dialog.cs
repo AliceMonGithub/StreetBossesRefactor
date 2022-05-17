@@ -21,6 +21,19 @@ namespace Assets.CodeBase.TutorialLogic
 
         public void Show(string text)
         {
+            if(_hidingObjects.Length == 0)
+            {
+                _dialog.SetActive(true);
+
+                _text?.PrintText(text);
+
+                _onShow.Invoke();
+
+                _disposable.Clear();
+
+                return;
+            }
+
             Observable.EveryUpdate().Subscribe(_ =>
             {
                 var canShow = true;
@@ -39,13 +52,24 @@ namespace Assets.CodeBase.TutorialLogic
                 {
                     _dialog.SetActive(true);
 
-                    _text.PrintText(text);
+                    _text?.PrintText(text);
 
                     _onShow.Invoke();
 
                     _disposable.Clear();
                 }
+
             }).AddTo(_disposable);
+        }
+
+        public void StopTime()
+        {
+            Time.timeScale = 0f;
+        }
+
+        public void ResumeTime()
+        {
+            Time.timeScale = 1f;
         }
 
         public void CloseDialogEvent()

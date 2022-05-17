@@ -188,7 +188,7 @@ MonoBehaviour:
   _moveSmooth: 0.2
   _health:
     value: 86
-  _damage: 3
+  _damage: 4
   _attackDistance: 0.65
   _meelCombat: 1
   _effect: {fileID: 0}

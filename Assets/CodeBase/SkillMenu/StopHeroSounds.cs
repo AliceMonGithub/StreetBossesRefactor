@@ -6,7 +6,17 @@ namespace Assets.CodeBase.SkillMenu
 {
     public class StopHeroSounds : MonoBehaviour
     {
+        [SerializeField] private bool _onEnable = true;
+
         private void OnEnable()
+        {
+            if(_onEnable)
+            {
+                StopSound();
+            }
+        }
+
+        public void StopSound()
         {
             var heroes = FindObjectsOfType<Hero>();
 
@@ -14,7 +24,7 @@ namespace Assets.CodeBase.SkillMenu
             {
                 var audios = heroes[i].GetComponentsInChildren<AudioSource>();
 
-                foreach(var audio in audios)
+                foreach (var audio in audios)
                 {
                     audio.Stop();
                 }

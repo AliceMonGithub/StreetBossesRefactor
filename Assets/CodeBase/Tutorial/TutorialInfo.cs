@@ -19,6 +19,14 @@ namespace Assets.CodeBase
         public bool SecondCenterAttackHelp;
         public bool UpgradeHeroesSecondHelp;
         public bool TakeThirdStreetHelp;
+        public bool EarnMoneyQuest;
+
+        [Space]
+
+        public bool SelectEnemyHelp;
+        public bool CanSelectEnemyHelp;
+        public bool UseSkillHelp;
+        public bool TringleSkillHelp;
 
         public void UnlockBusinessHelp()
         {
@@ -40,6 +48,11 @@ namespace Assets.CodeBase
             SetManagerHelp = true;
         }
 
+        public void UnlockEarnMoneyQuest()
+        {
+            EarnMoneyQuest = true;
+        }
+
         public void UnlockGoNextStreetHelp()
         {
             GoNextStreetHelp = true;
@@ -52,27 +65,37 @@ namespace Assets.CodeBase
 
         public void UnlockUpgradeHeroesFirstHelp()
         {
-            SecondStreetAttackHelp = true;
+            UpgradeHeroesFirstHelp = true;
         }
 
         public void UnlockTakeSecondStreetHelp()
         {
-            SecondStreetAttackHelp = true;
+            TakeSecondStreetHelp = true;
         }
 
         public void UnlockSecondCenterAttackHelp()
         {
-            SecondStreetAttackHelp = true;
+            SecondCenterAttackHelp = true;
         }
 
         public void UnlockUpgradeHeroesSecondHelp()
         {
-            SecondStreetAttackHelp = true;
+            UpgradeHeroesSecondHelp = true;
         }
 
         public void UnlockThirdStreetHelp()
         {
-            SecondStreetAttackHelp = true;
+            TakeThirdStreetHelp = true;
+        }
+
+        public void UnlockSelectEnemyHelp()
+        {
+            if(CanSelectEnemyHelp)
+            {
+                SelectEnemyHelp = true;
+
+                CanSelectEnemyHelp = false;
+            }
         }
     }
 }

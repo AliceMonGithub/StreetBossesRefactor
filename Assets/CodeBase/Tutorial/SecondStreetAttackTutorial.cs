@@ -32,7 +32,7 @@ namespace Assets.CodeBase.Tutorial
 
                 _dialog.Show(_startupText);
 
-                _onShow.Invoke();
+                _onShow?.Invoke();
 
                 _tutorialInfo.SecondStreetAttackHelp = false;
             }

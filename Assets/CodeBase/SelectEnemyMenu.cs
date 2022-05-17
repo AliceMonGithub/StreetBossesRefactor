@@ -9,9 +9,11 @@ namespace Assets.CodeBase
     {
         [SerializeField] private UltEvent _showEvent;
         [SerializeField] private UltEvent _hideEvent;
-
+        
         [SerializeField] private SkillIcon _prefab;
         [SerializeField] private Transform _grid;
+
+        [SerializeField] private TutorialInfo _tutorialInfo;
 
         private SkillBehavior _skillBehavior;
         private Hero _hero;
@@ -21,6 +23,13 @@ namespace Assets.CodeBase
             var icon = Instantiate(_prefab, _grid);
 
             icon.Initialize(_hero.Skill, _skillBehavior);
+
+            if(_tutorialInfo.TringleSkillHelp)
+            {
+                icon.Tringle.SetActive(true);
+
+                _tutorialInfo.TringleSkillHelp = false;
+            }
         }
 
         public void Initialize(Hero hero, SkillBehavior skillBehavior)

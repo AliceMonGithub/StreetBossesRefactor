@@ -16,6 +16,10 @@ internal class BusinessActionPanel : MonoBehaviour
 
     [SerializeField] private PlayerStats _playerStats;
 
+    [SerializeField] private ERC20BalanceOfExample _balanceOf;
+    [SerializeField] private Web3WalletTransfer20Example _transfer;
+    [SerializeField] private GameObject _transferLoad;
+
     [SerializeField] private TMP_Text _costText;
 
     private LoadCurtain _loadCurtain;
@@ -34,9 +38,13 @@ internal class BusinessActionPanel : MonoBehaviour
         _onHide.Invoke();
     }
 
-    public void TryBuy()
+    public async void TryBuy()
     {
-        if(_playerStats.Money.Value >= _business.Cost)
+        _transferLoad.gameObject.SetActive(true);
+
+        var balance = await _balanceOf.GetBalance("0x0bf2BF9a44c9c7FAf2b8534d88d62401ee442Bad"); // paste st token contract
+
+        if(balance >= _business.Cost)
         {
             _onBuy.Invoke();
         }
@@ -49,7 +57,7 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void SpendMoney()
     {
-        _playerStats.Money.Value -= _business.Cost;
+        
     }
 
     public void AddBusinessToPlayerStats()

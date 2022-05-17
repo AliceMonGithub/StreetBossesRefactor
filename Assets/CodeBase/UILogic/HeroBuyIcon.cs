@@ -32,11 +32,14 @@ namespace CodeBase.UILogic
 
         public void Buy()
         {
-            _playerStats.Heroes.Value.Add(_hero);
-
-            _playerStats.Money.Value -= _hero.Cost;
-
-            _onBuy.Invoke();
+            if(_playerStats.Money.Value >= _hero.Cost)
+            {
+                _playerStats.Heroes.Value.Add(_hero);
+                
+                _playerStats.Money.Value -= _hero.Cost;
+                
+                _onBuy.Invoke();
+            }
         }
 
         private void Render()

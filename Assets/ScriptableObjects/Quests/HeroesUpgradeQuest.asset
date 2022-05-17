@@ -18,8 +18,8 @@ MonoBehaviour:
       _MethodName: UnlockTakeSecondStreetHelp
       _PersistentArguments: []
   _name: Upgrade heroes
-  _description: Upgrade heroes to the second level
-  _progress: 0
+  _description: Upgrade all you heroes to the second level
+  _progress: 3
   _maxProgress: 3
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0

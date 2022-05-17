@@ -16,7 +16,7 @@ namespace Assets.CodeBase.QuestLogic
 
         public override void CheckComplete()
         {
-            var heroes = PlayerStats.Heroes.Value.FindAll(hero => hero.Level == _level);
+            var heroes = PlayerStats.Heroes.Value.FindAll(hero => hero.Level >= _level);
 
             MaxProgress = PlayerStats.Heroes.Value.Count;
             Progress = heroes.Count;

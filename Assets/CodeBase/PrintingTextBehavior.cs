@@ -24,22 +24,29 @@ namespace Assets.CodeBase
 
         private IEnumerator TextPrinting(string text)
         {
-            yield return new WaitForSeconds(2f);
-
-            _printingSound.enabled = true;
-            _printingSound.Play();
-
-            _text.text = string.Empty;
-
-            foreach (var lastChar in text.ToCharArray())
+            if(Time.deltaTime != 0)
             {
-                _text.text += lastChar;
+                yield return new WaitForSeconds(2f);
 
-                yield return new WaitForSeconds(_time);
+                _printingSound.enabled = true;
+                _printingSound.Play();
+
+                _text.text = string.Empty;
+
+                foreach (var lastChar in text.ToCharArray())
+                {
+                    _text.text += lastChar;
+
+                    yield return new WaitForSeconds(_time);
+                }
+
+                _printingSound.Stop();
+                _printingSound.enabled = false;
             }
-
-            _printingSound.Stop();
-            _printingSound.enabled = false;
+            else
+            {
+                _text.text = text;
+            }
         }
     }
 }

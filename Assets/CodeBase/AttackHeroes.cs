@@ -5,6 +5,7 @@ using UnityEngine;
 using UniRx;
 using CodeBase;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 namespace Assets.CodeBase
 {
@@ -17,6 +18,8 @@ namespace Assets.CodeBase
 
         [SerializeField] private GameObject[] _activatingMenues;
         [SerializeField] private GameObject[] _deactiveMenues;
+
+        [SerializeField] private GameObject _tringle;
 
         public List<Hero> PlayerHeroes;
         public List<Hero> EnemyHeroes;
@@ -44,6 +47,28 @@ namespace Assets.CodeBase
 
                 _playing = false;
             }
+        }
+
+        public void RenderTringle()
+        {
+            var hero = PlayerHeroes.FirstOrDefault(hero => hero.Skill != null);
+
+            if (hero == null) return;
+
+            var tringle = Instantiate(_tringle, hero.transform);//, new Vector3(0, 1.75f, 0), Quaternion.identity, hero.transform);
+
+            tringle.transform.localPosition = new Vector3(0, 1.75f, 0);
+
+            hero.OnClickDestroy.Add(tringle);
+        }
+
+        public void RenderTringle(Hero hero)
+        {
+            var tringle = Instantiate(_tringle, hero.transform);//, new Vector3(0, 1.75f, 0), Quaternion.identity, hero.transform);
+
+            tringle.transform.localPosition = new Vector3(0, 1.75f, 0);
+
+            hero.OnClickDestroy.Add(tringle);
         }
 
         public Hero FindNearHero(Hero currentHero)

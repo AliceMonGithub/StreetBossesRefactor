@@ -23,8 +23,8 @@ MonoBehaviour:
   _damageMultiple: 1
   _healthMultiple: 1
   _earningDurication: 4
-  _earning: 30
-  _level: 1
+  _earning: 60
+  _level: 3
   _maxLevel: 5
   _upgradeCost: 120
   _earningUpgrade: 15

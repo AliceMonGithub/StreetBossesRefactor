@@ -17,8 +17,8 @@ MonoBehaviour:
     - _Target: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
       _MethodName: UnlockUpgradeHeroesFirstHelp
       _PersistentArguments: []
-  _name: Attack business
-  _description: Try attack business in second street
+  _name: Try take business
+  _description: Try take business in second street
   _progress: 0
   _maxProgress: 1
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}

@@ -1,4 +1,6 @@
 ﻿using HeroLogic;
+using System.Collections.Generic;
+using System.Linq;
 using UniRx;
 using UnityEngine;
 
@@ -8,6 +10,8 @@ namespace Assets.CodeBase.SkillMenu
     {
         [SerializeField] private SelectEnemyMenu _selectMenu;
         [SerializeField] private GameObject _selectEnemyMenu;
+
+        [SerializeField] private List<GameObject> _hidingObjects;
 
         [SerializeField] private AttackHeroes _heroes;
 
@@ -29,6 +33,8 @@ namespace Assets.CodeBase.SkillMenu
         {
             if (_enabled == false) return;
 
+            //if (_hidingObjects.Any(gObject => gObject.activeSelf == true)) return;
+
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             HeroAttack hero;
@@ -37,9 +43,9 @@ namespace Assets.CodeBase.SkillMenu
             {
                 hero = hit.collider.GetComponent<HeroAttack>();
 
-                if (hero.Hero.Skill == null && hero.Target || _heroes.GameStarter == false || _menuEnabled) return;
+                if (_heroes.GameStarter == false || _menuEnabled) return;//hero.Hero.Skill == null && hero.Target || _heroes.GameStarter == false || _menuEnabled) return;
 
-                if(_oldPlayerHero != null && _oldPlayerHero != hero)
+                if (_oldPlayerHero != null && _oldPlayerHero != hero)
                 {
                     _oldPlayerHero.Hero.SpriteRenderer.color = Color.white;
                 }
@@ -48,9 +54,12 @@ namespace Assets.CodeBase.SkillMenu
 
                 if (Input.GetButtonDown("Fire1") && _hero != null)
                 {
-                    if(_hero.Target == null)
+                    if(_hero.Hero.Skill == null && _hero.MeelCombat == false)
                     {
                         _selectEnemyMenu.SetActive(true);
+
+                        _hero.Hero.OnClickDestroy.ForEach(gObject => Destroy(gObject));
+                        _hero.Hero.OnClickDestroy.Clear();
 
                         FindEnemy();
 
@@ -58,9 +67,12 @@ namespace Assets.CodeBase.SkillMenu
 
                         _menuEnabled = true;
                     }
-                    else
+                    else if(_hero.Hero.Skill != null)
                     {
                         _selectMenu.Initialize(hero.Hero, this);
+
+                        _hero.Hero.OnClickDestroy.ForEach(gObject => Destroy(gObject));
+                        _hero.Hero.OnClickDestroy.Clear();
 
                         _playerHero = _hero;
 
@@ -133,6 +145,9 @@ namespace Assets.CodeBase.SkillMenu
                             if(skill != null)
                             {
                                 skill.Target = enemyHero;
+
+                                enemyHero.Hero.OnClickDestroy.ForEach(gObject => Destroy(gObject));
+                                enemyHero.Hero.OnClickDestroy.Clear();
 
                                 skill.Active();
 

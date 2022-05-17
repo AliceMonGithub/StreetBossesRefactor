@@ -5,11 +5,10 @@ using UniRx;
 
 public class CoinsRender : MonoBehaviour
 {
-    [SerializeField] private TMP_Text[] _coinsTexts;
+    [SerializeField] private TMP_Text _coinsText;
     [SerializeField] private PlayerStats _playerStats;
 
     private CompositeDisposable _disposable = new CompositeDisposable();
-
     private int Money => _playerStats.Money.Value;
 
     private void OnEnable()
@@ -24,6 +23,6 @@ public class CoinsRender : MonoBehaviour
 
     private void RenderCoins()
     {
-        foreach (var text in _coinsTexts) text.text = Money.ToString();
+        _coinsText.text = Money.ToString();
     }
 }

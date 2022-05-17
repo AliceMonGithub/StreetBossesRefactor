@@ -37,11 +37,9 @@ namespace Assets.CodeBase.SkillMenu
             heroes.ForEach(hero => InstantiateIcon(hero.Skill, hero));
         }
 
-        public void InstantiateIcon(SkillEffect skill, Hero hero)
+        public void InstantiateIcon(SkillEffect skill, Hero hero)//, AttackHeroes attackHeroes)
         {
             var icon = Instantiate(_prefab, _grid);
-
-          //  icon.Initialize(skill, hero.HeroAttack);
         }
     }
 }

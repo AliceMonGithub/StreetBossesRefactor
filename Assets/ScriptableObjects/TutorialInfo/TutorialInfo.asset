@@ -24,3 +24,8 @@ MonoBehaviour:
   SecondCenterAttackHelp: 0
   UpgradeHeroesSecondHelp: 0
   TakeThirdStreetHelp: 0
+  EarnMoneyQuest: 0
+  SelectEnemyHelp: 1
+  CanSelectEnemyHelp: 1
+  UseSkillHelp: 1
+  TringleSkillHelp: 1

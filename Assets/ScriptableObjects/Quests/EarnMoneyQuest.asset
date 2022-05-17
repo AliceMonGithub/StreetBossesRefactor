@@ -19,7 +19,7 @@ MonoBehaviour:
       _PersistentArguments: []
   _name: Earn 300 coins
   _description: Earn 300 coins by business
-  _progress: 69399
+  _progress: 300
   _maxProgress: 300
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0

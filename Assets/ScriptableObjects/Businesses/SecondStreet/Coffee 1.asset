@@ -20,10 +20,10 @@ MonoBehaviour:
   - {fileID: 7776824700740608124, guid: 674fed5f9141e3549ac26e757499d2d1, type: 3}
   - {fileID: 7776824700740608124, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
   - {fileID: 7776824700740608124, guid: 96bc0f63175174f40950646e5f8fd2c7, type: 3}
-  _damageMultiple: 2
-  _healthMultiple: 2
+  _damageMultiple: 1.4
+  _healthMultiple: 1.4
   _earningDurication: 4
-  _earning: 200
+  _earning: 100
   _level: 1
   _maxLevel: 5
   _upgradeCost: 800
