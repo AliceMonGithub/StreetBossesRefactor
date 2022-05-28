@@ -15,19 +15,9 @@ MonoBehaviour:
   _money:
     value: 300
   _heroes:
-    value:
-    - {fileID: 7694260499757277902, guid: 362e3babd67f09b48b47c5006e67806a, type: 3}
-    - {fileID: 7694260499757277902, guid: 14466bac1e8300741accb597b5da27be, type: 3}
-    - {fileID: 7694260499757277902, guid: 1c29457267f90e044ae7d7b133714636, type: 3}
-    - {fileID: 7694260499757277902, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
-    - {fileID: 7694260499757277902, guid: f17243b1093484b40a12651b7f838c5e, type: 3}
-    - {fileID: 7694260499757277902, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
+    value: []
   _businesses:
-    value:
-    - {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
-  _quests:
-  - {fileID: 11400000, guid: ddfe54fa0cf5ed841975db4b431b41d7, type: 2}
-  - {fileID: 11400000, guid: b6b5ecd9b5a5b9449ade57268eef1e3f, type: 2}
-  - {fileID: 11400000, guid: a0389b77c803d9f48b60e43189b5ea94, type: 2}
-  LastSceneName: FirstStreet
-  AttackingBusiness: {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
+    value: []
+  _quests: []
+  LastSceneName: FirstStreetAll
+  AttackingBusiness: {fileID: 11400000, guid: a1e7afd5de9149a4abffe9945b41d6d3, type: 2}

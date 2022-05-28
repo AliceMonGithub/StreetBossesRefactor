@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 7695236879257741286, guid: aebf7785efa053f48b5abd9da51aceb5, type: 3}
-  _name: Mike
+  _name: Terminator
   _skill: {fileID: 0}
   _autoCollectTime: 2
   _maxEnergy: 5

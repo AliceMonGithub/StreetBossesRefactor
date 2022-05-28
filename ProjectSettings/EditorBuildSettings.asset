@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Web3Unity/Scenes/WebLogin.unity
-    guid: a1b2001e782bb47659732d7e2bcdc35f
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: cb4fdf57fa8ca954997208311592154d
   - enabled: 1
@@ -17,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: 4e28fe65a25e0d0439b0b10de71c4832
+  - enabled: 1
+    path: Assets/Scenes/FirstStreetDemo.unity
+    guid: 0afc8a90495911844bfe85e1a1526b0b
+  - enabled: 1
+    path: Assets/Scenes/FirstStreetAll.unity
+    guid: ab09d8f7c1e1de042b1c084c84dc0cb2
   m_configObjects: {}

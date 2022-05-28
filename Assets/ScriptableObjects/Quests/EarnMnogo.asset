@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onComplete:
     _PersistentCalls: []
-  _name: Earn 10.000 tokens
-  _description: Earn 10.000 st tokens. Last quest
-  _progress: 21755
-  _maxProgress: 10000
+  _name: Earn 100.000 tokens
+  _description: Earn 100.000 st tokens. Last quest
+  _progress: 0
+  _maxProgress: 100000
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0
-  _money: 10000
+  _money: 100000

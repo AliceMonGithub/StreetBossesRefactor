@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 2345064035035890974}
   - component: {fileID: -1516692061368139410}
   - component: {fileID: -827747583499447383}
+  - component: {fileID: 8676431387680243423}
   m_Layer: 0
   m_Name: OlegAttack
   m_TagString: Untagged
@@ -231,21 +232,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: -4440571659341237062, guid: c42a3edf64674ed469aa1e53568249b8, type: 3}
   _name: Oleg
-  _skill: {fileID: 0}
+  _skill: {fileID: 8676431387680243423}
   _autoCollectTime: 2
   _maxEnergy: 5
   _chargeTime: 1
   _cost: 100
   _level: 1
   _levelsProperties:
-  - _cost: 100
-    _health: 15
+  - _cost: 500
+    _health: 105
     _damage: 4
-    _speed: 3.2
-  - _cost: 100
-    _health: 20
+    _speed: 2
+  - _cost: 800
+    _health: 120
     _damage: 5
-    _speed: 3.5
+    _speed: 2.2
   _patrolHero: {fileID: 3575673142749185073, guid: 3254c7a166beb5248a813f3658c3fd46, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _spriteRenderer: {fileID: 2709374952247095671}
@@ -314,7 +315,7 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 84
+    value: 90
   _damage: 2
   _attackDistance: 5
   _meelCombat: 1
@@ -366,8 +367,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3147058, y: 1.1147058, z: 0.2}
-  m_Center: {x: -0.25441176, y: 0.55441177, z: 0}
+  m_Size: {x: 0.73132026, y: 1.1147058, z: 0.2}
+  m_Center: {x: -0.35401422, y: 0.55441177, z: 0}
+--- !u!114 &8676431387680243423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1de19f58b4c59144b227a067cfdbe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillImage: {fileID: 21300000, guid: 5e3cbf99dde7bf542a15aa0ef9eb0360, type: 3}
+  _bullet: {fileID: 7847634177816459032, guid: 81c71e102d871f64882f961e9a36399a, type: 3}
 --- !u!1 &8073995320899223306
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,11 +527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784406359352877279, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -960.1365
+      value: -960.5569
       objectReference: {fileID: 0}
     - target: {fileID: 2784406359352877279, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -538.48254
+      value: -538.3167
       objectReference: {fileID: 0}
     - target: {fileID: 2847305706587713308, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_Pivot.x

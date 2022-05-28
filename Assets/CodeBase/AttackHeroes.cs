@@ -57,7 +57,7 @@ namespace Assets.CodeBase
 
             var tringle = Instantiate(_tringle, hero.transform);//, new Vector3(0, 1.75f, 0), Quaternion.identity, hero.transform);
 
-            tringle.transform.localPosition = new Vector3(0, 1.75f, 0);
+            tringle.transform.localPosition = new Vector3(0, 2f, 0);
 
             hero.OnClickDestroy.Add(tringle);
         }

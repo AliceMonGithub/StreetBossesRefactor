@@ -10,10 +10,13 @@ namespace Assets.CodeBase.SkillMenu
     {
         [SerializeField] private SelectEnemyMenu _selectMenu;
         [SerializeField] private GameObject _selectEnemyMenu;
-
+        [SerializeField] private GameObject _tringle;
+        
         [SerializeField] private List<GameObject> _hidingObjects;
 
         [SerializeField] private AttackHeroes _heroes;
+
+        [SerializeField] private TutorialInfo _tutorialInfo;
 
         private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -23,6 +26,8 @@ namespace Assets.CodeBase.SkillMenu
 
         private HeroAttack _oldPlayerHero;
         private HeroAttack _oldEnemyHero;
+
+        private GameObject _enemyTringle;
 
         private bool _menuEnabled;
         private bool _enabled = true;
@@ -121,6 +126,19 @@ namespace Assets.CodeBase.SkillMenu
 
             HeroAttack enemyHero = new HeroAttack();
 
+            if(_tutorialInfo.TringleEnemyHelp)
+            {
+                var nearEnemy = _heroes.FindNearHero(_playerHero.Hero);
+
+                var tringle = Instantiate(_tringle, nearEnemy.transform);
+
+                tringle.transform.localPosition = new Vector3(0, 2f, 0);
+
+                _enemyTringle = tringle;
+
+                _tutorialInfo.TringleEnemyHelp = false;
+            }
+
             Observable.EveryUpdate().Subscribe(action =>
             {
                 if (_enabled == false)
@@ -148,7 +166,7 @@ namespace Assets.CodeBase.SkillMenu
 
                                 enemyHero.Hero.OnClickDestroy.ForEach(gObject => Destroy(gObject));
                                 enemyHero.Hero.OnClickDestroy.Clear();
-
+                                
                                 skill.Active();
 
                                 _playerHero.Hero.Skill = null;
@@ -156,6 +174,11 @@ namespace Assets.CodeBase.SkillMenu
                                 _menuEnabled = false;
 
                                 _selectMenu.Hide();
+
+                                if (_enemyTringle != null)
+                                {
+                                    Destroy(_enemyTringle);
+                                }
                             }
                             else
                             {

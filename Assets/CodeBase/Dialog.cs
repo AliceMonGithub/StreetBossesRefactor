@@ -8,6 +8,9 @@ namespace Assets.CodeBase.TutorialLogic
     public class Dialog : MonoBehaviour
     {
         [SerializeField] private UltEvent _onShow;
+        [SerializeField] private UltEvent _onEndDialog;
+
+        [SerializeField] private UltEvent _onFinishAnimation;
 
         [SerializeField] private GameObject[] _hidingObjects;
 
@@ -60,6 +63,16 @@ namespace Assets.CodeBase.TutorialLogic
                 }
 
             }).AddTo(_disposable);
+        }
+
+        public void OnFinishAnimation()
+        {
+            _onFinishAnimation.Invoke();
+        }
+
+        public void OnEndDialogEvent()
+        {
+            _onEndDialog.Invoke();
         }
 
         public void StopTime()

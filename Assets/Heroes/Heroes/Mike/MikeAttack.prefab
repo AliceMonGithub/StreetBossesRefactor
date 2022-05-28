@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 2345064035035890974}
   - component: {fileID: -1516692061368139410}
   - component: {fileID: -827747583499447383}
+  - component: {fileID: -6531688553340942407}
   m_Layer: 0
   m_Name: MikeAttack
   m_TagString: Untagged
@@ -206,12 +207,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 7695236879257741286, guid: aebf7785efa053f48b5abd9da51aceb5, type: 3}
+  m_Sprite: {fileID: -4440571659341237062, guid: b4e504bb60d6d90428056969c66a66d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.75, y: 2.74}
+  m_Size: {x: 7.01, y: 8.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -229,24 +230,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46935474694add143b8047cd3ba17c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 7695236879257741286, guid: aebf7785efa053f48b5abd9da51aceb5, type: 3}
+  _image: {fileID: -4440571659341237062, guid: b4e504bb60d6d90428056969c66a66d2, type: 3}
   _name: Mike
-  _skill: {fileID: 0}
+  _skill: {fileID: -6531688553340942407}
   _autoCollectTime: 2
   _maxEnergy: 5
   _chargeTime: 1
   _cost: 100
   _level: 1
   _levelsProperties:
-  - _cost: 100
-    _health: 15
+  - _cost: 450
+    _health: 90
     _damage: 4
-    _speed: 3.2
-  - _cost: 100
-    _health: 20
-    _damage: 5
-    _speed: 3.5
-  _patrolHero: {fileID: 3575673142749185073, guid: a8b5a9ecd967bc841a7fcb0b03d20a31, type: 3}
+    _speed: 1.9
+  - _cost: 750
+    _health: 110
+    _damage: 6
+    _speed: 2.2
+  _patrolHero: {fileID: 3575673142749185073, guid: 1e2847173ce0b144f90ae504c8f76796, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _spriteRenderer: {fileID: 2709374952247095671}
   _healthBarText: {fileID: 7505288615522528778}
@@ -314,9 +315,9 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 84
-  _damage: 5
-  _attackDistance: 0.65
+    value: 75
+  _damage: 2
+  _attackDistance: 5
   _meelCombat: 1
   _effect: {fileID: 0}
   _transform: {fileID: 5899679314360575849}
@@ -346,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 2235176776610821258}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44d0252bf607e174585b4c999bedfe7d, type: 2}
+  m_Controller: {fileID: 9100000, guid: f06aba068acae4f4cbe8786147afb27d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -366,8 +367,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3147058, y: 1.1147058, z: 0.2}
-  m_Center: {x: -0.25441176, y: 0.55441177, z: 0}
+  m_Size: {x: 0.44789344, y: 1.1147058, z: 0.2}
+  m_Center: {x: 0.0056319237, y: 0.55441177, z: 0}
+--- !u!114 &-6531688553340942407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1de19f58b4c59144b227a067cfdbe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillImage: {fileID: 21300000, guid: 5e3cbf99dde7bf542a15aa0ef9eb0360, type: 3}
+  _bullet: {fileID: 7847634177816459032, guid: 81c71e102d871f64882f961e9a36399a, type: 3}
 --- !u!1 &8073995320899223306
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +424,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5f999afef3baac64da03589166faa7d7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3a17c3cc6a7d38b41827ebedfa68c4f1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.119
   m_Pitch: 1
@@ -512,11 +527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784406359352877279, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -960.15717
+      value: -960.0586
       objectReference: {fileID: 0}
     - target: {fileID: 2784406359352877279, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -538.66925
+      value: -538.19305
       objectReference: {fileID: 0}
     - target: {fileID: 2847305706587713308, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_Pivot.x
@@ -601,6 +616,10 @@ PrefabInstance:
     - target: {fileID: 2847305706587713308, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456794858484902948, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e59c44d4e718240844284f05249d70, type: 3}

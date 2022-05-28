@@ -16,6 +16,8 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     [SerializeField] private GameObject[] _destroyingObjects;
 
+    [SerializeField] private GameObject[] _hidingObjects;
+
     [Space]
 
     [SerializeField] private Image _coinImage;
@@ -75,18 +77,6 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
     public void Update()
     {
-        //if(_deltaTime >= _business.EarningDurication)
-        //{
-        //    _coinsAmountText.text = Business.Earning.ToString();
-
-        //    if(_business.WorkingHero != null)
-        //    {
-        //        Invoke(nameof(TryCollect), _business.WorkingHero.AutoCollectTime);
-        //    }
-
-        //    return;
-        //}
-
         if (_deltaTime >= _business.EarningDurication)
         {
             if (_business.WorkingHero == null)

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.63
+  m_fontSize: 19.41
   m_fontSizeBase: 19.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.63
+  m_fontSize: 19.41
   m_fontSizeBase: 19.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 5188784135083826011}
   - component: {fileID: 5188784135083826012}
   - component: {fileID: 1438911682425186576}
+  - component: {fileID: 2125013619256522758}
   m_Layer: 5
   m_Name: QuestPanel
   m_TagString: Untagged
@@ -1070,3 +1071,23 @@ MonoBehaviour:
   _name: {fileID: 5188784134897055643}
   _description: {fileID: 5188784133765106885}
   _progress: {fileID: 5188784135009127662}
+--- !u!114 &2125013619256522758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188784135083826014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 400
+  m_PreferredHeight: 175
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1

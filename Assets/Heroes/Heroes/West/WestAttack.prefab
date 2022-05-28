@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 7694260499757277902}
   - component: {fileID: 7776824700740608124}
   - component: {fileID: 2345064035035890974}
+  - component: {fileID: 8975223151339466165}
   - component: {fileID: -1516692061368139410}
   - component: {fileID: -827747583499447383}
   m_Layer: 0
@@ -231,21 +232,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: -4440571659341237062, guid: 002b72e45cb55d448894559292b20370, type: 3}
   _name: West
-  _skill: {fileID: 0}
+  _skill: {fileID: 8975223151339466165}
   _autoCollectTime: 2
   _maxEnergy: 5
   _chargeTime: 1
   _cost: 100
   _level: 1
   _levelsProperties:
-  - _cost: 100
-    _health: 15
+  - _cost: 550
+    _health: 110
     _damage: 4
-    _speed: 3.2
-  - _cost: 100
-    _health: 20
-    _damage: 5
-    _speed: 3.5
+    _speed: 2
+  - _cost: 850
+    _health: 130
+    _damage: 6
+    _speed: 2.2
   _patrolHero: {fileID: 3575673142749185073, guid: 79420f981c5079648951c3f0bae604ec, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _spriteRenderer: {fileID: 2709374952247095671}
@@ -314,8 +315,8 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 84
-  _damage: 5
+    value: 80
+  _damage: 3
   _attackDistance: 5
   _meelCombat: 1
   _effect: {fileID: 0}
@@ -336,6 +337,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 7694260499757277902}
   _animator: {fileID: -1516692061368139410}
+--- !u!114 &8975223151339466165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388becb61e86cfe4d8acf04743ecc4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillImage: {fileID: 21300000, guid: 440637431852af645bcbb8a991f2ea82, type: 3}
+  _prefab: {fileID: -2728827565191576770, guid: 8ab0e75f9dbc4df489fc24d455ba8406, type: 3}
 --- !u!95 &-1516692061368139410
 Animator:
   serializedVersion: 3
@@ -366,8 +381,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3147058, y: 1.1147058, z: 0.2}
-  m_Center: {x: -0.25441176, y: 0.55441177, z: 0}
+  m_Size: {x: 0.48657238, y: 1.1147058, z: 0.2}
+  m_Center: {x: 0.0064763203, y: 0.55441177, z: 0}
 --- !u!1 &8073995320899223306
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784406359352877279, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -538.48254
+      value: -538.33264
       objectReference: {fileID: 0}
     - target: {fileID: 2847305706587713308, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_Pivot.x
@@ -601,6 +616,10 @@ PrefabInstance:
     - target: {fileID: 2847305706587713308, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456794858484902948, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e59c44d4e718240844284f05249d70, type: 3}

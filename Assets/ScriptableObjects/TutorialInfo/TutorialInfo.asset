@@ -29,3 +29,4 @@ MonoBehaviour:
   CanSelectEnemyHelp: 1
   UseSkillHelp: 1
   TringleSkillHelp: 1
+  TringleEnemyHelp: 1

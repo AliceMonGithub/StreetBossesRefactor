@@ -19,7 +19,7 @@ MonoBehaviour:
       _PersistentArguments: []
   _name: Set manager
   _description: Set manager on business
-  _progress: 1
+  _progress: 0
   _maxProgress: 1
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0

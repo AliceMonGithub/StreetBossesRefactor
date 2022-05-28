@@ -19,7 +19,7 @@ MonoBehaviour:
       _PersistentArguments: []
   _name: Buy 3 heroes
   _description: Buy 3 heroes in marketplace
-  _progress: 3
+  _progress: 0
   _maxProgress: 3
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0

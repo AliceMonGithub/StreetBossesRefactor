@@ -183,7 +183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000004407, y: 0.34404296}
+  m_AnchoredPosition: {x: -0.000000059604645, y: 0.34404296}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4409517347600104810
@@ -392,6 +392,7 @@ MonoBehaviour:
       _PersistentArguments: []
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   _destroyingObjects: []
+  _hidingObjects: []
   _coinImage: {fileID: 3520410860566494548}
   _heroIcon: {fileID: 1601232105423677401}
   _coinsAmountText: {fileID: 3598935108715212769}
@@ -722,7 +723,7 @@ GameObject:
   - component: {fileID: 6849309855087621495}
   - component: {fileID: 4441997934613494829}
   m_Layer: 5
-  m_Name: CollectMoney (2)
+  m_Name: FlippingCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

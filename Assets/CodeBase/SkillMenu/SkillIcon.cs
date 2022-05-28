@@ -14,6 +14,8 @@ namespace Assets.CodeBase.SkillMenu
 
         [SerializeField] private GameObject _tringle;
 
+        [SerializeField] private TutorialInfo _tutorialInfo;
+
         private SkillBehavior _skillBehavior;
         private SkillEffect _skill;
 

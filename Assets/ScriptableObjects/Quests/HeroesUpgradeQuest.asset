@@ -19,8 +19,8 @@ MonoBehaviour:
       _PersistentArguments: []
   _name: Upgrade heroes
   _description: Upgrade all you heroes to the second level
-  _progress: 3
-  _maxProgress: 3
+  _progress: 0
+  _maxProgress: 2
   PlayerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   Complete: 0
   _level: 2

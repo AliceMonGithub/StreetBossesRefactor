@@ -1,4 +1,6 @@
 ﻿using Assets.CodeBase.TutorialLogic;
+using CodeBase;
+using CodeBase.CameraLogic;
 using System.Collections;
 using UltEvents;
 using UniRx;
@@ -18,7 +20,9 @@ namespace Assets.CodeBase.Tutorial
 
         [Space]
 
+        [SerializeField] private PlayerStats _playerStats;
         [SerializeField] private TutorialInfo _tutorialInfo;
+        [SerializeField] private CameraMovement _camera;
 
         [SerializeField] private Dialog _dialog;
 
@@ -41,6 +45,14 @@ namespace Assets.CodeBase.Tutorial
 
                 _tutorialInfo.BusinessTakenHelp = false;
             }
+        }
+
+        public void MoveRandomBusiness()
+        {
+            var business = _playerStats.Businesses.Value[0];
+
+            business.BusinessImage.OnLight.Invoke();
+            _camera.MoveToTarget(business.BusinessImage.transform);
         }
     }
 }

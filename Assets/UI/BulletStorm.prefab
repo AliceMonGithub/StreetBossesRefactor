@@ -4818,7 +4818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916008d2acb054f49bd092b6412eded0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 5
   Target: {fileID: 0}
 --- !u!114 &3877119649708227725
 MonoBehaviour:
@@ -4837,6 +4837,8 @@ MonoBehaviour:
     - _Target: {fileID: -2728827565191576770}
       _MethodName: Attack
       _PersistentArguments: []
+  _onStart:
+    _PersistentCalls: []
   _onEnd:
     _PersistentCalls:
     - _Target: {fileID: -2728827565191576770}

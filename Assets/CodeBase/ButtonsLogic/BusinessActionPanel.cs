@@ -40,11 +40,11 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public async void TryBuy()
     {
-        _transferLoad.gameObject.SetActive(true);
+        // _transferLoad.gameObject.SetActive(true);
 
-        var balance = await _balanceOf.GetBalance("0x0bf2BF9a44c9c7FAf2b8534d88d62401ee442Bad"); // paste st token contract
+        //var balance = await _balanceOf.GetBalance("0x0bf2BF9a44c9c7FAf2b8534d88d62401ee442Bad"); // paste st token contract
 
-        if(balance >= _business.Cost)
+        if (_playerStats.Money.Value >= _business.Cost)
         {
             _onBuy.Invoke();
         }
@@ -57,7 +57,7 @@ internal class BusinessActionPanel : MonoBehaviour
 
     public void SpendMoney()
     {
-        
+        _playerStats.Money.Value -= _business.Cost;
     }
 
     public void AddBusinessToPlayerStats()

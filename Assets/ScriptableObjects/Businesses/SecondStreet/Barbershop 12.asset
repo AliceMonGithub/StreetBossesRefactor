@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf7c1d0c56dfd34b95c399a9a073a07, type: 3}
+  m_Name: Barbershop 12
+  m_EditorClassIdentifier: 
+  _image: {fileID: -7219506278272337450, guid: cd288227696e56045a987dc544d32b2f, type: 3}
+  _background: {fileID: 21300000, guid: bd29c4e09ca9dbe46aa8394bbb2782aa, type: 3}
+  _name: Barbershop
+  _cost: 7500
+  _enemyHeroes:
+  - {fileID: 7776824700740608124, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
+  - {fileID: 7776824700740608124, guid: 69e945913486af24b8d10a36ab616669, type: 3}
+  - {fileID: 7776824700740608124, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
+  _damageMultiple: 1.25
+  _healthMultiple: 1.25
+  _earningDurication: 2.5
+  _earning: 100
+  _level: 1
+  _maxLevel: 5
+  _upgradeCost: 800
+  _earningUpgrade: 100
+  _index: 1
+  BusinessImage: {fileID: 0}
+  StreetName: 
+  _upgradeProgress: 0
+  _workingHero:
+    value: {fileID: 0}
+  _onManagerSet:
+    _PersistentCalls: []
