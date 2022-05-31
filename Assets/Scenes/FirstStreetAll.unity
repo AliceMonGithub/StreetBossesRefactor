@@ -25092,6 +25092,7 @@ MonoBehaviour:
 
     Now you get income from these businesses. You can
     appoint a manager for a business who will collect income for you.'
+  _earningQuest: {fileID: 11400000, guid: 72095741d1a34104c82f2ca878c593cd, type: 2}
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   _tutorialInfo: {fileID: 11400000, guid: 29755df144e0e884e842bcd505bd368f, type: 2}
   _camera: {fileID: 519420030}
@@ -29105,6 +29106,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2897959550080681503, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: _heroNullSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc8a00119803c44458a95c905aadf097, type: 3}
     - target: {fileID: 3123283808880500791, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
       propertyPath: m_RootOrder
       value: 1

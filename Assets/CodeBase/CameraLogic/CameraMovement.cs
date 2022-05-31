@@ -78,10 +78,5 @@ namespace CodeBase.CameraLogic
 
             _cameraTransform.position = new Vector3(x, position.y, -10);
         }
-
-        public void Print()
-        {
-            print("Gucci");
-        }
     }
 }

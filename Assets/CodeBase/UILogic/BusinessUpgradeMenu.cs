@@ -16,6 +16,7 @@ public class BusinessUpgradeMenu : MonoBehaviour
     [Space]
 
     [SerializeField] private PlayerStats _playerStats;
+    [SerializeField] private TutorialInfo _tutorialInfo;
 
     [Space]
 
@@ -35,6 +36,8 @@ public class BusinessUpgradeMenu : MonoBehaviour
     [SerializeField] private Image _heroImage;
     [SerializeField] private Sprite _heroNullSprite;
 
+    [SerializeField] private GameObject _tringle;
+
     private BusinessImage _businessImage;
     private Business _business;
 
@@ -51,6 +54,13 @@ public class BusinessUpgradeMenu : MonoBehaviour
         _levelSlider.value = _business.UpgradeProgress;
 
         _heroImage.sprite = _business.WorkingHero == null ? _heroNullSprite : _business.WorkingHero.Image;
+
+        if(_tutorialInfo.ManagerTringleHelp)
+        {
+            _tringle.SetActive(true);
+
+            _tutorialInfo.ManagerTringleHelp = false;
+        }
     }
 
     public void OpenSelectMenu()

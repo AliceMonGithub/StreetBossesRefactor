@@ -49,8 +49,6 @@ public class Business : ScriptableObject
 
     [SerializeField] private int _index;
 
-    [SerializeField, HideInInspector] public BusinessImage BusinessImage;
-
     [SerializeField] public string StreetName;
 
     [SerializeField] private int _upgradeProgress;
@@ -60,6 +58,9 @@ public class Business : ScriptableObject
     [SerializeField] private ReactiveProperty<Hero> _workingHero;
 
     [SerializeField] private UltEvent _onManagerSet;
+
+    public BusinessImage BusinessImage;
+    public BusinessUpgradeIcon UpgradeIcon;
 
     public ReactiveCommand OnUpgrade = new ReactiveCommand();
 

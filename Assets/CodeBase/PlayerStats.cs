@@ -45,5 +45,8 @@ namespace CodeBase
 
         public bool TryFindBusiness(Business business) =>
             _businesses.Value.Any(playerBusiness => playerBusiness == business);
+
+        public bool TryFindQuest(Quest quest) =>
+            _quests.Any(playerQuest => playerQuest == quest);
     }
 }

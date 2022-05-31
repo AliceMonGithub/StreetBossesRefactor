@@ -1,5 +1,6 @@
 using Assets.CodeBase;
 using CodeBase;
+using CodeBase.QuestLogic;
 using TMPro;
 using UltEvents;
 using UniRx;
@@ -32,6 +33,10 @@ public class BusinessUpgradeIcon : MonoBehaviour
     [Space]
 
     [SerializeField] private GameObject _particles;
+
+    [SerializeField] private Quest _earningQuest;
+    [SerializeField] private GameObject _coinTringle;
+    [SerializeField] private GameObject _tringle;
 
     [Space]
 
@@ -75,7 +80,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
         _disposable.Clear();
     }
 
-    public void Update()
+    private void Update()
     {
         if (_deltaTime >= _business.EarningDurication)
         {
@@ -110,6 +115,11 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
             CancelInvoke(nameof(TryCollect));
         }
+    }
+
+    public void ShowTringle()
+    {
+        _tringle.SetActive(true);
     }
 
     public void PlayCollectMusic()
@@ -171,6 +181,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
         _bigBusiness = bigBusiness;
 
         _business.BusinessImage = _businessImage;
+        _business.UpgradeIcon = this;
 
         Business.WorkingHeroEvent.Subscribe(action => Render()).AddTo(_disposable);
 

@@ -22,6 +22,8 @@ namespace CodeBase.UILogic
 
         [SerializeField] private Transform _grid;
 
+        [SerializeField] private AudioSource _buySound;
+
         private List<GameObject> _icons = new List<GameObject>();
 
         private void OnEnable()
@@ -44,10 +46,15 @@ namespace CodeBase.UILogic
 
                 var spawnedIcon = Instantiate(_icon, _grid);
 
-                spawnedIcon.Initialize(hero);
+                spawnedIcon.Initialize(hero, this);
 
                 _icons.Add(spawnedIcon.gameObject);
             }
+        }
+
+        public void PlayBuySound()
+        {
+            _buySound.Play();
         }
     }
 }

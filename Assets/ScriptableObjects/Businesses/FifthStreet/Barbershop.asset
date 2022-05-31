@@ -29,10 +29,11 @@ MonoBehaviour:
   _upgradeCost: 5000
   _earningUpgrade: 750
   _index: 0
-  BusinessImage: {fileID: 0}
   StreetName: 
   _upgradeProgress: 0
   _workingHero:
     value: {fileID: 0}
   _onManagerSet:
     _PersistentCalls: []
+  BusinessImage: {fileID: 0}
+  UpgradeIcon: {fileID: 0}

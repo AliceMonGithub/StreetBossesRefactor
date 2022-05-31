@@ -1,6 +1,7 @@
 ﻿using Assets.CodeBase.TutorialLogic;
 using CodeBase;
 using CodeBase.CameraLogic;
+using CodeBase.QuestLogic;
 using System.Collections;
 using UltEvents;
 using UniRx;
@@ -17,6 +18,8 @@ namespace Assets.CodeBase.Tutorial
         [Space]
 
         [TextArea, SerializeField] private string _startupText;
+
+        [SerializeField] private Quest _earningQuest;
 
         [Space]
 
@@ -49,9 +52,12 @@ namespace Assets.CodeBase.Tutorial
 
         public void MoveRandomBusiness()
         {
+            if (_playerStats.TryFindQuest(_earningQuest)) return;
+
             var business = _playerStats.Businesses.Value[0];
 
-            business.BusinessImage.OnLight.Invoke();
+            business.UpgradeIcon.ShowTringle();
+            //business.BusinessImage.OnLight.Invoke();
             _camera.MoveToTarget(business.BusinessImage.transform);
         }
     }

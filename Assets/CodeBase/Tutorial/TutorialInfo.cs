@@ -28,6 +28,7 @@ namespace Assets.CodeBase
         public bool UseSkillHelp;
         public bool TringleSkillHelp;
         public bool TringleEnemyHelp;
+        public bool ManagerTringleHelp;
 
         public void UnlockBusinessHelp()
         {

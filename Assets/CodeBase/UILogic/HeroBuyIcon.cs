@@ -21,11 +21,14 @@ namespace CodeBase.UILogic
         [SerializeField] private TMP_Text _heroName;
         [SerializeField] private TMP_Text _heroCost;
 
+        private HeroesBuyMenu _heroesBuyMenu;
+
         private Hero _hero;
 
-        public void Initialize(Hero hero)
+        public void Initialize(Hero hero, HeroesBuyMenu heroesBuyMenu)
         {
             _hero = hero;
+            _heroesBuyMenu = heroesBuyMenu;
 
             Render();
         }
@@ -37,6 +40,8 @@ namespace CodeBase.UILogic
                 _playerStats.Heroes.Value.Add(_hero);
                 
                 _playerStats.Money.Value -= _hero.Cost;
+
+                _heroesBuyMenu.PlayBuySound();
                 
                 _onBuy.Invoke();
             }

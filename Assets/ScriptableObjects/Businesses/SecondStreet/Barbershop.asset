@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Barbershop
   m_EditorClassIdentifier: 
   _image: {fileID: 4820618048221742307, guid: cd288227696e56045a987dc544d32b2f, type: 3}
-  _background: {fileID: 21300000, guid: bd29c4e09ca9dbe46aa8394bbb2782aa, type: 3}
+  _background: {fileID: 21300000, guid: f9c51a4c0c5086043a629775ff225dc7, type: 3}
   _name: Barbershop
   _cost: 7500
   _enemyHeroes:
@@ -29,10 +29,11 @@ MonoBehaviour:
   _upgradeCost: 800
   _earningUpgrade: 100
   _index: 0
-  BusinessImage: {fileID: 0}
   StreetName: 
   _upgradeProgress: 0
   _workingHero:
     value: {fileID: 0}
   _onManagerSet:
     _PersistentCalls: []
+  BusinessImage: {fileID: 0}
+  UpgradeIcon: {fileID: 0}
