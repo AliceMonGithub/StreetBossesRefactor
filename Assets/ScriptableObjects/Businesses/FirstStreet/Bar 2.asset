@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bar 2
   m_EditorClassIdentifier: 
   _image: {fileID: 8837895192534356329, guid: 0934d2e22bca14f40bcfc1dfd20d5c79, type: 3}
-  _background: {fileID: 21300000, guid: 646112e43c5664e4c956b405a7e19f74, type: 3}
+  _background: {fileID: 21300000, guid: cb563e66ec5e3674089384759d75fdec, type: 3}
   _name: Bar "Last straw"
   _cost: 5000
   _enemyHeroes:

@@ -48,7 +48,7 @@ public class WebLogin : MonoBehaviour
         // burner account for skipped sign in screen
         PlayerPrefs.SetString("Account", "");
         // move to next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(_sceneName);
     }
 }
 #endif

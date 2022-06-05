@@ -41,7 +41,7 @@ namespace Assets.CodeBase
             foreach(var quest in _playerStats.Quests)
             {
                 if(quest.Complete)
-                {
+                {                    
                     completedQuests.Add(quest);
                 }
                 else
