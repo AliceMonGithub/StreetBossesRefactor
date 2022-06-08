@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 7776824700740608124, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
   _damageMultiple: 2
   _healthMultiple: 2
-  _earningDurication: 2.5
+  _earningDurication: 5
   _earning: 1000
   _level: 1
   _maxLevel: 5

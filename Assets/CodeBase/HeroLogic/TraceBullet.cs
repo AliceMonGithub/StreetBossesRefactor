@@ -8,6 +8,7 @@ namespace Assets.CodeBase.HeroLogic
     public class TraceBullet : SkillEffect
     {
         [SerializeField] private Bullet _bullet;
+        [SerializeField] private Transform _firePoint;
 
         public override void Active()
         {
@@ -20,7 +21,7 @@ namespace Assets.CodeBase.HeroLogic
         {
             for (int i = 0; i < 3; i++)
             {
-                var bullet = Instantiate(_bullet, transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, 0, -90));
+                var bullet = Instantiate(_bullet, _firePoint.position, Quaternion.identity);
 
                 bullet.Target = Target;
 

@@ -13,11 +13,29 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   _money:
-    value: 300
+    value: 660
   _heroes:
-    value: []
+    value:
+    - {fileID: 7694260499757277902, guid: 98c7cd09296f3834683faab9bd0f7061, type: 3}
+    - {fileID: 7694260499757277902, guid: 7d3d7dc962f38c34a9051b611b9d69c1, type: 3}
+    - {fileID: 7694260499757277902, guid: 0428d0e2dc7b07b49901ea74e740f154, type: 3}
+    - {fileID: 7694260499757277902, guid: f17243b1093484b40a12651b7f838c5e, type: 3}
+    - {fileID: 7694260499757277902, guid: 47b4bb5ecb9deb74ba022b6bf2b007d7, type: 3}
+    - {fileID: 7694260499757277902, guid: 7ce9dde1f52b49c41b3cbc172dbe1feb, type: 3}
+    - {fileID: 7694260499757277902, guid: 362e3babd67f09b48b47c5006e67806a, type: 3}
   _businesses:
-    value: []
-  _quests: []
+    value:
+    - {fileID: 11400000, guid: 69ed613b40ebd2e49b57739a4d945923, type: 2}
+    - {fileID: 11400000, guid: 3509df3481ca7cc4f92036c0f24a19c0, type: 2}
+    - {fileID: 11400000, guid: 21078f58bf49efa4283fc595bb68e845, type: 2}
+    - {fileID: 11400000, guid: c3952957b4fea154dafcf22c0687096c, type: 2}
+    - {fileID: 11400000, guid: a13f4709aafb0a04fb6b7418c58c099e, type: 2}
+    - {fileID: 11400000, guid: 6ef661758ab0f304993fc972a9320223, type: 2}
+  _quests:
+  - {fileID: 11400000, guid: ddfe54fa0cf5ed841975db4b431b41d7, type: 2}
+  - {fileID: 11400000, guid: b6b5ecd9b5a5b9449ade57268eef1e3f, type: 2}
+  - {fileID: 11400000, guid: a0389b77c803d9f48b60e43189b5ea94, type: 2}
+  - {fileID: 11400000, guid: 72095741d1a34104c82f2ca878c593cd, type: 2}
+  - {fileID: 11400000, guid: a005072a470145c458aa2b64a16d6553, type: 2}
   LastSceneName: FirstStreetAll
-  AttackingBusiness: {fileID: 11400000, guid: 3509df3481ca7cc4f92036c0f24a19c0, type: 2}
+  AttackingBusiness: {fileID: 11400000, guid: 6ef661758ab0f304993fc972a9320223, type: 2}

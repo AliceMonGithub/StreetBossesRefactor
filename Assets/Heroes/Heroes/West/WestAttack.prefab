@@ -240,11 +240,11 @@ MonoBehaviour:
   _level: 1
   _levelsProperties:
   - _cost: 550
-    _health: 110
+    _health: 125
     _damage: 4
     _speed: 2
   - _cost: 850
-    _health: 130
+    _health: 145
     _damage: 6
     _speed: 2.2
   _patrolHero: {fileID: 3575673142749185073, guid: 79420f981c5079648951c3f0bae604ec, type: 3}
@@ -315,7 +315,7 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 80
+    value: 95
   _damage: 3
   _attackDistance: 5
   _meelCombat: 1
@@ -620,6 +620,38 @@ PrefabInstance:
     - target: {fileID: 4456794858484902948, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 868103ffef339e440ad6ecc786e8aa26, type: 3}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 868103ffef339e440ad6ecc786e8aa26, type: 3}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.b
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.r
+      value: 0.62352943
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e59c44d4e718240844284f05249d70, type: 3}

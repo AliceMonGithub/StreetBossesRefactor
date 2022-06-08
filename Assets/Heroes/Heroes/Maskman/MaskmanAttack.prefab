@@ -37,6 +37,7 @@ Transform:
   - {fileID: 2782903763816060476}
   - {fileID: 4041179331239764345}
   - {fileID: 1606534369593508203}
+  - {fileID: 7793724501272145735}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,11 +114,11 @@ MonoBehaviour:
   _level: 1
   _levelsProperties:
   - _cost: 500
-    _health: 105
+    _health: 120
     _damage: 5
     _speed: 2.15
   - _cost: 750
-    _health: 120
+    _health: 135
     _damage: 7
     _speed: 2.25
   _patrolHero: {fileID: 3575673142749185073, guid: 07ad8bd740b2daf4cb1587b0e4d38aaa, type: 3}
@@ -191,7 +192,7 @@ MonoBehaviour:
   _speed: 2
   _moveSmooth: 0.2
   _health:
-    value: 90
+    value: 105
   _damage: 3
   _attackDistance: 3.7
   _meelCombat: 0
@@ -257,8 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1de19f58b4c59144b227a067cfdbe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillImage: {fileID: 21300000, guid: 5e3cbf99dde7bf542a15aa0ef9eb0360, type: 3}
+  _skillImage: {fileID: 21300000, guid: 56f52b8bf2692464db03f2efb11a40e5, type: 3}
   _bullet: {fileID: 7847634177816459032, guid: 81c71e102d871f64882f961e9a36399a, type: 3}
+  _firePoint: {fileID: 7793724501272145735}
 --- !u!1 &4458746225165480317
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +515,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6139437673165958816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7793724501272145735}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7793724501272145735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139437673165958816}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.428, y: 0.969, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5899679314360575849}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &80349349825018144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,6 +655,42 @@ PrefabInstance:
     - target: {fileID: 4456794858484902948, guid: 37e59c44d4e718240844284f05249d70, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 868103ffef339e440ad6ecc786e8aa26, type: 3}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165250822802175388, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 868103ffef339e440ad6ecc786e8aa26, type: 3}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.b
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236509435840128625, guid: 37e59c44d4e718240844284f05249d70, type: 3}
+      propertyPath: m_Color.r
+      value: 0.62352943
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e59c44d4e718240844284f05249d70, type: 3}

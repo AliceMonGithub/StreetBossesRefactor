@@ -18,9 +18,11 @@ namespace Assets.CodeBase
 
         private void Update()
         {
-            _transform.position = Vector3.SmoothDamp(_transform.position, Target.Transform.position + Vector3.up * 0.5f, ref _velosity, 0.1f, _speed);
+            //_transform.eulerAngles = Vector3.zero;
+            
+            _transform.position = Vector3.SmoothDamp(_transform.position, Target.Transform.position + Vector3.up * 1f, ref _velosity, 0.1f, _speed);
 
-            if (Vector3.Distance(_transform.position, Target.Transform.position + Vector3.up * 0.5f) < 0.1)
+            if (Vector3.Distance(_transform.position, Target.Transform.position + Vector3.up * 1f) < 0.1)
             {
                 Target.DecreaseHealth(_damage);
 

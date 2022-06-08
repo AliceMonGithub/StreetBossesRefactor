@@ -29,7 +29,6 @@ public class BusinessUpgradeMenu : MonoBehaviour
     [SerializeField] private TMP_Text _earningText;
     [SerializeField] private TMP_Text _costText;
     [SerializeField] private TMP_Text _upgradeEarningText;
-    [SerializeField] private TMP_Text _managerText;
 
     [SerializeField] private Slider _levelSlider;
 
@@ -48,7 +47,6 @@ public class BusinessUpgradeMenu : MonoBehaviour
         _earningText.text = _business.Earning.ToString();
         _costText.text = _business.Cost.ToString();
         _upgradeEarningText.text = (_business.Earning + _business.EarningUpgrade).ToString();
-        _managerText.text = _business.WorkingHero != null ? "-" : "+";
 
         _levelSlider.maxValue = 75;
         _levelSlider.value = _business.UpgradeProgress;

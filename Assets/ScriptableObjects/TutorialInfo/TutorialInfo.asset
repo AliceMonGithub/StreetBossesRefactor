@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179962d10ed11aa448d7b5a2c266838c, type: 3}
   m_Name: TutorialInfo
   m_EditorClassIdentifier: 
-  StartupHelp: 1
+  StartupHelp: 0
   BusinessHelp: 0
   BusinessTakenHelp: 0
   EarnMoneyHelp: 0
@@ -26,8 +26,8 @@ MonoBehaviour:
   TakeThirdStreetHelp: 0
   EarnMoneyQuest: 0
   SelectEnemyHelp: 1
-  CanSelectEnemyHelp: 1
-  UseSkillHelp: 1
-  TringleSkillHelp: 1
-  TringleEnemyHelp: 1
-  ManagerTringleHelp: 1
+  CanSelectEnemyHelp: 0
+  UseSkillHelp: 0
+  TringleSkillHelp: 0
+  TringleEnemyHelp: 0
+  ManagerTringleHelp: 0
