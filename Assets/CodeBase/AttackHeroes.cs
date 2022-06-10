@@ -26,6 +26,8 @@ namespace Assets.CodeBase
 
         private CompositeDisposable _disposable = new CompositeDisposable();
 
+        private int _playerHeroesDied = 1;
+
         private bool _playing;
 
         public bool GameStarter { get; private set; }
@@ -95,6 +97,11 @@ namespace Assets.CodeBase
 
         public void RemoveHero(Hero hero)
         {
+            if(hero.IsPlayerHero)
+            {
+                _playerHeroesDied++;
+            }
+
             var heroes = hero.IsPlayerHero ? PlayerHeroes : EnemyHeroes;
 
             heroes.Remove(hero);
@@ -170,6 +177,8 @@ namespace Assets.CodeBase
         private void Win()
         {
             _winMenu.Show();
+
+            _playerStats.AttackingBusiness.Earning /= _playerHeroesDied;
 
             _playerStats.Add(_playerStats.AttackingBusiness);
 

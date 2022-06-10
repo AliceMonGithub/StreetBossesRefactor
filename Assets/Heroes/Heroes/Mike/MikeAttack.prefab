@@ -237,16 +237,16 @@ MonoBehaviour:
   _autoCollectTime: 2
   _maxEnergy: 5
   _chargeTime: 1
-  _cost: 100
+  _cost: 200
   _level: 1
   _levelsProperties:
-  - _cost: 450
-    _health: 105
-    _damage: 4
+  - _cost: 9450
+    _health: 90
+    _damage: 8
     _speed: 1.9
-  - _cost: 750
-    _health: 125
-    _damage: 6
+  - _cost: 14950
+    _health: 100
+    _damage: 9
     _speed: 2.2
   _patrolHero: {fileID: 3575673142749185073, guid: 1e2847173ce0b144f90ae504c8f76796, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
@@ -316,8 +316,8 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 90
-  _damage: 2
+    value: 80
+  _damage: 7
   _attackDistance: 5
   _meelCombat: 1
   _effect: {fileID: 0}

@@ -95,6 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a57bd5cbb7e5b42b4b0c12f467a7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 5
   _speed: 6
   _transform: {fileID: 2788526219157688889}

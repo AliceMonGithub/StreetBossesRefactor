@@ -78,13 +78,13 @@ public class Business : ScriptableObject
     public float HealthMultiple => _healthMultiple;
 
     public float EarningDurication => _earningDurication;
-    public int Earning => _earning;
+    public int Earning { get => _earning; set => _earning = value; }
 
     public int Level => _level;
     public int MaxLevel => _maxLevel;
 
     public int UpgradeCost => _upgradeCost;
-    public int EarningUpgrade => _earning;
+    public int EarningUpgrade => Earning;
 
     public int UpgradeProgress => _upgradeProgress;
 

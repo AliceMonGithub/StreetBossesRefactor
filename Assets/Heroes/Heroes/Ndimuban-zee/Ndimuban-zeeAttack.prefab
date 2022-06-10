@@ -110,14 +110,14 @@ MonoBehaviour:
   _autoCollectTime: 2
   _maxEnergy: 7
   _chargeTime: 1
-  _cost: 100
+  _cost: 200
   _level: 1
   _levelsProperties:
-  - _cost: 500
+  - _cost: 9450
     _health: 90
     _damage: 10
     _speed: 2.15
-  - _cost: 800
+  - _cost: 14950
     _health: 105
     _damage: 12
     _speed: 2.25
@@ -192,8 +192,8 @@ MonoBehaviour:
   _speed: 2
   _moveSmooth: 0.2
   _health:
-    value: 75
-  _damage: 8
+    value: 80
+  _damage: 6
   _attackDistance: 3.5
   _meelCombat: 0
   _effect: {fileID: 0}
