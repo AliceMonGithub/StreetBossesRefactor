@@ -63,6 +63,8 @@ namespace HeroLogic
         private CompositeDisposable _disposable = new CompositeDisposable();
         private CompositeDisposable _collectDisposable = new CompositeDisposable();
 
+        public Business SecurityBusiness;
+
         public List<GameObject> OnClickDestroy { get; private set; } = new List<GameObject>();
 
         public float Velosity { get; set; }

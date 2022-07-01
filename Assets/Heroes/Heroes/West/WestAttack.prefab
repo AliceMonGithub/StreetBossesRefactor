@@ -254,6 +254,7 @@ MonoBehaviour:
   _business: {fileID: 0}
   _currentChargeTime: 1
   _upgradeProgress: 0
+  SecurityBusiness: {fileID: 0}
 --- !u!114 &7776824700740608124
 MonoBehaviour:
   m_ObjectHideFlags: 0

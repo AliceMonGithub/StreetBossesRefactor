@@ -1042,12 +1042,14 @@ MonoBehaviour:
     - _Target: {fileID: 11400000, guid: a0389b77c803d9f48b60e43189b5ea94, type: 2}
       _MethodName: SetManager
       _PersistentArguments: []
-  _nameText: {fileID: 5529797887407814707}
+  _nameText: {fileID: 5842057837578303192}
   _heroImage: {fileID: 1925717730554138032}
   _featureImage: {fileID: 1869476631737480924}
   _features:
   - {fileID: 21300000, guid: 1e24d93321e09484a934b43da36355a1, type: 3}
   - {fileID: 21300000, guid: c0667fd89a03a9a4ca2ae888d028736f, type: 3}
+  _gameObjects:
+  - {fileID: 3724328747738937477}
 --- !u!1 &7431640284402441900
 GameObject:
   m_ObjectHideFlags: 0

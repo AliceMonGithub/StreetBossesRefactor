@@ -293,6 +293,8 @@ MonoBehaviour:
       _PersistentArguments: []
   _business: {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
+  _bot: {fileID: 11400000, guid: eafe342b2ecd15147ad0ac4862db1da8, type: 2}
+  _image: {fileID: 5834127557125255291}
   _bigBusiness: {fileID: 0}
   _icons: []
   _businessPanel: {fileID: 0}

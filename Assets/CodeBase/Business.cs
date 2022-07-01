@@ -1,6 +1,8 @@
 using Assets.CodeBase;
 using CodeBase;
+using CodeBase.BotLogic;
 using HeroLogic;
+using System.Collections.Generic;
 using UltEvents;
 using UniRx;
 using UnityEngine;
@@ -25,7 +27,7 @@ public class Business : ScriptableObject
 
     [Space]
 
-    [SerializeField] private HeroAttack[] _enemyHeroes;
+    [SerializeField] private List<HeroAttack> _security;
 
     [SerializeField] private float _damageMultiple;
     [SerializeField] private float _healthMultiple;
@@ -49,8 +51,6 @@ public class Business : ScriptableObject
 
     [SerializeField] private int _index;
 
-    [SerializeField] public string StreetName;
-
     [SerializeField] private int _upgradeProgress;
 
     [Space]
@@ -59,8 +59,12 @@ public class Business : ScriptableObject
 
     [SerializeField] private UltEvent _onManagerSet;
 
+    public Bot Bot;
+
     public BusinessImage BusinessImage;
     public BusinessUpgradeIcon UpgradeIcon;
+
+    public string StreetName;
 
     public ReactiveCommand OnUpgrade = new ReactiveCommand();
 
@@ -72,7 +76,7 @@ public class Business : ScriptableObject
 
     public int Cost => _cost;
 
-    public HeroAttack[] EnemyHeroes => _enemyHeroes;
+    public List<HeroAttack> Security => _security;
 
     public float DamageMultiple => _damageMultiple;
     public float HealthMultiple => _healthMultiple;
@@ -108,6 +112,70 @@ public class Business : ScriptableObject
         }
     }
 
+    public bool SimulateAttack(List<Hero> heroes)
+    {
+        int heroesDamage = 0;
+        int enemyHeroesDamage = 0;
+
+        int heroesHealth = 0;
+        int enemyHeroesHealth = 0;
+
+        if(_security.Count == 0)
+        {
+            return true;
+        }
+
+        foreach (var hero in heroes)
+        {
+            heroesDamage += hero.HeroAttack.Damage;
+            heroesHealth += hero.HeroAttack.Health;
+        }
+
+        foreach (var hero in _security)
+        {
+            enemyHeroesDamage += hero.Damage;
+            enemyHeroesHealth += hero.Health;
+        }
+
+        if(enemyHeroesDamage == 0)
+        {
+            enemyHeroesDamage = 1;
+        }
+
+        if(enemyHeroesHealth == 0)
+        {
+            enemyHeroesHealth = 1;
+        }
+
+        // enemyHeroesDamage += Random.Range(19, 24);
+        //enemyHeroesHealth += Random.Range(225, 260);
+
+        var enemyHitsCount = heroesHealth / enemyHeroesDamage;
+        var heroesHitsCount = enemyHeroesHealth / heroesDamage;
+
+        if(enemyHitsCount == heroesHitsCount)
+        {
+            var victory = false;
+            var random = Random.Range(0, 2);
+
+            if(random == 1)
+            {
+                victory = true;
+            }
+
+            return victory;
+        }
+
+        if(enemyHitsCount > heroesHitsCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void SetWorkingHero(Hero hero)
     {
         _workingHero.Value?.SetWorking(null);
@@ -119,6 +187,31 @@ public class Business : ScriptableObject
         if(_workingHero != null)
         {
             _onManagerSet.Invoke();
+        }
+    }
+
+    public void SetSecurity(Hero hero, int index)
+    {
+        while(_security.Count < 3)
+        {
+            _security.Add(null);
+        }
+        
+        if(hero == null)
+        {
+            _security[index].Hero.SecurityBusiness = null;
+
+            _security[index] = null;
+
+            _security.RemoveAll(gangster => gangster == null);
+        }
+        else
+        {
+            hero.SecurityBusiness = this;
+
+            _security[index] = hero.HeroAttack;
+
+            _security.RemoveAll(gangster => gangster == null);
         }
     }
 }

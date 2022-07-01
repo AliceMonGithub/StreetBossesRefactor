@@ -1,11 +1,8 @@
 ﻿using HeroLogic;
-using System.Collections;
 using TMPro;
 using UltEvents;
-using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Assets.CodeBase
 {
@@ -22,6 +19,8 @@ namespace Assets.CodeBase
         [SerializeField] private Image _featureImage;
         [SerializeField] private Sprite[] _features;
 
+        [SerializeField] private GameObject[] _gameObjects;
+
         private SelectHeroInBusiness _menu;
         private Hero _hero;
 
@@ -33,6 +32,11 @@ namespace Assets.CodeBase
             {
                 _nameText.text = "Unselect";
 
+                foreach(var gameObject in _gameObjects)
+                {
+                    gameObject.SetActive(false);
+                }
+
                 _heroImage.sprite = _hero.Image;
 
                 _featureImage.sprite = _features[Random.Range(0, _features.Length)];
@@ -42,6 +46,11 @@ namespace Assets.CodeBase
 
             _nameText.text = _hero.Name;
 
+            foreach (var gameObject in _gameObjects)
+            {
+                gameObject.SetActive(true);
+            }
+
             _heroImage.sprite = _hero.Image;
 
             _featureImage.sprite = _features[Random.Range(0, _features.Length)];
@@ -49,7 +58,7 @@ namespace Assets.CodeBase
 
         public void Select()
         {
-            if(_isPlayerHero)
+            if (_isPlayerHero)
             {
                 _menu.Select(null);
 

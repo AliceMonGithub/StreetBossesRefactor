@@ -274,10 +274,10 @@ MonoBehaviour:
     _health: 90
     _damage: 8
     _speed: 2
-  - _cost: 14950
-    _health: 100
+  - _cost: 10000
+    _health: 110
     _damage: 9
-    _speed: 2.2
+    _speed: 2
   _patrolHero: {fileID: 3575673142749185073, guid: 3254c7a166beb5248a813f3658c3fd46, type: 3}
   _heroAttack: {fileID: 7776824700740608124}
   _spriteRenderer: {fileID: 2709374952247095671}
@@ -285,6 +285,7 @@ MonoBehaviour:
   _business: {fileID: 0}
   _currentChargeTime: 1
   _upgradeProgress: 0
+  SecurityBusiness: {fileID: 0}
 --- !u!114 &7776824700740608124
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,9 +20,9 @@ namespace Assets.CodeBase.Zenject
 
         public override void InstallBindings()
         {
-            var heroes = _playerStats.AttackingBusiness.EnemyHeroes;
+            var heroes = _playerStats.AttackingBusiness.Security;
 
-            for (int i = 0; i < heroes.Length; i++)
+            for (int i = 0; i < heroes.Count; i++)
             {
                 var spawnedHero = _factory.Create(heroes[i], _spawnPoints[i].position);
 

@@ -569,6 +569,7 @@ MonoBehaviour:
   _collectMusic: {fileID: 1723941162021862566}
   _bigBusiness: {fileID: 0}
   _upgradeMenu: {fileID: 0}
+  _actionIcon: {fileID: 2987895209601564799, guid: 6dc8f17a373dab442a22fb0e3da83c9f, type: 3}
   _business: {fileID: 0}
   _businessImage: {fileID: 0}
 --- !u!82 &1723941162021862566

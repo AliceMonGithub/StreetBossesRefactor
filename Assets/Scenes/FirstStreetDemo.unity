@@ -23421,9 +23421,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 936840105737850355, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 957527361386972646, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 519420030}
     - target: {fileID: 1139346771305108297, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301858668401953097, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1381882952542316354, guid: 1efa47661df1cf546a861db1c3b17904, type: 3}
       propertyPath: m_AnchorMax.y

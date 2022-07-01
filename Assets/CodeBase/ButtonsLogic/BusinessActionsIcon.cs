@@ -1,7 +1,11 @@
 using Assets.CodeBase;
 using CodeBase;
+using CodeBase.BotLogic;
+using CodeBase.UILogic;
+using TMPro;
 using UltEvents;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BusinessActionsIcon : MonoBehaviour
 {
@@ -14,11 +18,25 @@ public class BusinessActionsIcon : MonoBehaviour
 
     [Space]
 
+    [SerializeField] private Bot _bot;
+    [SerializeField] private Image _image;
+
+    [Space]
+
     [SerializeField] private BigBusiness _bigBusiness;
 
     [Space]
 
     [SerializeField] private BusinessUpgradeIcon[] _icons;
+
+    [Space]
+
+    [SerializeField] private GameObject[] _hidingObjects;
+    [SerializeField] private GameObject[] _activatingObjects;
+
+    [SerializeField] private TMP_Text _nickText;
+
+    [SerializeField] private FillSimulation _fillSimulation;
 
     [Space]
 
@@ -35,9 +53,39 @@ public class BusinessActionsIcon : MonoBehaviour
 
     [SerializeField] private Transform _transform;
 
-    private void Awake()
+    private void Start()
     {
+        _bot = FindObjectOfType<Bot>();
+
+        _business.BusinessImage = _businessImage;
+
+        if(_bot.FindBusiness(_business))
+        {
+            foreach(var gameObject in _hidingObjects)
+            {
+                gameObject.SetActive(false);
+            }
+
+            foreach (var gameObject in _activatingObjects)
+            {
+                gameObject.SetActive(true);
+            }
+
+            _fillSimulation.Initialize(_business, _bot);
+
+            _nickText.gameObject.SetActive(true);
+
+            _nickText.text = _bot.Nickname;
+        }
+
         CheckBusiness();
+    }
+
+    public void Initialize(Business business)
+    {
+        _business = business;
+
+        _businessImage = business.BusinessImage;
     }
 
     public void ShowBusinessMenu()

@@ -26,6 +26,8 @@ namespace Assets.CodeBase.Zenject
 
                 if (hero.Business != null) continue;
 
+                if (hero.SecurityBusiness != null) continue;
+
                 var icon = _factory.Create(_icon, _grid);
 
                 icon.Initialize(hero, _selectMenu);

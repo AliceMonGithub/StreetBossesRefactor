@@ -45,6 +45,7 @@ public class BusinessUpgradeIcon : MonoBehaviour
     [SerializeField] private BigBusiness _bigBusiness;
 
     [SerializeField] private BusinessUpgradeMenu _upgradeMenu;
+    [SerializeField] private BusinessActionsIcon _actionIcon;
     [SerializeField] private Business _business;
 
     [SerializeField] private BusinessImage _businessImage;
@@ -115,6 +116,17 @@ public class BusinessUpgradeIcon : MonoBehaviour
 
             CancelInvoke(nameof(TryCollect));
         }
+    }
+
+    public void InitializeActionIcon()
+    {
+        if (_actionIcon == null) return;
+
+        var actionIcon = Instantiate(_actionIcon, transform.position, Quaternion.identity, transform.root);
+
+        actionIcon.Initialize(_business);
+
+        Destroy(gameObject);
     }
 
     public void ShowTringle()

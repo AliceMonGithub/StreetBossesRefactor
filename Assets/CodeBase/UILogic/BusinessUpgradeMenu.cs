@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.CodeBase;
 using CodeBase;
 using CodeBase.Mao_AddiotionUiScript;
+using CodeBase.UILogic;
 using TMPro;
 using UltEvents;
 using UnityEngine;
@@ -20,7 +21,12 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private SelectHeroInBusiness _selectMenu;
+    [SerializeField] private SelectHeroInBusiness _selectManagerMenu;
+    [SerializeField] private SelectHeroInSecurity _selectSecurityMenu;
+
+    [Space]
+
+    [SerializeField] private Image[] _securityImages;
 
     [Space]
 
@@ -32,7 +38,9 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
     [SerializeField] private Slider _levelSlider;
 
-    [SerializeField] private Image _heroImage;
+    [SerializeField] private TMP_Text _haveHeroText;
+    [SerializeField] private Image _businessPreview;
+   // [SerializeField] private Image _heroImage;
     [SerializeField] private Sprite _heroNullSprite;
 
     [SerializeField] private GameObject _tringle;
@@ -51,7 +59,25 @@ public class BusinessUpgradeMenu : MonoBehaviour
         _levelSlider.maxValue = 75;
         _levelSlider.value = _business.UpgradeProgress;
 
-        _heroImage.sprite = _business.WorkingHero == null ? _heroNullSprite : _business.WorkingHero.Image;
+        //_heroImage.sprite = _business.WorkingHero == null ? _heroNullSprite : _business.WorkingHero.Image;
+
+        _businessPreview.sprite = _business.WorkingHero != null ? _business.WorkingHero.Image : _heroNullSprite;
+
+        _haveHeroText.text = _business.WorkingHero == null ? "+" : "-";
+
+        var index = 0;
+
+        foreach (var image in _securityImages)
+        {
+            image.sprite = _heroNullSprite;
+        }
+
+        foreach (var hero in _business.Security)
+        {
+            _securityImages[index].sprite = hero.Hero.Image;
+
+            index++;
+        }
 
         if(_tutorialInfo.ManagerTringleHelp)
         {
@@ -63,7 +89,35 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
     public void OpenSelectMenu()
     {
-        _selectMenu.Initialize(_business);
+        if(_business.WorkingHero != null)
+        {
+            _business.SetWorkingHero(null);
+
+            Render();
+
+            return;
+        }
+
+        _selectManagerMenu.Initialize(_business);
+    }
+
+    public void OpenSelectSecurityMenu(int index)
+    {
+        while (_business.Security.Count < 3)
+        {
+            _business.Security.Add(null);
+        }
+
+        if (_business.Security[index] != null)
+        {
+            _business.SetSecurity(null, index);
+
+            Render();
+
+            return;
+        }
+
+        _selectSecurityMenu.Initialize(_business, index);
     }
 
     public void TryBuyUpgrade()

@@ -6,6 +6,7 @@ using UltEvents;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using System.Linq;
 
 namespace Assets.CodeBase
 {
@@ -21,10 +22,9 @@ namespace Assets.CodeBase
 
         [SerializeField] private SelectHeroIcon _nullIcon;
 
-        private PatrolHeroesInstaller _patrolHeroes;
-
         private List<GameObject> _icons = new List<GameObject>();
 
+        private PatrolHeroesInstaller _patrolHeroes;
         private Business _business;
 
         [Inject]
@@ -56,6 +56,8 @@ namespace Assets.CodeBase
 
                 if (hero.Business != null && hero.Business != _business) continue;
 
+                if (hero.SecurityBusiness != null) return;
+
                 if (hero.Business == _business)
                 {
                     var Heroicon = Instantiate(_icon, _grid);
@@ -79,11 +81,24 @@ namespace Assets.CodeBase
         {
             if(hero == null)
             {
-                _patrolHeroes.SpawnedHeroes.Find(spawnedHero => spawnedHero.Name == _business.WorkingHero.Name).gameObject.SetActive(true);
+                var patrolHero = _patrolHeroes.SpawnedHeroes.FirstOrDefault(spawnedHero => spawnedHero.Name == _business.WorkingHero.Name);
+            
+                if(patrolHero != null)
+                {
+                    patrolHero.gameObject.SetActive(true);
+                }
             }
             else
             {
-                _patrolHeroes.SpawnedHeroes.Find(spawnedHero => spawnedHero.Name == hero.Name).gameObject.SetActive(false);
+                if(_business.WorkingHero != null)
+                {
+                    var patrolHero = _patrolHeroes.SpawnedHeroes.FirstOrDefault(spawnedHero => spawnedHero.Name == _business.WorkingHero.Name);
+
+                    if (patrolHero != null)
+                    {
+                        patrolHero.gameObject.SetActive(false);
+                    }
+                }
             }
 
             _business.SetWorkingHero(hero);

@@ -178,8 +178,21 @@ namespace Assets.CodeBase
         {
             _winMenu.Show();
 
-            _playerStats.AttackingBusiness.Earning /= _playerHeroesDied;
+            //_playerStats.AttackingBusiness.Earning /= _playerHeroesDied;
 
+            foreach(var hero in _playerStats.AttackingBusiness.Security)
+            {
+                if (hero == null) return;
+
+                _playerStats.AttackingBusiness.Bot.Heroes.Add(hero.Hero);
+            }
+
+            _playerStats.AttackingBusiness.Security.Clear();
+
+            _playerStats.AttackingBusiness.Bot.Businesses.Remove(_playerStats.AttackingBusiness);
+
+            _playerStats.AttackingBusiness.Bot.InvokeOnLose();
+            
             _playerStats.Add(_playerStats.AttackingBusiness);
 
             _playerStats.AttackingBusiness.StreetName = _playerStats.LastSceneName;
