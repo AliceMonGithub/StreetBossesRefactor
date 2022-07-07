@@ -162,6 +162,8 @@ namespace HeroLogic
         public void RemoveFromList()
         {
             Heroes.RemoveHero(_hero);
+
+            Hero.SkillBehavior.SkillIcons.DestroyIcon(Hero.Name);
         }
         
         public void FindNewTarget()

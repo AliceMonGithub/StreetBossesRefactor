@@ -1,12 +1,15 @@
-﻿using CodeBase;
+﻿using Assets.CodeBase.SkillMenu;
+using CodeBase;
 using System;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using Zenject;
 
 namespace HeroLogic
 {
-    public class Hero : MonoBehaviour
+    public class Hero : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Sprite _image;
 
@@ -65,6 +68,13 @@ namespace HeroLogic
 
         public Business SecurityBusiness;
 
+        private SkillBehavior _skillBehavior;
+
+        private void Awake()
+        {
+            _skillBehavior = FindObjectOfType<SkillBehavior>();
+        }
+
         public List<GameObject> OnClickDestroy { get; private set; } = new List<GameObject>();
 
         public float Velosity { get; set; }
@@ -106,9 +116,19 @@ namespace HeroLogic
 
         public Business Business => _business;
 
+        public SkillBehavior SkillBehavior => _skillBehavior;
+
         public int UpgradeProgress => _upgradeProgress;
 
         public CompositeDisposable CollectDisposable => _collectDisposable;
+
+        private void Update()
+        {
+            if(SpriteRenderer.color == Color.black)
+            {
+                SpriteRenderer.color = Color.white;
+            }
+        }
 
         public void TryUpgrade()
         {
@@ -164,7 +184,53 @@ namespace HeroLogic
         {
             Dead = true;
 
+            _skillBehavior.SkillIcons.DestroyIcon(Name);
+
             _heroAttack.enabled = false;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (IsPlayerHero == false)
+            {
+                _spriteRenderer.color = Color.white;
+            }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if(IsPlayerHero == false && _skillBehavior.SeekEnemy)
+            {
+                _spriteRenderer.color = new Color(1f, 0.3f, 0.3f, 1f);
+
+                _skillBehavior.SelectedHero = this;
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (IsPlayerHero == false && _skillBehavior.SeekEnemy)
+            {
+                _spriteRenderer.color = Color.white;
+
+                _skillBehavior.SelectedHero = null;
+            }
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (IsPlayerHero == false)
+            {
+                _spriteRenderer.color = Color.white;
+            }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (IsPlayerHero == false)
+            {
+                _spriteRenderer.color = Color.white;
+            }
         }
     }
 

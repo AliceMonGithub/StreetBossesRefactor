@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf7c1d0c56dfd34b95c399a9a073a07, type: 3}
+  m_Name: Coffee 2
+  m_EditorClassIdentifier: 
+  _image: {fileID: 4961853204198726915, guid: 0934d2e22bca14f40bcfc1dfd20d5c79, type: 3}
+  _background: {fileID: 21300000, guid: cb563e66ec5e3674089384759d75fdec, type: 3}
+  _name: Coffee
+  _cost: 5000
+  _security:
+  - {fileID: 7776824700740608124, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
+  - {fileID: 7776824700740608124, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
+  - {fileID: 7776824700740608124, guid: 69e945913486af24b8d10a36ab616669, type: 3}
+  _damageMultiple: 1
+  _healthMultiple: 1
+  _earningDurication: 5
+  _earning: 300
+  _level: 2
+  _maxLevel: 5
+  _upgradeCost: 120
+  _earningUpgrade: 15
+  _index: 0
+  _upgradeProgress: 0
+  _workingHero:
+    value: {fileID: 0}
+  _onManagerSet:
+    _PersistentCalls: []
+  Bot: {fileID: 0}
+  BusinessImage: {fileID: 0}
+  UpgradeIcon: {fileID: 0}
+  StreetName: FirstStreetAll

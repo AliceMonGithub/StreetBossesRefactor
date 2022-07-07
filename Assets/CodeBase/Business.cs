@@ -66,6 +66,8 @@ public class Business : ScriptableObject
 
     public string StreetName;
 
+    public bool IsPlayerBusinessBot { get; set; }
+
     public ReactiveCommand OnUpgrade = new ReactiveCommand();
 
     public Sprite Image => _image;

@@ -46,16 +46,7 @@ namespace CodeBase.UILogic
             {
                 if (hero.Business != null) continue;
 
-                if(hero.SecurityBusiness != null && hero.SecurityBusiness != _business)
-                {
-                    var Heroicon = Instantiate(_icon, _grid);
-
-                    Heroicon.Initialize(hero, this, true);
-
-                    _icons.Add(Heroicon.gameObject);
-
-                    continue;
-                }
+                if (hero.SecurityBusiness != null) continue;
 
                 var icon = Instantiate(_icon, _grid);
 

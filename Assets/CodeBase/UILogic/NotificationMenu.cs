@@ -66,14 +66,14 @@ namespace CodeBase.UILogic
             {
                 var action = new NotificationAction();
 
-                if(item.Text == "Your business has been taken over!" || item.Text == "Security defeated the attack")
+                if(item.Title == "Your business is under attack")
                 {
                     action = NotificationAction.GoToBusiness;
                 }
 
                 var instance = Instantiate(_iconPrefab, _parent);
 
-                instance.Initialize(item.Text, action, this, item.Business, _loadCurtain, _camera);
+                instance.Initialize(item.Title, item.Text, action, this, item.Business, _loadCurtain, _camera);
 
                 _icons.Add(instance);
             });

@@ -54,20 +54,9 @@ namespace Assets.CodeBase
             {
                 //if ( hero.Business != _business) continue;
 
-                if (hero.Business != null && hero.Business != _business) continue;
+                if (hero.Business != null) continue;
 
                 if (hero.SecurityBusiness != null) return;
-
-                if (hero.Business == _business)
-                {
-                    var Heroicon = Instantiate(_icon, _grid);
-
-                    Heroicon.Initialize(hero, this, true);
-
-                    _icons.Add(Heroicon.gameObject);
-
-                    continue;
-                }
 
                 var icon = Instantiate(_icon, _grid);
 

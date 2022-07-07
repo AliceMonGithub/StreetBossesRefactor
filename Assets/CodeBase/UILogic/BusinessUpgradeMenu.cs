@@ -26,7 +26,9 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private Image[] _securityImages;
+    [SerializeField] private GameObject[] _securityImages;
+    [SerializeField] private Image[] _securityHeroesImages;
+    [SerializeField] private GameObject[] _securityIcons;
 
     [Space]
 
@@ -38,8 +40,12 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
     [SerializeField] private Slider _levelSlider;
 
-    [SerializeField] private TMP_Text _haveHeroText;
+   // [SerializeField] private TMP_Text _haveHeroText;
     [SerializeField] private Image _businessPreview;
+
+    [SerializeField] private GameObject[] _icon;
+
+    [SerializeField] private GameObject[] _nullIcon;
    // [SerializeField] private Image _heroImage;
     [SerializeField] private Sprite _heroNullSprite;
 
@@ -61,20 +67,60 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
         //_heroImage.sprite = _business.WorkingHero == null ? _heroNullSprite : _business.WorkingHero.Image;
 
-        _businessPreview.sprite = _business.WorkingHero != null ? _business.WorkingHero.Image : _heroNullSprite;
+        if(_business.WorkingHero != null)
+        {
+            _businessPreview.sprite = _business.WorkingHero.Image;
 
-        _haveHeroText.text = _business.WorkingHero == null ? "+" : "-";
+            foreach (var nullIcon in _nullIcon)
+            {
+                nullIcon.SetActive(false);
+            }
+
+            foreach (var icon in _icon)
+            {
+                icon.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (var nullIcon in _nullIcon)
+            {
+                nullIcon.SetActive(true);
+            }
+
+            foreach (var icon in _icon)
+            {
+                icon.SetActive(false);
+            }
+        }
+
+        // _haveHeroText.text = _business.WorkingHero == null ? "+" : "-";
 
         var index = 0;
 
-        foreach (var image in _securityImages)
+        foreach (var securityImage in _securityImages)
         {
-            image.sprite = _heroNullSprite;
+            securityImage.SetActive(true);
+        }
+
+        foreach(var securityIcon in _securityIcons)
+        {
+            securityIcon.SetActive(false);
         }
 
         foreach (var hero in _business.Security)
         {
-            _securityImages[index].sprite = hero.Hero.Image;
+            if(hero == null)
+            {
+                index++;
+
+                continue;
+            }
+
+            _securityHeroesImages[index].sprite = hero.Hero.Image;
+            _securityIcons[index].SetActive(true);
+
+            _securityImages[index].SetActive(false);
 
             index++;
         }
@@ -116,6 +162,8 @@ public class BusinessUpgradeMenu : MonoBehaviour
 
             return;
         }
+
+        _business.Security.RemoveAll(gangster => gangster == null);
 
         _selectSecurityMenu.Initialize(_business, index);
     }

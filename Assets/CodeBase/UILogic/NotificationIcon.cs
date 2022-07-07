@@ -16,6 +16,7 @@ namespace Assets.CodeBase.UILogic
 
     public class NotificationIcon : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _notificationTitle;
         [SerializeField] private TMP_Text _notificationText;
 
         private NotificationAction _action;
@@ -33,8 +34,9 @@ namespace Assets.CodeBase.UILogic
             }
         }
 
-        public void Initialize(string text, NotificationAction action, NotificationMenu menu, Business business, LoadCurtain loadCurtain, CameraMovement camera)
+        public void Initialize(string title, string text, NotificationAction action, NotificationMenu menu, Business business, LoadCurtain loadCurtain, CameraMovement camera)
         {
+            _notificationTitle.text = title;
             _notificationText.text = text;
 
             _action = action;

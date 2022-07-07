@@ -194,9 +194,10 @@ MonoBehaviour:
   _level: 1
   _levelsProperties: []
   _patrolHero: {fileID: 3575673142749185073}
-  _heroAttack: {fileID: 0}
-  _spriteRenderer: {fileID: 0}
+  _heroAttack: {fileID: 7776824700740608124, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
+  _spriteRenderer: {fileID: 2709374952247095671}
   _healthBarText: {fileID: 0}
   _business: {fileID: 0}
   _currentChargeTime: 0
   _upgradeProgress: 0
+  SecurityBusiness: {fileID: 0}

@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 7776824700740608124}
   - component: {fileID: 2345064035035890974}
   - component: {fileID: -1516692061368139410}
-  - component: {fileID: -3238105205701923911}
   - component: {fileID: 3244623115194630534}
+  - component: {fileID: 7558633342896271105}
   m_Layer: 0
   m_Name: AliceAttack
   m_TagString: Untagged
@@ -144,11 +144,11 @@ MonoBehaviour:
   _level: 1
   _levelsProperties:
   - _cost: 9450
-    _health: 90
+    _health: 140
     _damage: 8
     _speed: 2.15
   - _cost: 14950
-    _health: 100
+    _health: 150
     _damage: 9
     _speed: 2.25
   _patrolHero: {fileID: 3575673142749185073, guid: 64e37bae0178472468d9872dd7fa440a, type: 3}
@@ -223,7 +223,7 @@ MonoBehaviour:
   _speed: 2
   _moveSmooth: 0.2
   _health:
-    value: 80
+    value: 130
   _damage: 7
   _attackDistance: 3.7
   _meelCombat: 0
@@ -264,19 +264,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &-3238105205701923911
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235176776610821258}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1150155, y: 1.2941434, z: 0.2}
-  m_Center: {x: -0.09860015, y: 0.6430718, z: 0}
 --- !u!114 &3244623115194630534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,9 +276,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1de19f58b4c59144b227a067cfdbe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillImage: {fileID: 21300000, guid: 56f52b8bf2692464db03f2efb11a40e5, type: 3}
+  _image: {fileID: 21300000, guid: 56f52b8bf2692464db03f2efb11a40e5, type: 3}
   _bullet: {fileID: 7847634177816459032, guid: 81c71e102d871f64882f961e9a36399a, type: 3}
   _firePoint: {fileID: 4330702663600921797}
+--- !u!61 &7558633342896271105
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.023000002, y: 0.814}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5178849, y: 0}
+    oldSize: {x: 1.286, y: 1.628}
+    newSize: {x: 2.75, y: 2.74}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.286, y: 1.628}
+  m_EdgeRadius: 0
 --- !u!1 &4458746225165480317
 GameObject:
   m_ObjectHideFlags: 0

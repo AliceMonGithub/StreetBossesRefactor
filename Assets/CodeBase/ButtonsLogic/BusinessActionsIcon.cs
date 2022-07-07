@@ -53,6 +53,8 @@ public class BusinessActionsIcon : MonoBehaviour
 
     [SerializeField] private Transform _transform;
 
+    private bool _withBot = false;
+
     private void Start()
     {
         _bot = FindObjectOfType<Bot>();
@@ -76,9 +78,58 @@ public class BusinessActionsIcon : MonoBehaviour
             _nickText.gameObject.SetActive(true);
 
             _nickText.text = _bot.Nickname;
+
+            _withBot = true;
         }
 
         CheckBusiness();
+    }
+
+    private void Update()
+    {
+        if(_business.Bot != null && _withBot == false)
+        {
+            foreach (var gameObject in _hidingObjects)
+            {
+                gameObject.SetActive(false);
+            }
+
+            foreach (var gameObject in _activatingObjects)
+            {
+                gameObject.SetActive(true);
+            }
+
+            _fillSimulation.Initialize(_business, _bot);
+
+            _nickText.gameObject.SetActive(true);
+
+            _nickText.text = _bot.Nickname;
+
+            _withBot = true;
+        }
+
+        if(_business.Bot == null && _withBot)
+        {
+            foreach (var gameObject in _hidingObjects)
+            {
+                gameObject.SetActive(true);
+            }
+
+            foreach (var gameObject in _activatingObjects)
+            {
+                gameObject.SetActive(false);
+            }
+
+            _fillSimulation.Initialize(_business, _bot);
+
+            _fillSimulation.gameObject.SetActive(false);
+
+            _nickText.gameObject.SetActive(false);
+
+            _nickText.text = string.Empty;
+
+            _withBot = false;
+        }
     }
 
     public void Initialize(Business business)

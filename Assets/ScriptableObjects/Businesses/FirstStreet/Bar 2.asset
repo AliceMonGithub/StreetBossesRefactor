@@ -16,12 +16,12 @@ MonoBehaviour:
   _background: {fileID: 21300000, guid: cb563e66ec5e3674089384759d75fdec, type: 3}
   _name: Bar "Last straw"
   _cost: 5000
-  _enemyHeroes:
+  _security:
+  - {fileID: 7776824700740608124, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
   - {fileID: 7776824700740608124, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
   - {fileID: 7776824700740608124, guid: 69e945913486af24b8d10a36ab616669, type: 3}
-  - {fileID: 7776824700740608124, guid: a52dc7e0a21622a40b0551f9f30e5b75, type: 3}
-  _damageMultiple: 1
-  _healthMultiple: 1
+  _damageMultiple: 1.5
+  _healthMultiple: 1.5
   _earningDurication: 5
   _earning: 300
   _level: 1
@@ -29,11 +29,12 @@ MonoBehaviour:
   _upgradeCost: 120
   _earningUpgrade: 15
   _index: 1
-  StreetName: 
   _upgradeProgress: 0
   _workingHero:
     value: {fileID: 0}
   _onManagerSet:
     _PersistentCalls: []
+  Bot: {fileID: 0}
   BusinessImage: {fileID: 0}
   UpgradeIcon: {fileID: 0}
+  StreetName: 

@@ -19,7 +19,7 @@ namespace Assets.CodeBase.NotificationsLogic
 
         private void SendNotification()
         {
-            _popup.ShowNotification("Your business has been taken over!", null);
+            _popup.ShowNotification("Your business is under attack", "", null);
 
             _count++;
 

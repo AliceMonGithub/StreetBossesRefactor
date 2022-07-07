@@ -6,6 +6,7 @@ using UniRx;
 using CodeBase;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using CodeBase.BotLogic;
 
 namespace Assets.CodeBase
 {
@@ -24,13 +25,21 @@ namespace Assets.CodeBase
         public List<Hero> PlayerHeroes;
         public List<Hero> EnemyHeroes;
 
+
         private CompositeDisposable _disposable = new CompositeDisposable();
+
+        private BotBootstrapper _botBootstrapper;
 
         private int _playerHeroesDied = 1;
 
         private bool _playing;
 
         public bool GameStarter { get; private set; }
+
+        private void Awake()
+        {
+             _botBootstrapper = FindObjectOfType<BotBootstrapper>();
+        }
 
         private void Update()
         {
@@ -178,20 +187,25 @@ namespace Assets.CodeBase
         {
             _winMenu.Show();
 
-            //_playerStats.AttackingBusiness.Earning /= _playerHeroesDied;
-
             foreach(var hero in _playerStats.AttackingBusiness.Security)
             {
                 if (hero == null) return;
 
-                _playerStats.AttackingBusiness.Bot.Heroes.Add(hero.Hero);
+
+                if(_playerStats.AttackingBusiness.Bot != null)
+                {
+                    _playerStats.AttackingBusiness.Bot.Heroes.Add(hero.Hero);
+                }
             }
 
             _playerStats.AttackingBusiness.Security.Clear();
 
-            _playerStats.AttackingBusiness.Bot.Businesses.Remove(_playerStats.AttackingBusiness);
+            if(_playerStats.AttackingBusiness.Bot != null)
+            {
+                _playerStats.AttackingBusiness.Bot.Businesses.Remove(_playerStats.AttackingBusiness);
+            }
 
-            _playerStats.AttackingBusiness.Bot.InvokeOnLose();
+            _botBootstrapper.StopAttackAllBot();
             
             _playerStats.Add(_playerStats.AttackingBusiness);
 

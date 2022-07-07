@@ -26,11 +26,17 @@ namespace CodeBase.BotLogic
         [SerializeField] private string _streetName;
         [SerializeField] private float _stopAttackDirucation;
 
+        [SerializeField] private int _attackChance;
+
+        [SerializeField] private float _canAttackTime;
+        [SerializeField] private bool _canAttack;
+
         public int Money;
 
         private bool _stopAttack;
 
-        public List<Business> PlayerBusinesses => _playerStats.Businesses.Value.FindAll(business => business.StreetName == _streetName);
+        public List<Business> PlayerBusinesses => _playerStats.Businesses.Value;
+        public List<Business> NeutralBusinesses => _playerStats.NeutralBusinesses;
 
         public List<Business> Businesses => _businesses;
         public List<Hero> Heroes => _heroes;
@@ -39,6 +45,8 @@ namespace CodeBase.BotLogic
 
         private void Awake()
         {
+            Invoke(nameof(CanAttack), _canAttackTime);
+
             OnLose += StopAttack;
         }
 
@@ -66,7 +74,29 @@ namespace CodeBase.BotLogic
         {
             if (_stopAttack) return;
 
-            var businesses = PlayerBusinesses;
+            if (_canAttack == false) return;
+
+            if (Random.Range(0, 101) > _attackChance) return;
+
+            var businesses = new List<Business>();
+            var isPlayerAttack = false;
+
+            foreach (var business in _playerStats.AllBusinesses)
+            {
+                business.IsPlayerBusinessBot = false;
+            }
+
+            foreach(var business in NeutralBusinesses)
+            {
+                businesses.Add(business);
+            }
+
+            foreach (var business in PlayerBusinesses)
+            {
+                businesses.Add(business);
+
+                business.IsPlayerBusinessBot = true;
+            }
 
             if(businesses.Count > 0)
             {
@@ -76,31 +106,39 @@ namespace CodeBase.BotLogic
                 {
                     var attackHeroes = GetRandomHeroes();
 
+                    if(business.IsPlayerBusinessBot)
+                    {
+                        isPlayerAttack = true;
+                    }
+
                     var victory = business.SimulateAttack(attackHeroes);
 
-                    if(victory)
+                    if (victory)
                     {
                         print("Bot victory!");
 
-                        foreach(var hero in business.Security)
+                        foreach (var hero in business.Security)
                         {
-                            _playerStats.Heroes.Value.Add(hero.Hero);
-
                             hero.Hero.SecurityBusiness = null;
+                        }
+
+                        if (business.WorkingHero != null)
+                        {
+                            business.SetWorkingHero(null);
                         }
 
                         _playerStats.Businesses.Value.Remove(business);
 
                         business.Security.Clear();
 
-                        if(_heroes.Count >= 3)
+                        if (_heroes.Count >= 3)
                         {
                             var count = Mathf.Clamp(_heroes.Count - 2, 1, 3);
                             var heroes = _heroes.Take(count);
 
                             _heroes.RemoveAt(count);
 
-                            foreach(var hero in heroes)
+                            foreach (var hero in heroes)
                             {
                                 business.Security.Add(hero.HeroAttack);
                             }
@@ -111,7 +149,14 @@ namespace CodeBase.BotLogic
 
                         }
 
-                        _popup.ShowNotification("Your business has been taken over!", business);
+                        if (isPlayerAttack)
+                        {
+                            _popup.ShowNotification("Your business is under attack", "You lose", business);
+                        }
+                        else
+                        {
+                            print("Attack neutral win");
+                        }
 
                         _businesses.Add(business);
 
@@ -125,7 +170,14 @@ namespace CodeBase.BotLogic
                     {
                         print("Bot lose!");
 
-                        _popup.ShowNotification("Security defeated the attack", business);
+                        if (isPlayerAttack)
+                        {
+                            _popup.ShowNotification("Your business is under attack", "You win", business);
+                        }
+                        else
+                        {
+                            print("Attack neutral lose");
+                        }
                     }
                 }
             }
@@ -151,6 +203,13 @@ namespace CodeBase.BotLogic
         public void InvokeOnLose()
         {
             OnLose?.Invoke();
+        }
+
+        private void CanAttack()
+        {
+            print("Now can attack");
+
+            _canAttack = true;
         }
 
         private void StopAttack()

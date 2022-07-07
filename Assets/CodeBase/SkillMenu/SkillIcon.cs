@@ -3,44 +3,46 @@ using System.Collections;
 using UltEvents;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Assets.CodeBase.SkillMenu
 {
     public class SkillIcon : MonoBehaviour
     {
-        [SerializeField] private UltEvent _onShow;
-
-        [SerializeField] private Image _image;
-
-        [SerializeField] private GameObject _tringle;
-
-        [SerializeField] private TutorialInfo _tutorialInfo;
+        [SerializeField] private Image _heroImage;
+        [SerializeField] private Image _skillImage;
 
         private SkillBehavior _skillBehavior;
+
         private SkillEffect _skill;
+        private Hero _hero;
 
-        public GameObject Tringle => _tringle;
+        public string HeroName => _hero.Name;
 
-        public void Active()
+        private void Awake()
         {
-            _skillBehavior.FindEnemy(_skill);
+            _skillBehavior = FindObjectOfType<SkillBehavior>();
+        }
+
+        public void Click()
+        {
+            _skillBehavior.ActiveSkill(_skill, _hero);
 
             Destroy(gameObject);
         }
 
         public void Render()
         {
-            _image.sprite = _skill.SkillImage;
+            _heroImage.sprite = _hero.Image;
+            _skillImage.sprite = _skill.Image;
         }
 
-        public void Initialize(SkillEffect skill, SkillBehavior skillBehavior)
+        public void Initialize(Hero hero)
         {
-            _skillBehavior = skillBehavior;
-            _skill = skill;
+            _skill = hero.Skill;
+            _hero = hero;
 
             Render();
-
-            _onShow.Invoke();
         }
     }
 }

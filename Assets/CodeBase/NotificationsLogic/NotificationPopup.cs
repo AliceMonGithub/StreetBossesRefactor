@@ -10,13 +10,16 @@ namespace CodeBase.NotificationsLogic
     [Serializable]
     public class NotificationInfo
     {
+        public string Title;
         public string Text;
 
         public Business Business;
 
-        public NotificationInfo(string text, Business business)
+        public NotificationInfo(string title, string text, Business business)
         {
+            Title = title;
             Text = text;
+
             Business = business;
         }
     }
@@ -41,18 +44,20 @@ namespace CodeBase.NotificationsLogic
             DontDestroyOnLoad(gameObject);
         }
 
-        public void ShowNotification(string notification, Business business)
+        public void ShowNotification(string title, string text, Business business)
         {
             if(_showNotification)
             {
-                _notifications.Add(new NotificationInfo(notification, business));
+                _notifications.Add(new NotificationInfo(title, text, business));
+
+                _allNotification.Add(new NotificationInfo(title, text, business));
 
                 return;
             }
 
-            _notificationText.text = notification;
+            _notificationText.text = title;
 
-            _allNotification.Add(new NotificationInfo(notification, business));
+            _allNotification.Add(new NotificationInfo(title, text, business));
 
             _showNotification = true;
 
@@ -63,7 +68,7 @@ namespace CodeBase.NotificationsLogic
         {
             if(_notifications.Count != 0)
             {
-                _notificationText.text = _notifications[0].Text;
+                _notificationText.text = _notifications[0].Title;
 
                 _notifications.RemoveAt(0);
 

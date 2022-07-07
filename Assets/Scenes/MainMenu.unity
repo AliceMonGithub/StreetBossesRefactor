@@ -182,21 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354ec6978fbd9814c81680a58d3ee858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _businesses:
-  - {fileID: 11400000, guid: 8c3d185701ab5db4ea6e6de8305e04a6, type: 2}
-  - {fileID: 11400000, guid: 793018c0f39243b428700bc3e3d17fdd, type: 2}
-  - {fileID: 11400000, guid: 21078f58bf49efa4283fc595bb68e845, type: 2}
-  - {fileID: 11400000, guid: 3509df3481ca7cc4f92036c0f24a19c0, type: 2}
-  - {fileID: 11400000, guid: d8f23240eb720d642beb87536848ab08, type: 2}
-  - {fileID: 11400000, guid: 8a468fd94f51aae45b3525f97a1604ce, type: 2}
-  - {fileID: 11400000, guid: 7fc7234d57a0b6340a88071fb89c5d89, type: 2}
-  - {fileID: 11400000, guid: a13f4709aafb0a04fb6b7418c58c099e, type: 2}
-  - {fileID: 11400000, guid: a1e7afd5de9149a4abffe9945b41d6d3, type: 2}
-  - {fileID: 11400000, guid: 6ef661758ab0f304993fc972a9320223, type: 2}
-  - {fileID: 11400000, guid: 69ed613b40ebd2e49b57739a4d945923, type: 2}
-  - {fileID: 11400000, guid: c3952957b4fea154dafcf22c0687096c, type: 2}
-  - {fileID: 11400000, guid: 04b228fe6cd17fd4599061077609c5fe, type: 2}
-  - {fileID: 11400000, guid: 3d8c5c78eecd02c4d836e9d03bacca00, type: 2}
+  _businesses: []
   _heroes:
   - {fileID: 7694260499757277902, guid: 7ce9dde1f52b49c41b3cbc172dbe1feb, type: 3}
   - {fileID: 7694260499757277902, guid: 47b4bb5ecb9deb74ba022b6bf2b007d7, type: 3}
@@ -221,7 +207,10 @@ MonoBehaviour:
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   _nickname: gaimer_iscool
   _streetName: FirstStreetAll
-  _stopAttackDirucation: 25
+  _stopAttackDirucation: 17
+  _attackChance: 15
+  _canAttackTime: 100
+  _canAttack: 0
   Money: 0
 --- !u!1 &2935558
 GameObject:
@@ -2429,9 +2418,7 @@ MonoBehaviour:
       _PersistentArguments: []
   _notificationText: {fileID: 725211145}
   _notifications: []
-  _allNotification:
-  - Text: Your business has been taken over!
-    Business: {fileID: 11400000, guid: d8f23240eb720d642beb87536848ab08, type: 2}
+  _allNotification: []
 --- !u!1 &1848135216
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,10 +19,17 @@ namespace CodeBase.BotLogic
             StartCoroutine(TryAttack());
         }
 
+        public void StopAttackAllBot()
+        {
+            _bots.ForEach(bot => bot.InvokeOnLose());
+        }
+
         private IEnumerator TryAttack()
         {
             while(true)
             {
+                _playerStats.SetNeutralBusinesses();
+
                 foreach(var bot in _bots)
                 {
                     bot.TryAttack();

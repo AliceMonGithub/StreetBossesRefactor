@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 7776824700740608124}
   - component: {fileID: 2345064035035890974}
   - component: {fileID: -1516692061368139410}
-  - component: {fileID: -827747583499447383}
+  - component: {fileID: 5323836406111216178}
   m_Layer: 0
   m_Name: SidorAttack
   m_TagString: Untagged
@@ -239,11 +239,11 @@ MonoBehaviour:
   _level: 1
   _levelsProperties:
   - _cost: 9450
-    _health: 105
+    _health: 155
     _damage: 4
     _speed: 1.9
   - _cost: 14950
-    _health: 125
+    _health: 175
     _damage: 6
     _speed: 2.2
   _patrolHero: {fileID: 3575673142749185073, guid: c3b1ab3175efa2441997d183896f7ad4, type: 3}
@@ -315,7 +315,7 @@ MonoBehaviour:
   _speed: 1.5
   _moveSmooth: 0.2
   _health:
-    value: 90
+    value: 140
   _damage: 5
   _attackDistance: 6.5
   _meelCombat: 1
@@ -356,19 +356,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &-827747583499447383
-BoxCollider:
+--- !u!61 &5323836406111216178
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2235176776610821258}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017699003, y: 0.7477876}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5015723, y: 0.0011806375}
+    oldSize: {x: 1.1256638, y: 1.499115}
+    newSize: {x: 7.01, y: 8.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7814783, y: 1.0762153, z: 0.2}
-  m_Center: {x: -0.0071982145, y: 0.5351665, z: 0}
+  m_Size: {x: 1.1256638, y: 1.499115}
+  m_EdgeRadius: 0
 --- !u!1 &8073995320899223306
 GameObject:
   m_ObjectHideFlags: 0

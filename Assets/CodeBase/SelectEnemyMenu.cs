@@ -7,44 +7,44 @@ namespace Assets.CodeBase
 {
     public class SelectEnemyMenu : MonoBehaviour
     {
-        [SerializeField] private UltEvent _showEvent;
-        [SerializeField] private UltEvent _hideEvent;
+        //[SerializeField] private UltEvent _showEvent;
+        //[SerializeField] private UltEvent _hideEvent;
         
-        [SerializeField] private SkillIcon _prefab;
-        [SerializeField] private Transform _grid;
+        //[SerializeField] private SkillIcon _prefab;
+        //[SerializeField] private Transform _grid;
 
-        [SerializeField] private TutorialInfo _tutorialInfo;
+        //[SerializeField] private TutorialInfo _tutorialInfo;
 
-        private SkillBehavior _skillBehavior;
-        private Hero _hero;
+        //private SkillBehavior _skillBehavior;
+        //private Hero _hero;
 
-        public void RenderIcons()
-        {
-            var icon = Instantiate(_prefab, _grid);
+        //public void RenderIcons()
+        //{
+        //    var icon = Instantiate(_prefab, _grid);
 
-            icon.Initialize(_hero.Skill, _skillBehavior);
+        //    icon.Initialize(_hero.Skill, _skillBehavior);
 
-            if(_tutorialInfo.TringleSkillHelp)
-            {
-                icon.Tringle.SetActive(true);
+        //    if(_tutorialInfo.TringleSkillHelp)
+        //    {
+        //        icon.Tringle.SetActive(true);
 
-                _tutorialInfo.TringleSkillHelp = false;
-            }
-        }
+        //        _tutorialInfo.TringleSkillHelp = false;
+        //    }
+        //}
 
-        public void Initialize(Hero hero, SkillBehavior skillBehavior)
-        {
-            _skillBehavior = skillBehavior;
-            _hero = hero;
+        //public void Initialize(Hero hero, SkillBehavior skillBehavior)
+        //{
+        //    _skillBehavior = skillBehavior;
+        //    _hero = hero;
 
-            RenderIcons();
+        //    RenderIcons();
 
-            _showEvent.Invoke();
-        }
+        //    _showEvent.Invoke();
+        //}
 
-        public void Hide()
-        {
-            _hideEvent.Invoke();
-        }
+        //public void Hide()
+        //{
+        //    _hideEvent.Invoke();
+        //}
     }
 }
