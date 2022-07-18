@@ -13,6 +13,10 @@ namespace CodeBase
 
         [Space]
 
+        [SerializeField] private Sprite[] _flagSprites;
+
+        [Space]
+
         [SerializeField] private UltEvent _onInitialize;
 
         [SerializeField] private PlayerStats _playerStats;
@@ -20,11 +24,11 @@ namespace CodeBase
         [SerializeField] private Slider _upgradeProgressSlider;
 
         [SerializeField] private Image _heroImage;
+        [SerializeField] private Image _familyImage;
 
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _damageText;
-        [SerializeField] private TMP_Text _familyTypeText;
         [SerializeField] private TMP_Text _costText;
 
         [SerializeField] private TMP_Text _energyText;
@@ -49,8 +53,23 @@ namespace CodeBase
             _healthText.text = _hero.HeroAttack.Health.ToString();
             _damageText.text = _hero.HeroAttack.Damage.ToString();
             _energyText.text = _hero.Energy.ToString();
-            _familyTypeText.text = _hero.FamilyType.ToString();
             _costText.text = ((int)(_hero.UpgradeCost * 0.25f)).ToString() + "$";
+
+            switch (_hero.FamilyType)
+            {
+                case FamilyType.Russian:
+                    _familyImage.sprite = _flagSprites[0];
+                    break;
+                case FamilyType.Italian:
+                    _familyImage.sprite = _flagSprites[1];
+                    break;
+                case FamilyType.Japanese:
+                    _familyImage.sprite = _flagSprites[2];
+                    break;
+                case FamilyType.Jamaican:
+                    _familyImage.sprite = _flagSprites[3];
+                    break;
+            }
         }
 
         private void UpdateDynamic()
