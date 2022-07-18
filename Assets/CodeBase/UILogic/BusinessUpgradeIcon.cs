@@ -91,7 +91,14 @@ public class BusinessUpgradeIcon : MonoBehaviour
             }
             else
             {
-                _coinsAmount += _business.Earning;
+                if(_business.WorkingHero.FamilyType == HeroLogic.FamilyType.Italian)
+                {
+                    _coinsAmount += (int)(_business.Earning * 0.25f);
+                }
+                else
+                {
+                    _coinsAmount += _business.Earning;
+                }
 
                 ResetEarning();
             }

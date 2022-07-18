@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   _money:
-    value: 1200
+    value: 8000
   _heroes:
     value: []
   _businesses:
@@ -57,22 +57,35 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d8c5c78eecd02c4d836e9d03bacca00, type: 2}
   _neutralBusinesses:
   - {fileID: 11400000, guid: 9601d842fb67c34438b5fb85c23a7076, type: 2}
+  - {fileID: 11400000, guid: d38b718aaca077a4380db8d0f400056b, type: 2}
+  - {fileID: 11400000, guid: 18059b4caf359cd4b9a2e2cdc458197c, type: 2}
   - {fileID: 11400000, guid: d7b9fa9c57326884a80819ed916fff2f, type: 2}
   - {fileID: 11400000, guid: 46f31f6679e8dc74193af4f7406c54e8, type: 2}
-  - {fileID: 11400000, guid: eb0d21a096e78824b9190f78aa48445d, type: 2}
+  - {fileID: 11400000, guid: 86fd07da5357df84bb59bf577ba261ee, type: 2}
   - {fileID: 11400000, guid: 7b33fd50578e3ce4e9f306d682645334, type: 2}
-  - {fileID: 11400000, guid: 34040466040b80d41ad81764a819878c, type: 2}
   - {fileID: 11400000, guid: 95f0d0584765fce4f93e2e63f7f3a05c, type: 2}
+  - {fileID: 11400000, guid: feb4a0647a43889498f1619bc8956b0a, type: 2}
   - {fileID: 11400000, guid: 0582b0453d10e9c46bdf99704abe62f9, type: 2}
-  - {fileID: 11400000, guid: 54c3045c04da36943a2eb870fa63a3db, type: 2}
+  - {fileID: 11400000, guid: bcf648afd6a848240a868fbcd7754433, type: 2}
+  - {fileID: 11400000, guid: 1f3cf602c33e3c2438740205016cffdd, type: 2}
   - {fileID: 11400000, guid: 7185d47c5f28c034782d34189179665a, type: 2}
   - {fileID: 11400000, guid: 8d4c108094261314a98a0632f8e2ebea, type: 2}
-  - {fileID: 11400000, guid: 8c3d185701ab5db4ea6e6de8305e04a6, type: 2}
+  - {fileID: 11400000, guid: 6165f0d5c57702d46ad67e86800b9b83, type: 2}
   - {fileID: 11400000, guid: 793018c0f39243b428700bc3e3d17fdd, type: 2}
-  - {fileID: 11400000, guid: 3509df3481ca7cc4f92036c0f24a19c0, type: 2}
+  - {fileID: 11400000, guid: 21078f58bf49efa4283fc595bb68e845, type: 2}
   - {fileID: 11400000, guid: d8f23240eb720d642beb87536848ab08, type: 2}
+  - {fileID: 11400000, guid: 8a468fd94f51aae45b3525f97a1604ce, type: 2}
+  - {fileID: 11400000, guid: 7fc7234d57a0b6340a88071fb89c5d89, type: 2}
+  - {fileID: 11400000, guid: a13f4709aafb0a04fb6b7418c58c099e, type: 2}
   - {fileID: 11400000, guid: a1e7afd5de9149a4abffe9945b41d6d3, type: 2}
+  - {fileID: 11400000, guid: 6ef661758ab0f304993fc972a9320223, type: 2}
+  - {fileID: 11400000, guid: 69ed613b40ebd2e49b57739a4d945923, type: 2}
   - {fileID: 11400000, guid: c3952957b4fea154dafcf22c0687096c, type: 2}
-  _quests: []
+  - {fileID: 11400000, guid: 04b228fe6cd17fd4599061077609c5fe, type: 2}
+  - {fileID: 11400000, guid: 3d8c5c78eecd02c4d836e9d03bacca00, type: 2}
+  _quests:
+  - {fileID: 11400000, guid: ddfe54fa0cf5ed841975db4b431b41d7, type: 2}
+  - {fileID: 11400000, guid: b6b5ecd9b5a5b9449ade57268eef1e3f, type: 2}
+  - {fileID: 11400000, guid: a0389b77c803d9f48b60e43189b5ea94, type: 2}
   LastSceneName: FirstStreetAll
   AttackingBusiness: {fileID: 11400000, guid: 7fc7234d57a0b6340a88071fb89c5d89, type: 2}

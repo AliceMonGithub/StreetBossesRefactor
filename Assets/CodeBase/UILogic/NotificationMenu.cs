@@ -79,8 +79,6 @@ namespace CodeBase.UILogic
             });
         }
 
-
-
         private void Clear()
         {
             _icons.ForEach(icon => Destroy(icon.gameObject));

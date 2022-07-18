@@ -37,6 +37,9 @@ namespace CodeBase.UILogic
         {
             if(_playerStats.Money.Value >= _hero.Cost)
             {
+
+                _hero.SetRandomFamily();
+
                 _playerStats.Heroes.Value.Add(_hero);
                 
                 _playerStats.Money.Value -= _hero.Cost;

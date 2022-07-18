@@ -38,6 +38,8 @@ namespace CodeBase.BotLogic
         public List<Business> PlayerBusinesses => _playerStats.Businesses.Value;
         public List<Business> NeutralBusinesses => _playerStats.NeutralBusinesses;
 
+        public Hero StandartHero => _standartHero;
+
         public List<Business> Businesses => _businesses;
         public List<Hero> Heroes => _heroes;
 
@@ -52,7 +54,23 @@ namespace CodeBase.BotLogic
 
         private void Update()
         {
-            if(Money >= 200)
+            if(PlayerBusinesses.Count > 0)
+            {
+                var tradeBusiness = PlayerBusinesses[Random.Range(0, PlayerBusinesses.Count)];
+                var cost = (int)((tradeBusiness.Cost + tradeBusiness.Earning * Random.Range(4, 7)) * (1 + 0.13f * tradeBusiness.Security.Count));
+
+                if(_playerStats.TradeRequests.Any(trade => trade.Business == tradeBusiness) == false)
+                {
+                    if (cost <= Money)
+                    {
+                        _playerStats.TradeRequests.Add(new TradeRequest(this, tradeBusiness, cost));
+
+                        _popup.ShowNotification("New trade", string.Empty, null);
+                    }
+                }
+            }
+
+            if (_heroes.Count < 10 && Money >= 200)
             {
                 _heroes.Add(_shopHeroes[Random.Range(0, _shopHeroes.Length)]);
 
@@ -181,6 +199,30 @@ namespace CodeBase.BotLogic
                     }
                 }
             }
+        }
+
+        public bool BuyRequest(Business business, int cost)
+        {
+            var botCost = (int)((business.Cost + business.Earning * Random.Range(4, 7)) * (1 + 0.13f * business.Security.Count));
+
+            if (cost >= botCost)
+            {
+                foreach (var hero in business.Security)
+                {
+                    _heroes.Add(hero.Hero);
+                }
+
+                business.Security.Clear();
+
+                _playerStats.Money.Value -= botCost;
+                _playerStats.Businesses.Value.Add(business);
+
+                _businesses.Remove(business);
+
+                return true;
+            }
+
+            return false;
         }
 
         public List<Hero> GetRandomHeroes()

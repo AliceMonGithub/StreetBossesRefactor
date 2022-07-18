@@ -1,4 +1,5 @@
-﻿using CodeBase.QuestLogic;
+﻿using CodeBase.BotLogic;
+using CodeBase.QuestLogic;
 using HeroLogic;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,11 @@ namespace CodeBase
 
         [SerializeField] private List<Quest> _quests;
 
-        public string LastSceneName;
+        public List<TradeRequest> TradeRequests = new List<TradeRequest>();
 
         public Business AttackingBusiness;
+
+        public string LastSceneName;
 
         public ReactiveProperty<int> Money => _money;
 
@@ -75,5 +78,20 @@ namespace CodeBase
 
         public bool TryFindQuest(Quest quest) =>
             _quests.Any(playerQuest => playerQuest == quest);
+    }
+    
+
+    public class TradeRequest
+    {
+        public Bot Bot { get; private set; }
+        public Business Business { get; private set; }
+        public int Cost { get; private set; }
+
+        public TradeRequest(Bot bot, Business business, int cost)
+        {
+            Bot = bot;
+            Business = business;
+            Cost = cost;
+        }
     }
 }

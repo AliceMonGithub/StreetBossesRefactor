@@ -120,6 +120,59 @@ namespace Assets.CodeBase
         {
             FindTargetForHeroes();
 
+            Hero oldHero = null;
+            FamilyType familyType = new FamilyType();
+            bool allOneFamily = true;
+
+            foreach (var hero in PlayerHeroes)
+            {
+                if(oldHero == null)
+                {
+                    oldHero = hero;
+                    familyType = hero.FamilyType;
+
+                    if(PlayerHeroes.Count == 1)
+                    {
+                        allOneFamily = false;
+                    }
+
+                    continue;
+                }
+
+                if(oldHero.FamilyType != hero.FamilyType)
+                {
+                    allOneFamily = false;
+
+                    break;
+                }
+            }
+
+            if(allOneFamily)
+            {
+                print("all in one family");
+
+                switch (familyType)
+                {
+                    case FamilyType.Russian:
+
+                        foreach (var hero in PlayerHeroes)
+                        {
+                            hero.HeroAttack.Damage = (int)(hero.HeroAttack.Damage * 1.25f);
+                        }
+
+                        break;
+                    case FamilyType.Japanese:
+
+                        foreach (var hero in PlayerHeroes)
+                        {
+                            hero.HeroAttack.Health = (int)(hero.HeroAttack.Health * 1.25f);
+                        }
+
+                        break;
+
+                }
+            }
+
             PlayerHeroes.ForEach(hero =>
             {
                 hero.HeroAttack.Heroes = this;

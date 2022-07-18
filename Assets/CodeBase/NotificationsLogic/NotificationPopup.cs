@@ -24,18 +24,35 @@ namespace CodeBase.NotificationsLogic
         }
     }
 
+    [Serializable]
+    public class TradeInfo
+    {
+        public int Cost;
+
+        public TradeInfo(int cost)
+        {
+            Cost = cost;
+        }
+    }
+
     public class NotificationPopup : MonoBehaviour
     {
         [SerializeField] private UltEvent _onShowNotificationEvent;
+        [SerializeField] private UltEvent _onShowTradeEvent;
 
         [Space]
 
         [SerializeField] private TMP_Text _notificationText;
-
+        [SerializeField] private TMP_Text _costText;
+ 
         public List<NotificationInfo> _notifications;
         public List<NotificationInfo> _allNotification;
 
+        public List<TradeInfo> _trades;
+        public List<TradeInfo> _allTrades;
+
         private bool _showNotification;
+        private bool _showTrade;
 
         public List<NotificationInfo> History => TakeLast(3);
 
@@ -62,6 +79,31 @@ namespace CodeBase.NotificationsLogic
             _showNotification = true;
 
             _onShowNotificationEvent.Invoke();
+        }
+
+        public void ShowTrade(int cost)
+        {
+            if (_showTrade)
+            {
+                _trades.Add(new TradeInfo(cost));
+
+                _allTrades.Add(new TradeInfo(cost));
+
+                return;
+            }
+
+            _costText.text = cost.ToString() + "$";
+
+            _allTrades.Add(new TradeInfo(cost));
+
+            _showTrade = true;
+
+            _onShowTradeEvent.Invoke();
+        }
+        
+        public void Print()
+        {
+            print("3");
         }
 
         public void TryShowNextNotification()

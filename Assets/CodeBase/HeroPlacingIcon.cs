@@ -22,6 +22,7 @@ namespace Assets.CodeBase
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _damageText;
+        [SerializeField] private TMP_Text _familyTypeText;
 
         private HeroSelectMenu _selectMenu;
         private Hero _hero;
@@ -70,6 +71,7 @@ namespace Assets.CodeBase
             _levelText.text = _hero.Level.ToString();
             _healthText.text = _hero.HeroAttack.Health.ToString();
             _damageText.text = _hero.HeroAttack.Damage.ToString();
+            _familyTypeText.text = _hero.FamilyType.ToString();
         }
 
         public void Initialize(Hero hero, HeroSelectMenu selectMenu)

@@ -9,6 +9,14 @@ using Zenject;
 
 namespace HeroLogic
 {
+    public enum FamilyType
+    {
+        Russian,
+        Italian,
+        Japanese,
+        Jamaican
+    }
+
     public class Hero : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Sprite _image;
@@ -65,6 +73,8 @@ namespace HeroLogic
 
         private CompositeDisposable _disposable = new CompositeDisposable();
         private CompositeDisposable _collectDisposable = new CompositeDisposable();
+
+        [field: SerializeField] public FamilyType FamilyType { get; private set; }
 
         public Business SecurityBusiness;
 
@@ -145,6 +155,13 @@ namespace HeroLogic
                 _level++;
                 _upgradeProgress = 0;
             }
+        }
+
+        public void SetRandomFamily()
+        {
+            var values = Enum.GetValues(typeof(FamilyType));
+
+            FamilyType = (FamilyType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
         }
 
         public float GetDistance(Vector3 position) =>
