@@ -65,7 +65,7 @@ namespace CodeBase.BotLogic
                     {
                         _playerStats.TradeRequests.Add(new TradeRequest(this, tradeBusiness, cost));
 
-                        _popup.ShowNotification("New trade", string.Empty, null);
+                        _popup.ShowTrade(cost);
                     }
                 }
             }

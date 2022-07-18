@@ -50,7 +50,7 @@ namespace CodeBase
             _damageText.text = _hero.HeroAttack.Damage.ToString();
             _energyText.text = _hero.Energy.ToString();
             _familyTypeText.text = _hero.FamilyType.ToString();
-            _costText.text = ((int)(_hero.UpgradeCost * 0.25f)).ToString();
+            _costText.text = ((int)(_hero.UpgradeCost * 0.25f)).ToString() + "$";
         }
 
         private void UpdateDynamic()
