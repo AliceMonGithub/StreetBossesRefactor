@@ -14,7 +14,14 @@ namespace Assets.CodeBase
         [SerializeField] private UltEvent _onSelect;
         [SerializeField] private UltEvent _onDeselect;
 
+        [Space]
+
+        [SerializeField] private Sprite[] _flagSprites;
+
+        [Space]
+
         [SerializeField] private Image _heroIcon;
+        [SerializeField] private Image _familyImage;
 
         [Space]
 
@@ -22,7 +29,6 @@ namespace Assets.CodeBase
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _damageText;
-        [SerializeField] private TMP_Text _familyTypeText;
 
         private HeroSelectMenu _selectMenu;
         private Hero _hero;
@@ -71,7 +77,22 @@ namespace Assets.CodeBase
             _levelText.text = _hero.Level.ToString();
             _healthText.text = _hero.HeroAttack.Health.ToString();
             _damageText.text = _hero.HeroAttack.Damage.ToString();
-            _familyTypeText.text = _hero.FamilyType.ToString();
+
+            switch (_hero.FamilyType)
+            {
+                case FamilyType.Russian:
+                    _familyImage.sprite = _flagSprites[0];
+                    break;
+                case FamilyType.Italian:
+                    _familyImage.sprite = _flagSprites[1];
+                    break;
+                case FamilyType.Japanese:
+                    _familyImage.sprite = _flagSprites[2];
+                    break;
+                case FamilyType.Jamaican:
+                    _familyImage.sprite = _flagSprites[3];
+                    break;
+            }
         }
 
         public void Initialize(Hero hero, HeroSelectMenu selectMenu)

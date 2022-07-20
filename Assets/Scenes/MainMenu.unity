@@ -207,11 +207,11 @@ MonoBehaviour:
   _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
   _nickname: gaimer_iscool
   _streetName: FirstStreetAll
-  _stopAttackDirucation: 17
-  _attackChance: 1
-  _canAttackTime: 10
+  _stopAttackDirucation: 7
+  _attackChance: 14
+  _canAttackTime: 65
   _canAttack: 0
-  Money: 99999999
+  Money: 9000
 --- !u!1 &2935558
 GameObject:
   m_ObjectHideFlags: 0

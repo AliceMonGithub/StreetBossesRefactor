@@ -35,6 +35,10 @@ namespace CodeBase.BotLogic
 
         private bool _stopAttack;
 
+        private Business _tradeBusiness;
+        private int _cost;
+        private bool _creatingTrade;
+
         public List<Business> PlayerBusinesses => _playerStats.Businesses.Value;
         public List<Business> NeutralBusinesses => _playerStats.NeutralBusinesses;
 
@@ -59,13 +63,16 @@ namespace CodeBase.BotLogic
                 var tradeBusiness = PlayerBusinesses[Random.Range(0, PlayerBusinesses.Count)];
                 var cost = (int)((tradeBusiness.Cost + tradeBusiness.Earning * Random.Range(4, 7)) * (1 + 0.13f * tradeBusiness.Security.Count));
 
-                if(_playerStats.TradeRequests.Any(trade => trade.Business == tradeBusiness) == false)
+                if(_creatingTrade == false && _playerStats.TradeRequests.Any(trade => trade.Business == tradeBusiness) == false)
                 {
                     if (cost <= Money)
                     {
-                        _playerStats.TradeRequests.Add(new TradeRequest(this, tradeBusiness, cost));
+                        _creatingTrade = true;
 
-                        _popup.ShowTrade(cost);
+                        _cost = cost;
+                        _tradeBusiness = tradeBusiness;
+
+                        Invoke(nameof(CreateTrade), 25f);
                     }
                 }
             }
@@ -81,6 +88,15 @@ namespace CodeBase.BotLogic
             {
                 business.Bot = this;
             }
+        }
+
+        private void CreateTrade()
+        {
+            _playerStats.TradeRequests.Add(new TradeRequest(this, _tradeBusiness, _cost));
+
+            _popup.ShowTrade(_cost);
+
+            _creatingTrade = false;
         }
 
         private void OnDestroy()
