@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   _money:
-    value: 8900
+    value: 1200
   _heroes:
     value: []
   _businesses:
