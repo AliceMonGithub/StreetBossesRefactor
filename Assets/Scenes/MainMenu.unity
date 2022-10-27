@@ -242,8 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b5a3b9772a74c428edd0b51e976dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Test: 0
-  TestToken: 
 --- !u!114 &2935560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,25 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b538b92a595b14c85d7073f4e00e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tokensID:
-  - 11690047712961582944212147575155161540453104640312716790068560377995935612929
-  - 11690047712961582944212147575155161540453104640312716790068560376896423985153
-  - 11690047712961582944212147575155161540453104640312716790068560375796912357377
-  - 11690047712961582944212147575155161540453104640312716790068560374697400729601
-  - 11690047712961582944212147575155161540453104640312716790068560367000819335169
-  - 11690047712961582944212147575155161540453104640312716790068560365901307707393
-  - 11690047712961582944212147575155161540453104640312716790068560364801796079617
-  _heroesPrefab:
-  - {fileID: 7694260499757277902, guid: 3143b23e8801c6149b5c3595b6b2bc0c, type: 3}
-  - {fileID: 7694260499757277902, guid: b4c7c6990ad745e459b6e123d69926f5, type: 3}
-  - {fileID: 7694260499757277902, guid: c6d88f93a31f4804ba12c6220107a6d0, type: 3}
-  - {fileID: 7694260499757277902, guid: 93e74f22377e6c44fbf87205e23a92d7, type: 3}
-  - {fileID: 7694260499757277902, guid: 804f9286a82c1304f8df74c50ef8ffd0, type: 3}
-  - {fileID: 7694260499757277902, guid: 1c29457267f90e044ae7d7b133714636, type: 3}
-  - {fileID: 7694260499757277902, guid: 14466bac1e8300741accb597b5da27be, type: 3}
-  _refreshTime: 4
-  _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
-  _getBalance: {fileID: 2935559}
 --- !u!4 &2935561
 Transform:
   m_ObjectHideFlags: 0
@@ -631,7 +610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686be2f188108374caa22a440c9f9b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _accountText: {fileID: 1362593019}
 --- !u!1 &229323537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,10 +1383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0875c828d617c44685fa9edcbb2013b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _contract: 
-  _playerStats: {fileID: 11400000, guid: ad5608efee08fdd4abf3de7b592daf80, type: 2}
-  _getBalance: {fileID: 0}
-  _refreshTime: 2
 --- !u!4 &347136052
 Transform:
   m_ObjectHideFlags: 0
@@ -2401,8 +2375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61335cdad96d899448c15dca3f55391f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
-  _transfer: {fileID: 1190494181}
 --- !u!4 &1190494183
 Transform:
   m_ObjectHideFlags: 0

@@ -86,7 +86,6 @@ namespace HeroLogic
 
             Hero.Skill.Hero = this;
         }
-
         public void Update()
         {
             _hero.Velosity = Speed * 1000;

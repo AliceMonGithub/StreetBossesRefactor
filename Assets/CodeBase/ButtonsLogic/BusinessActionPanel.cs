@@ -14,14 +14,12 @@ internal class BusinessActionPanel : MonoBehaviour
 
     [SerializeField] private PlayerStats _playerStats;
 
-    [SerializeField] private ERC20BalanceOfExample _balanceOf;
-    [SerializeField] private Web3WalletTransfer20Example _transfer;
     [SerializeField] private GameObject _transferLoad;
 
     [SerializeField] private GameObject[] _botMenu;
     [SerializeField] private GameObject[] _nonBotMenu;
 
-    [SerializeField] private TMP_InputField _inputField;
+  //  [SerializeField] private TMP_InputField _inputField;
 
     [SerializeField] private TMP_Text _costText;
 
@@ -36,51 +34,51 @@ internal class BusinessActionPanel : MonoBehaviour
         _loadCurtain = loadCurtain;
     }
 
-    private void OnEnable()
-    {
-        if (_business.Bot != null)
-        {
-            foreach (var gObject in _nonBotMenu)
-            {
-                gObject.SetActive(false);
-            }
+    //private void OnEnable()
+    //{
+    //    if (_business.Bot != null)
+    //    {
+    //        foreach (var gObject in _nonBotMenu)
+    //        {
+    //            gObject.SetActive(false);
+    //        }
 
-            foreach (var gObject in _botMenu)
-            {
-                gObject.SetActive(true);
-            }
+    //        foreach (var gObject in _botMenu)
+    //        {
+    //            gObject.SetActive(true);
+    //        }
 
-            return;
-        }
+    //        return;
+    //    }
 
-        foreach (var gObject in _nonBotMenu)
-        {
-            gObject.SetActive(true);
-        }
+    //    foreach (var gObject in _nonBotMenu)
+    //    {
+    //        gObject.SetActive(true);
+    //    }
 
-        foreach (var gObject in _botMenu)
-        {
-            gObject.SetActive(false);
-        }
-    }
+    //    foreach (var gObject in _botMenu)
+    //    {
+    //        gObject.SetActive(false);
+    //    }
+    //}
 
     public void Hide()
     {
         _onHide.Invoke();
     }
 
-    public void CorrentNumber()
-    {
-        if (int.TryParse(_inputField.text, out int result) == false)
-        {
-            _inputField.text = string.Empty;
-        }
+    //public void CorrentNumber()
+    //{
+    //    if (int.TryParse(_inputField.text, out int result) == false)
+    //    {
+    //        _inputField.text = string.Empty;
+    //    }
 
-        if (_playerStats.Money.Value < int.Parse(_inputField.text))
-        {
-            _inputField.text = _playerStats.Money.Value.ToString();
-        }
-    }
+    //    if (_playerStats.Money.Value < int.Parse(_inputField.text))
+    //    {
+    //        _inputField.text = _playerStats.Money.Value.ToString();
+    //    }
+    //}
 
     public void TryBuy()
     {
@@ -88,23 +86,23 @@ internal class BusinessActionPanel : MonoBehaviour
 
         //var balance = await _balanceOf.GetBalance("0x0bf2BF9a44c9c7FAf2b8534d88d62401ee442Bad"); // paste st token contract
 
-        if (_business.Bot != null)
-        {
-            if (int.Parse(_inputField.text) == 0) return;
+        //if (_business.Bot != null)
+        //{
+        //    if (int.Parse(_inputField.text) == 0) return;
 
-            if (_playerStats.Money.Value < int.Parse(_inputField.text)) return;
+        //    if (_playerStats.Money.Value < int.Parse(_inputField.text)) return;
 
-            var result = _business.Bot.BuyRequest(_business, int.Parse(_inputField.text));
+        //    var result = _business.Bot.BuyRequest(_business, int.Parse(_inputField.text));
 
-            if (result)
-            {
-                InitializeUpgradeIcon();
+        //    if (result)
+        //    {
+        //        InitializeUpgradeIcon();
 
-                Hide();
-            }
+        //        Hide();
+        //    }
 
-            return;
-        }
+        //    return;
+        //}
 
         if (_playerStats.Money.Value >= _business.Cost)
         {

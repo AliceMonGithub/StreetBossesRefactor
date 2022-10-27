@@ -1,4 +1,5 @@
-﻿using Assets.CodeBase.TutorialLogic;
+﻿using Assets.CodeBase.SkillMenu;
+using Assets.CodeBase.TutorialLogic;
 using System.Collections;
 using UltEvents;
 using UnityEngine;
@@ -25,6 +26,11 @@ namespace Assets.CodeBase.Tutorial
         public void Active()
         {
             Invoke(nameof(ShowTutorial), _showTime);
+        }
+
+        public void RenderTringle()
+        {
+            FindObjectOfType<SkillIcon>().RenderTringle();
         }
 
         private void ShowTutorial()

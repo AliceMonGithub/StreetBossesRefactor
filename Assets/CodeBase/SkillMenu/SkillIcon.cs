@@ -9,6 +9,10 @@ namespace Assets.CodeBase.SkillMenu
 {
     public class SkillIcon : MonoBehaviour
     {
+        [SerializeField] private UltEvent _renderTringle;
+
+        [Space]
+
         [SerializeField] private Image _heroImage;
         [SerializeField] private Image _skillImage;
 
@@ -35,6 +39,11 @@ namespace Assets.CodeBase.SkillMenu
         {
             _heroImage.sprite = _hero.Image;
             _skillImage.sprite = _skill.Image;
+        }
+
+        public void RenderTringle()
+        {
+            _renderTringle.Invoke();
         }
 
         public void Initialize(Hero hero)
